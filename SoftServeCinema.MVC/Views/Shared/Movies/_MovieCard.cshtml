@@ -1,0 +1,17 @@
+﻿@model SoftServeCinema.Core.DTOs.Movies.MovieDTO
+
+<div class="col-12 col-sm-8 col-md-6 col-lg-4">
+    <div class="card">
+        <img class="card-img-top" src="@Url.Content("~/images/" + Model.ImagePath)" alt="@Model.Title">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-text">
+                <span>Жанр: @(string.Join(", ", Model.Genres.Select(g => g.Name)))</span><br />
+                <span>Тег: @(string.Join(", ", Model.Tags.Select(t => t.Name)))</span><br />
+                <span>Режисер: @(string.Join(", ", Model.Directors.Select(d => d.Name)))</span><br />
+                <span>Прокат: З @Model.StartRentalDate.ToShortDateString() до @Model.EndRentalDate.ToShortDateString()</span>
+            </p>
+            <a href="#" class="btn btn-primary">Детальніше</a>
+        </div>
+    </div>
+</div>

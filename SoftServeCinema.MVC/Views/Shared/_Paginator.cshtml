@@ -1,0 +1,16 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+@model IPagedList
+@{
+    if (Model.PageCount > 1)
+    {
+        @Html.PagedListPager(Model, page => Url.Action(ViewData["PaginatorAction"].ToString(), new { page, pageSize = Model.PageSize }),
+            new PagedListRenderOptions
+            {
+                UlElementClasses = new string[] { "pagination" },
+                LiElementClasses = new string[] { "page-item" },
+                PageClasses = new string[] { "page-link" }
+            })
+    }
+}
