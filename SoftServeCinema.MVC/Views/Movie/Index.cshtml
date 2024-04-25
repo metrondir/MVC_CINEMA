@@ -1,0 +1,22 @@
+﻿@model IEnumerable<SoftServeCinema.Core.DTOs.Movies.MovieDTO>
+
+@{
+    ViewData["Title"] = "Актуальні фільми";
+    ViewData["PaginatorAction"] = "Index";
+}
+
+<div>
+    <h3 class="text-center my-4">Актуальні фільми</h3>
+
+    <div class="list-group my-4">
+        @await Html.PartialAsync("_Paginator", Model)
+        <div class="row justify-content-between">
+            @foreach (var movie in Model)
+            {
+                @await Html.PartialAsync("Movies/_MovieCard", movie)
+            }
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_Paginator", Model)
