@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
-using SoftServeCinema.Core.DTOs;
+using SoftServeCinema.Core.DTOs.Actors;
+using SoftServeCinema.Core.DTOs.Directors;
 using SoftServeCinema.Core.DTOs.Genres;
 using SoftServeCinema.Core.DTOs.Movies;
+using SoftServeCinema.Core.DTOs.Tags;
 using SoftServeCinema.Core.Entities;
 
 namespace SoftServeCinema.Core.Helpers
@@ -10,8 +12,6 @@ namespace SoftServeCinema.Core.Helpers
     {
         public ApplicationProfile()
         {
-            CreateMap<TagEntity, TagDTO>().ReverseMap();
-
             CreateMap<GenreEntity, GenreDTO>().ReverseMap();
             CreateMap<GenreEntity, GenreWithMoviesDTO>()
                 .ForMember(
@@ -19,8 +19,26 @@ namespace SoftServeCinema.Core.Helpers
                     opt => opt.MapFrom(src => src.Movies)
                 );
 
+            CreateMap<TagEntity, TagDTO>().ReverseMap();
+            CreateMap<TagEntity, TagWithMoviesDTO>()
+                .ForMember(
+                    dest => dest.Movies,
+                    opt => opt.MapFrom(src => src.Movies)
+                );
+
             CreateMap<ActorEntity, ActorDTO>().ReverseMap();
+            CreateMap<ActorEntity, ActorWithMoviesDTO>()
+                .ForMember(
+                    dest => dest.Movies,
+                    opt => opt.MapFrom(src => src.Movies)
+                );
+
             CreateMap<DirectorEntity, DirectorDTO>().ReverseMap();
+            CreateMap<DirectorEntity, DirectorWithMoviesDTO>()
+                .ForMember(
+                    dest => dest.Movies,
+                    opt => opt.MapFrom(src => src.Movies)
+                );
 
             CreateMap<MovieEntity, MovieDTO>()
                 .ForMember(

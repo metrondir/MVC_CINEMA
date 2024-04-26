@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SoftServeCinema.Core.DTOs.Actors.ActorDTO>
+
+@{
+    ViewData["Title"] = "Управління акторами";
+    ViewData["PaginatorAction"] = "Manage";
+}
+
+<h1 class="text-center">Актори</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">
+    <i class="bi bi-plus"></i> Додати
+</a>
+
+@await Html.PartialAsync("_Paginator", Model)
+
+<table class="table my-4">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ім'я Прізвище</th>
+            <th scope="col">Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var actor in Model)
+        {
+            <tr>
+                <th class="align-middle" scope="row">@actor.Id</th>
+                <td class="align-middle">@actor.Name</td>
+                <td class="align-middle">
+                    <div class="btn-group" role="group">
+                        <a asp-action="Edit" asp-route-id="@actor.Id" class="btn btn-warning">
+                            <i class="bi bi-pencil-fill"></i> Редагувати
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@actor.Id" class="btn btn-danger">
+                            <i class="bi bi-trash-fill"></i> Видалити
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@await Html.PartialAsync("_Paginator", Model)

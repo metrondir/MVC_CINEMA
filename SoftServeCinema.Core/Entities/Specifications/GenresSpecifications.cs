@@ -9,7 +9,7 @@ namespace SoftServeCinema.Core.Entities.Specifications
             public GetByName(string name)
             {
                 Query
-                    .Where(g => g.Name.ToLower() == name.ToLower());
+                    .Where(g => g.Name.ToLower().Trim() == name.ToLower().Trim());
             }
         }
 
@@ -18,7 +18,7 @@ namespace SoftServeCinema.Core.Entities.Specifications
             public GetByNameWithoutId(int genreId, string name)
             {
                 Query
-                    .Where(g => g.Name.ToLower() == name.ToLower() && g.Id != genreId);
+                    .Where(g => g.Name.ToLower().Trim() == name.ToLower().Trim() && g.Id != genreId);
             }
         }
 

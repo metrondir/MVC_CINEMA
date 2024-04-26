@@ -174,6 +174,25 @@ namespace SoftServeCinema.Infrastructure.Data
                 new { DirectorsId = 1, MoviesId = 1 },
                 new { DirectorsId = 2, MoviesId = 2 }
             );
+
+            modelBuilder.Entity<TagEntity>().HasData(new TagEntity[]
+            {
+                new TagEntity()
+                {
+                    Id = 1,
+                    Name = "18+"
+                },
+                new TagEntity()
+                {
+                    Id = 2,
+                    Name = "12+"
+                },
+            });
+
+            modelBuilder.Entity("MovieEntityTagEntity").HasData(
+                new { MoviesId = 1, TagsId = 1 },
+                new { MoviesId = 2, TagsId = 2 }
+            );
         }
     }
 }

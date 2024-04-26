@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SoftServeCinema.Core.DTOs.Tags.TagDTO>
+
+@{
+    ViewData["Title"] = "Теги";
+    ViewData["PaginatorAction"] = "Index";
+}
+
+<div>
+    <h3 class="text-center my-4">Теги</h3>
+
+    @await Html.PartialAsync("_Paginator", Model)
+    <div class="list-group my-4">
+        @foreach (var tag in Model)
+        {
+            <a asp-action="Details" asp-route-id="@tag.Id" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@tag.Name</h5>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+
+@await Html.PartialAsync("_Paginator", Model)

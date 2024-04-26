@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SoftServeCinema.Core.DTOs.Directors.DirectorDTO>
+
+@{
+    ViewData["Title"] = "Режисери";
+    ViewData["PaginatorAction"] = "Index";
+}
+
+<div>
+    <h3 class="text-center my-4">Режисери</h3>
+
+    @await Html.PartialAsync("_Paginator", Model)
+    <div class="list-group my-4">
+        @foreach (var director in Model)
+        {
+            <a asp-action="Details" asp-route-id="@director.Id" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@director.Name</h5>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+
+@await Html.PartialAsync("_Paginator", Model)

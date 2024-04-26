@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4pf3JizilcYIOgd9u1oT+ha+v2rgYJr+v3zi5I0AK/tZduZgesYqHyAN87780lD+bjaH2SuB49ZnN3oaVtrUeg==",
+  "dgSpecHash": "lnjsFN4Z7uQJuYdvrrcg7qtNWwyohfwrbjvoBYhFNEXjqp/3dsRj/jY7WCfkH3NwL9MN8wTrJxJvjiKpw1O4CA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rojnu\\Desktop\\SoftServeCinema\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj",
+  "projectFilePath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rojnu\\.nuget\\packages\\ardalis.specification\\8.0.0\\ardalis.specification.8.0.0.nupkg.sha512",
     "C:\\Users\\rojnu\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
