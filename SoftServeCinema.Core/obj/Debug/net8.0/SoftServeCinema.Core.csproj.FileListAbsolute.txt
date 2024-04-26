@@ -10,3 +10,16 @@ C:\Users\rojnu\Desktop\SoftServeCinema\SoftServeCinema.Core\obj\Debug\net8.0\Sof
 C:\Users\rojnu\Desktop\SoftServeCinema\SoftServeCinema.Core\obj\Debug\net8.0\refint\SoftServeCinema.Core.dll
 C:\Users\rojnu\Desktop\SoftServeCinema\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.pdb
 C:\Users\rojnu\Desktop\SoftServeCinema\SoftServeCinema.Core\obj\Debug\net8.0\ref\SoftServeCinema.Core.dll
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\bin\Debug\net8.0\SoftServeCinema.Core.deps.json
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\bin\Debug\net8.0\SoftServeCinema.Core.dll
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\bin\Debug\net8.0\SoftServeCinema.Core.pdb
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.csproj.AssemblyReference.cache
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.AssemblyInfoInputs.cache
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.AssemblyInfo.cs
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.csproj.CoreCompileInputs.cache
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.sourcelink.json
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.dll
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\refint\SoftServeCinema.Core.dll
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.pdb
+C:\Users\rojnu\Desktop\SoftServe\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\ref\SoftServeCinema.Core.dll

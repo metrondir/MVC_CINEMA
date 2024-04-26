@@ -302,6 +302,15 @@ namespace SoftServeCinema.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Tags",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "18+" },
+                    { 2, "12+" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "ActorEntityMovieEntity",
                 columns: new[] { "ActorsId", "MoviesId" },
                 values: new object[,]
@@ -334,6 +343,15 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     { 2, 2 },
                     { 3, 1 },
                     { 4, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "MovieEntityTagEntity",
+                columns: new[] { "MoviesId", "TagsId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 2, 2 }
                 });
 
             migrationBuilder.CreateIndex(

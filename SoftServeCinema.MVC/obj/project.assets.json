@@ -2626,11 +2626,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rojnu\\Desktop\\SoftServeCinema\\SoftServeCinema.MVC\\SoftServeCinema.MVC.csproj",
+      "projectUniqueName": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.MVC\\SoftServeCinema.MVC.csproj",
       "projectName": "SoftServeCinema.MVC",
-      "projectPath": "C:\\Users\\rojnu\\Desktop\\SoftServeCinema\\SoftServeCinema.MVC\\SoftServeCinema.MVC.csproj",
+      "projectPath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.MVC\\SoftServeCinema.MVC.csproj",
       "packagesPath": "C:\\Users\\rojnu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rojnu\\Desktop\\SoftServeCinema\\SoftServeCinema.MVC\\obj\\",
+      "outputPath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.MVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rojnu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2647,11 +2647,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\rojnu\\Desktop\\SoftServeCinema\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {
-              "projectPath": "C:\\Users\\rojnu\\Desktop\\SoftServeCinema\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj"
+            "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {
+              "projectPath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj"
             },
-            "C:\\Users\\rojnu\\Desktop\\SoftServeCinema\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\rojnu\\Desktop\\SoftServeCinema\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj"
+            "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj"
             }
           }
         }

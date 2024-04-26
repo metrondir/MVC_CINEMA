@@ -17,6 +17,9 @@ builder.Services.AddRepository();
 
 // services
 builder.Services.AddScoped<IGenreService, GenreService>();
+builder.Services.AddScoped<ITagService, TagService>();
+builder.Services.AddScoped<IActorService, ActorService>();
+builder.Services.AddScoped<IDirectorService, DirectorService>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 
 // auto mapper

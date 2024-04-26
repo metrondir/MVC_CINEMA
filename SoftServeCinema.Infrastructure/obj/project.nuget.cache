@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PpoMhDg9HS65VpNQAEgXSMlFfv9hFOStLh4c94oURipfypx0emSHag+WrSXCQk9gs/zWiFc1L+V4dCxKc+ZLEg==",
+  "dgSpecHash": "dIOqBUY5W4lu5s+ijueyr5JAY6OTJ7R2p69SyTbpef4wU8krgFRW1XkpAAGxB2fonEHYR5mu2vcTjJ/5YcQfog==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rojnu\\Desktop\\SoftServeCinema\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rojnu\\.nuget\\packages\\ardalis.specification\\8.0.0\\ardalis.specification.8.0.0.nupkg.sha512",
     "C:\\Users\\rojnu\\.nuget\\packages\\ardalis.specification.entityframeworkcore\\8.0.0\\ardalis.specification.entityframeworkcore.8.0.0.nupkg.sha512",

@@ -1,0 +1,18 @@
+﻿@model SoftServeCinema.Core.DTOs.Directors.DirectorWithMoviesDTO
+
+@{
+    ViewData["Title"] = "Режисер: " + Model.Name;
+}
+
+<div>
+    <h3 class="text-center my-4">Фільми</h3>
+
+    <div class="list-group my-4">
+        <div class="row justify-content-between">
+            @foreach (var movie in Model.Movies)
+            {
+                @await Html.PartialAsync("Movies/_MovieCard", movie)
+            }
+        </div>
+    </div>
+</div>

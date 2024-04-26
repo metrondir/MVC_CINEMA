@@ -12,7 +12,7 @@ using SoftServeCinema.Infrastructure.Data;
 namespace SoftServeCinema.Infrastructure.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20240425165045_initial")]
+    [Migration("20240426075617_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -159,6 +159,18 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     b.HasIndex("TagsId");
 
                     b.ToTable("MovieEntityTagEntity");
+
+                    b.HasData(
+                        new
+                        {
+                            MoviesId = 1,
+                            TagsId = 1
+                        },
+                        new
+                        {
+                            MoviesId = 2,
+                            TagsId = 2
+                        });
                 });
 
             modelBuilder.Entity("SoftServeCinema.Core.Entities.ActorEntity", b =>
@@ -439,6 +451,18 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tags");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "18+"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "12+"
+                        });
                 });
 
             modelBuilder.Entity("SoftServeCinema.Core.Entities.TicketEntity", b =>

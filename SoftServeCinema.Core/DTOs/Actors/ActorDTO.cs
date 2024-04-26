@@ -1,6 +1,6 @@
-﻿namespace SoftServeCinema.Core.DTOs
+﻿namespace SoftServeCinema.Core.DTOs.Actors
 {
-    public class TagDTO
+    public class ActorDTO
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
