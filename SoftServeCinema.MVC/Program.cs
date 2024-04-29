@@ -3,6 +3,7 @@ using SoftServeCinema.Core.Interfaces.Services;
 using SoftServeCinema.Core.Services;
 using SoftServeCinema.Infrastructure;
 using SoftServeCinema.Core;
+using SoftServeCinema.MVC.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("CinemaDbContext");
@@ -27,6 +28,9 @@ builder.Services.AddAutoMapper();
 
 // fluent validators
 builder.Services.AddValidators();
+
+// file upload helper
+builder.Services.AddSingleton<FileUpload>();
 
 var app = builder.Build();
 

@@ -4,12 +4,23 @@ namespace SoftServeCinema.Core.Entities.Specifications
 {
     public class TagsSpecifications
     {
+        public class GetByIds : Specification<TagEntity>
+        {
+            public GetByIds(ICollection<int> tagIds)
+            {
+                Query
+                    .Where(t => tagIds.Contains(t.Id))
+                    .AsNoTracking();
+            }
+        }
+
         public class GetByName : Specification<TagEntity>
         {
             public GetByName(string name)
             {
                 Query
-                    .Where(t => t.Name.ToLower().Trim() == name.ToLower().Trim());
+                    .Where(t => t.Name.ToLower().Trim() == name.ToLower().Trim())
+                    .AsNoTracking();
             }
         }
 
@@ -18,7 +29,8 @@ namespace SoftServeCinema.Core.Entities.Specifications
             public GetByNameWithoutId(int tagId, string name)
             {
                 Query
-                    .Where(t => t.Name.ToLower().Trim() == name.ToLower().Trim() && t.Id != tagId);
+                    .Where(t => t.Name.ToLower().Trim() == name.ToLower().Trim() && t.Id != tagId)
+                    .AsNoTracking();
             }
         }
 
@@ -34,7 +46,6 @@ namespace SoftServeCinema.Core.Entities.Specifications
                         .ThenInclude(m => m.Tags)
                     .Include(t => t.Movies)
                         .ThenInclude(m => m.Directors);
-
             }
         }
     }

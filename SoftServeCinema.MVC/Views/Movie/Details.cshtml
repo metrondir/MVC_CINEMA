@@ -1,0 +1,26 @@
+﻿@model SoftServeCinema.Core.DTOs.Movies.MovieFullDTO
+
+@{
+    ViewData["Title"] = "Фільм: " + Model.Title;
+}
+
+<div>
+    <h3 class="text-center my-4">Фільм</h3>
+
+    <div class="list-group my-4">
+        <div class="row justify-content-between">
+            <h2>@Model.Title</h2>
+            <img class="w-25 m-auto" src="@Url.Content("~/images/" + Model.ImagePath)" alt="@Model.Title">
+            <p>Жанр: @(string.Join(", ", Model.Genres.Select(g => g.Name)))</p>
+            <p>Тег: @(string.Join(", ", Model.Tags.Select(t => t.Name)))</p>
+            <p>Режисер: @(string.Join(", ", Model.Directors.Select(d => d.Name)))</p>
+            <p>Актори: @(string.Join(", ", Model.Actors.Select(a => a.Name)))</p>
+            <p>Прокат: З @Model.StartRentalDate.ToShortDateString() до @Model.EndRentalDate.ToShortDateString()</p>
+            <p>Тривалість: @Model.Duration хв.</p>
+            <p>Рік: @Model.GraduationYear</p>
+            <iframe width="560" height="315" src="@Model.TrailerUrl" frameborder="0" allowfullscreen></iframe>
+            <h3>Опис</h3>
+            <p>@Model.Desc</p>
+        </div>
+    </div>
+</div>

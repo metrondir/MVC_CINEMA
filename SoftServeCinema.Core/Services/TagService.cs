@@ -26,6 +26,12 @@ namespace SoftServeCinema.Core.Services
             return _mapper.Map<List<TagDTO>>(result);
         }
 
+        public async Task<List<TagDTO>> GetTagsByIdsAsync(ICollection<int> tagIds)
+        {
+            var result = await _tagRepository.GetListBySpecAsync(new TagsSpecifications.GetByIds(tagIds));
+            return _mapper.Map<List<TagDTO>>(result);
+        }
+
         public async Task<TagDTO> GetTagByIdAsync(int tagId)
         {
             var tag = (await _tagRepository.GetByIdAsync(tagId)) ?? throw new EntityNotFoundException();
@@ -69,17 +75,20 @@ namespace SoftServeCinema.Core.Services
         {
             var tag = _mapper.Map<TagEntity>(tagDTO);
             await _tagRepository.InsertAsync(tag);
+            await _tagRepository.SaveAsync();
         }
 
         public async Task UpdateTagAsync(TagDTO tagDTO)
         {
             var tag = _mapper.Map<TagEntity>(tagDTO);
-            await _tagRepository.UpdateAsync(tag);
+            _tagRepository.Update(tag);
+            await _tagRepository.SaveAsync();
         }
 
         public async Task DeleteTagAsync(int tagId)
         {
-            await _tagRepository.DeleteAsync(tagId);
+            _tagRepository.Delete(tagId);
+            await _tagRepository.SaveAsync();
         }
     }
 }

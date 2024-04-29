@@ -1,0 +1,93 @@
+﻿@model SoftServeCinema.Core.DTOs.Movies.MovieFormDTO
+
+@{
+    ViewData["Title"] = "Додати фільм";
+}
+
+<h1 class="text-center">Новий фільм</h1>
+<hr />
+
+<form asp-action="Create" method="post" enctype="multipart/form-data" class="row g-3">
+    <div class="col-12">
+        <label asp-for="Title" class="form-label">Назва</label>
+        <input asp-for="Title" class="form-control">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="ImageFile" class="form-label">Зображення</label>
+        <input asp-for="ImageFile" class="form-control">
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="TrailerUrl" class="form-label">Url трейлера</label>
+        <input asp-for="TrailerUrl" class="form-control">
+        <span asp-validation-for="TrailerUrl" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="Desc" class="form-label">Опис</label>
+        <textarea asp-for="Desc" class="form-control"></textarea>
+        <span asp-validation-for="Desc" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="GraduationYear" class="form-label">Рік</label>
+        <input asp-for="GraduationYear" class="form-control">
+        <span asp-validation-for="GraduationYear" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="Duration" class="form-label">Тривалість (хв)</label>
+        <input asp-for="Duration" class="form-control">
+        <span asp-validation-for="Duration" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="StartRentalDate" class="form-label">Початок прокату</label>
+        <input asp-for="StartRentalDate" class="form-control">
+        <span asp-validation-for="StartRentalDate" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="EndRentalDate" class="form-label">Кінець прокату</label>
+        <input asp-for="EndRentalDate" class="form-control">
+        <span asp-validation-for="EndRentalDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SelectedGenres" class="control-label">Жанри</label>
+        <select asp-for="SelectedGenres" asp-items="@(ViewBag.Genres)" multiple class="form-control"></select>
+        <span asp-validation-for="SelectedGenres" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SelectedTags" class="control-label">Теги</label>
+        <select asp-for="SelectedTags" asp-items="@(ViewBag.Tags)" multiple class="form-control"></select>
+        <span asp-validation-for="SelectedTags" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SelectedDirectors" class="control-label">Режисери</label>
+        <select asp-for="SelectedDirectors" asp-items="@(ViewBag.Directors)" multiple class="form-control"></select>
+        <span asp-validation-for="SelectedDirectors" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SelectedActors" class="control-label">Актори</label>
+        <select asp-for="SelectedActors" asp-items="@(ViewBag.Actors)" multiple class="form-control"></select>
+        <span asp-validation-for="SelectedActors" class="text-danger"></span>
+    </div>
+
+    <div class="col-6">
+        <a asp-action="Manage" class="btn btn-secondary w-100">
+            <i class="bi bi-arrow-left"></i> Назад
+        </a>
+    </div>
+    <div class="col-6">
+        <button type="submit" class="btn btn-primary w-100">
+            <i class="bi bi-plus"></i> Додати
+        </button>
+    </div>
+</form>

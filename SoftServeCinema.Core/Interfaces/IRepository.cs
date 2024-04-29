@@ -1,4 +1,5 @@
 ﻿using Ardalis.Specification;
+using Microsoft.EntityFrameworkCore;
 
 namespace SoftServeCinema.Core.Interfaces
 {
@@ -7,8 +8,12 @@ namespace SoftServeCinema.Core.Interfaces
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task InsertAsync(TEntity entity);
-        Task UpdateAsync(TEntity entity);
-        Task DeleteAsync(int id);
+        void Attach(TEntity entity);
+        void CrearTracker();
+        void Update(TEntity entity);
+        void Delete(int id);
+        void Delete(TEntity entity);
+        Task SaveAsync();
         Task<IEnumerable<TEntity>> GetListBySpecAsync(ISpecification<TEntity> specification);
         Task<TEntity> GetFirstBySpecAsync(ISpecification<TEntity> specification);
     }
