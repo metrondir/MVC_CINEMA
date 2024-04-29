@@ -11,7 +11,7 @@
                 <span>Режисер: @(string.Join(", ", Model.Directors.Select(d => d.Name)))</span><br />
                 <span>Прокат: З @Model.StartRentalDate.ToShortDateString() до @Model.EndRentalDate.ToShortDateString()</span>
             </p>
-            <a href="#" class="btn btn-primary">Детальніше</a>
+            <a class="btn btn-primary" asp-route-id="@Model.Id" asp-controller="Movie" asp-action="Details">Детальніше</a>
         </div>
     </div>
 </div>

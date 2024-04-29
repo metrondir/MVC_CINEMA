@@ -26,6 +26,12 @@ namespace SoftServeCinema.Core.Services
             return _mapper.Map<List<ActorDTO>>(result);
         }
 
+        public async Task<List<ActorDTO>> GetActorsByIdsAsync(ICollection<int> actorIds)
+        {
+            var result = await _actorRepository.GetListBySpecAsync(new ActorsSpecifications.GetByIds(actorIds));
+            return _mapper.Map<List<ActorDTO>>(result);
+        }
+
         public async Task<ActorDTO> GetActorByIdAsync(int actorId)
         {
             var actor = (await _actorRepository.GetByIdAsync(actorId)) ?? throw new EntityNotFoundException();
@@ -69,17 +75,20 @@ namespace SoftServeCinema.Core.Services
         {
             var actor = _mapper.Map<ActorEntity>(actorDTO);
             await _actorRepository.InsertAsync(actor);
+            await _actorRepository.SaveAsync();
         }
 
         public async Task UpdateActorAsync(ActorDTO actorDTO)
         {
             var actor = _mapper.Map<ActorEntity>(actorDTO);
-            await _actorRepository.UpdateAsync(actor);
+            _actorRepository.Update(actor);
+            await _actorRepository.SaveAsync();
         }
 
         public async Task DeleteActorAsync(int actorId)
         {
-            await _actorRepository.DeleteAsync(actorId);
+            _actorRepository.Delete(actorId);
+            await _actorRepository.SaveAsync();
         }
     }
 }

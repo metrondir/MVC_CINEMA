@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoftServeCinema.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+964e74e83d98eecc7bbfa20925e50876ccae7704")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e314534cfa62f17474b5c74189cdac046ac1b2fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoftServeCinema.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoftServeCinema.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

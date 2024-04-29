@@ -12,7 +12,7 @@ using SoftServeCinema.Infrastructure.Data;
 namespace SoftServeCinema.Infrastructure.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20240426075617_initial")]
+    [Migration("20240429132354_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -392,7 +392,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             ImagePath = "/movies/sw-vend.jpg",
                             StartRentalDate = new DateTime(2024, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Повстання Штатів",
-                            TrailerUrl = "https://www.youtube.com/watch?v=my8iHV3dpNI"
+                            TrailerUrl = "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq"
                         },
                         new
                         {
@@ -404,7 +404,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             ImagePath = "/movies/fall_guy-vend.jpg",
                             StartRentalDate = new DateTime(2024, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Каскадер",
-                            TrailerUrl = "https://www.youtube.com/watch?v=Xmi7ZsHL6Jg"
+                            TrailerUrl = "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY"
                         });
                 });
 

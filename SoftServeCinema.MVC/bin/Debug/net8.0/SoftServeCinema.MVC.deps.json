@@ -579,7 +579,8 @@
         "dependencies": {
           "Ardalis.Specification": "8.0.0",
           "AutoMapper": "13.0.1",
-          "FluentValidation.AspNetCore": "11.3.0"
+          "FluentValidation.AspNetCore": "11.3.0",
+          "Microsoft.EntityFrameworkCore": "8.0.4"
         },
         "runtime": {
           "SoftServeCinema.Core.dll": {}

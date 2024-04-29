@@ -54,7 +54,49 @@ namespace SoftServeCinema.Core.Helpers
                     opt => opt.MapFrom(src => src.Directors)
                 );
 
-            //CreateMap<MovieEntity, MovieFullDTO>().ReverseMap();
+            CreateMap<MovieEntity, MovieFullDTO>()
+                .ForMember(
+                    dest => dest.Genres,
+                    opt => opt.MapFrom(src => src.Genres)
+                )
+                .ForMember(
+                    dest => dest.Tags,
+                    opt => opt.MapFrom(src => src.Tags)
+                )
+                .ForMember(
+                    dest => dest.Directors,
+                    opt => opt.MapFrom(src => src.Directors)
+                )
+                .ForMember(
+                    dest => dest.Actors,
+                    opt => opt.MapFrom(src => src.Actors)
+                )
+                .ForMember(
+                    dest => dest.Sessions,
+                    opt => opt.MapFrom(src => src.Sessions)
+                );
+            CreateMap<MovieFullDTO, MovieEntity>();
+
+
+            CreateMap<MovieEntity, MovieFormDTO>()
+                .ForMember(
+                    dest => dest.SelectedGenres,
+                    opt => opt.MapFrom(src => src.Genres.Select(g => g.Id))
+                )
+                .ForMember(
+                    dest => dest.SelectedTags,
+                    opt => opt.MapFrom(src => src.Tags.Select(t => t.Id))
+                )
+                .ForMember(
+                    dest => dest.SelectedDirectors,
+                    opt => opt.MapFrom(src => src.Directors.Select(d => d.Id))
+                )
+                .ForMember(
+                    dest => dest.SelectedActors,
+                    opt => opt.MapFrom(src => src.Actors.Select(a => a.Id))
+                );
+
+            CreateMap<MovieFormDTO, MovieEntity>();
 
 
             //CreateMap<PhoneDTO, Phone>();
