@@ -19,7 +19,7 @@ namespace SoftServeCinema.Infrastructure.Data
             modelBuilder.ApplyConfiguration(new DirectorConfiguration());
             modelBuilder.ApplyConfiguration(new SessionConfiguration());
             modelBuilder.ApplyConfiguration(new TicketConfiguration());
-
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.SeedMoviesWithRelations();
         }
 
@@ -30,5 +30,6 @@ namespace SoftServeCinema.Infrastructure.Data
         public DbSet<DirectorEntity> Directors { get; set; }
         public DbSet<SessionEntity> Sessions { get; set; }
         public DbSet<TicketEntity> Tickets { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
     }
 }

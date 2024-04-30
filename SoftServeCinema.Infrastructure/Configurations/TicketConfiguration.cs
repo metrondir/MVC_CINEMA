@@ -41,6 +41,12 @@ namespace SoftServeCinema.Infrastructure.Configurations
                 .WithMany(s => s.Tickets)
                 .HasForeignKey(t => t.SessionId)
             ;
+
+            builder
+               .HasOne(t => t.User)
+               .WithMany(s => s.Tickets)
+               .HasForeignKey(t => t.UserId)
+           ;
         }
     }
 }

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {}
+    "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {
+    "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj",
         "projectName": "SoftServeCinema.Core",
-        "projectPath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj",
-        "packagesPath": "C:\\Users\\rojnu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\obj\\",
+        "projectPath": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj",
+        "packagesPath": "C:\\Users\\38096\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\rojnu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\38096\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -78,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
