@@ -10,20 +10,22 @@ namespace SoftServeCinema.Infrastructure.Repositories
     internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
         private readonly CinemaDbContext _context;
+        private readonly DbSet<TEntity> _dbSet;
 
         public Repository(CinemaDbContext context)
         {
             _context = context;
+            _dbSet = _context.Set<TEntity>();
         }
 
         public async Task<TEntity> GetByIdAsync(int id)
         {
-            return await _context.Set<TEntity>().FindAsync(id) ?? throw new EntityNotFoundException();
+            return await _dbSet.FindAsync(id) ?? throw new EntityNotFoundException();
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await _context.Set<TEntity>().ToListAsync();
+            return await _dbSet.ToListAsync();
         }
 
         public async Task<IEnumerable<TEntity>> GetListBySpecAsync(ISpecification<TEntity> specification)
@@ -39,29 +41,48 @@ namespace SoftServeCinema.Infrastructure.Repositories
         private IQueryable<TEntity> ApplySpecification(ISpecification<TEntity> specification)
         {
             var evaluator = new SpecificationEvaluator();
-            return evaluator.GetQuery(_context.Set<TEntity>(), specification);
+            return evaluator.GetQuery(_dbSet, specification);
+        }
+
+        public void Attach(TEntity entity)
+        {
+            _dbSet.Attach(entity);
+        }
+
+        public void CrearTracker()
+        {
+            _context.ChangeTracker.Clear();
         }
 
         public async Task InsertAsync(TEntity entity)
         {
-            await _context.Set<TEntity>().AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await _dbSet.AddAsync(entity);
         }
 
-        public async Task UpdateAsync(TEntity entity)
+        public void Update(TEntity entity)
         {
+            //_dbSet.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public void Delete(int id)
         {
-            var entity = await GetByIdAsync(id);
-            if (entity != null)
+            TEntity? entity = _dbSet.Find(id);
+            if (entity != null) Delete(entity);
+        }
+
+        public void Delete(TEntity entity)
+        {
+            if (_context.Entry(entity).State == EntityState.Detached)
             {
-                _context.Set<TEntity>().Remove(entity);
-                await _context.SaveChangesAsync();
+                _dbSet.Attach(entity);
             }
+            _dbSet.Remove(entity);
+        }
+
+        public async Task SaveAsync()
+        {
+            await _context.SaveChangesAsync();
         }
 
         public void Dispose()

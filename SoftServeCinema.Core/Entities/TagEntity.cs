@@ -7,6 +7,6 @@ namespace SoftServeCinema.Core.Entities
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
 
-        public ICollection<MovieEntity> Movies { get; set; } = [];
+        public ICollection<MovieEntity> Movies { get; set; } = new List<MovieEntity>();
     }
 }

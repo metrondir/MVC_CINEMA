@@ -977,7 +977,8 @@
         "dependencies": {
           "Ardalis.Specification": "8.0.0",
           "AutoMapper": "13.0.1",
-          "FluentValidation.AspNetCore": "11.3.0"
+          "FluentValidation.AspNetCore": "11.3.0",
+          "Microsoft.EntityFrameworkCore": "8.0.4"
         },
         "compile": {
           "bin/placeholder/SoftServeCinema.Core.dll": {}
@@ -2544,19 +2545,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rojnu\\.nuget\\packages\\": {}
+    "C:\\Users\\38096\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj",
       "projectName": "SoftServeCinema.Infrastructure",
-      "projectPath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\rojnu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\38096\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\rojnu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\38096\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2564,14 +2570,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {
-              "projectPath": "C:\\Users\\rojnu\\Desktop\\SoftServe\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj"
+            "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {
+              "projectPath": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj"
             }
           }
         }
@@ -2630,7 +2637,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

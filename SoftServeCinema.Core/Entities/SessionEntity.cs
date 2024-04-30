@@ -11,6 +11,6 @@ namespace SoftServeCinema.Core.Entities
         public decimal BasicPrice { get; set; } = 0;
         public decimal VipPrice { get; set; } = 0;
 
-        public ICollection<TicketEntity> Tickets { get; set; } = [];
+        public ICollection<TicketEntity> Tickets { get; set; } = new List<TicketEntity>();
     }
 }

@@ -26,6 +26,12 @@ namespace SoftServeCinema.Core.Services
             return _mapper.Map<List<GenreDTO>>(result);
         }
 
+        public async Task<List<GenreDTO>> GetGenresByIdsAsync(ICollection<int> genreIds)
+        {
+            var result = await _genreRepository.GetListBySpecAsync(new GenresSpecifications.GetByIds(genreIds));
+            return _mapper.Map<List<GenreDTO>>(result);
+        }
+
         public async Task<GenreDTO> GetGenreByIdAsync(int genreId)
         {
             var genre = (await _genreRepository.GetByIdAsync(genreId)) ?? throw new EntityNotFoundException();
@@ -69,17 +75,20 @@ namespace SoftServeCinema.Core.Services
         {
             var genre = _mapper.Map<GenreEntity>(genreDTO);
             await _genreRepository.InsertAsync(genre);
+            await _genreRepository.SaveAsync();
         }
 
         public async Task UpdateGenreAsync(GenreDTO genreDTO)
         {
             var genre = _mapper.Map<GenreEntity>(genreDTO);
-            await _genreRepository.UpdateAsync(genre);
+            _genreRepository.Update(genre);
+            await _genreRepository.SaveAsync();
         }
 
         public async Task DeleteGenreAsync(int genreId)
         {
-            await _genreRepository.DeleteAsync(genreId);
+            _genreRepository.Delete(genreId);
+            await _genreRepository.SaveAsync();
         }
     }
 }

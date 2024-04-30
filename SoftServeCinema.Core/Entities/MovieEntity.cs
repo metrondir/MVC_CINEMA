@@ -14,10 +14,10 @@ namespace SoftServeCinema.Core.Entities
         public DateTime StartRentalDate { get; set; }
         public DateTime EndRentalDate { get; set; }
 
-        public ICollection<GenreEntity> Genres { get; set; } = [];
-        public ICollection<TagEntity> Tags { get; set; } = [];
-        public ICollection<DirectorEntity> Directors { get; set; } = [];
-        public ICollection<ActorEntity> Actors { get; set; } = [];
-        public ICollection<SessionEntity> Sessions { get; set; } = [];
+        public ICollection<GenreEntity> Genres { get; set; } = new List<GenreEntity>();
+        public ICollection<TagEntity> Tags { get; set; } = new List<TagEntity>();
+        public ICollection<DirectorEntity> Directors { get; set; } = new List<DirectorEntity>();
+        public ICollection<ActorEntity> Actors { get; set; } = new List<ActorEntity>();
+        public ICollection<SessionEntity> Sessions { get; set; } = new List<SessionEntity>();
     }
 }

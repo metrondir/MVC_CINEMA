@@ -12,7 +12,7 @@ using SoftServeCinema.Infrastructure.Data;
 namespace SoftServeCinema.Infrastructure.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20240426075617_initial")]
+    [Migration("20240429143938_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -392,7 +392,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             ImagePath = "/movies/sw-vend.jpg",
                             StartRentalDate = new DateTime(2024, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Повстання Штатів",
-                            TrailerUrl = "https://www.youtube.com/watch?v=my8iHV3dpNI"
+                            TrailerUrl = "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq"
                         },
                         new
                         {
@@ -404,7 +404,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             ImagePath = "/movies/fall_guy-vend.jpg",
                             StartRentalDate = new DateTime(2024, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Каскадер",
-                            TrailerUrl = "https://www.youtube.com/watch?v=Xmi7ZsHL6Jg"
+                            TrailerUrl = "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY"
                         });
                 });
 
@@ -490,11 +490,47 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("SessionId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("SoftServeCinema.Core.Entities.UserEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("ActorEntityMovieEntity", b =>
@@ -576,7 +612,15 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SoftServeCinema.Core.Entities.UserEntity", "User")
+                        .WithMany("Tickets")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Session");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SoftServeCinema.Core.Entities.MovieEntity", b =>
@@ -585,6 +629,11 @@ namespace SoftServeCinema.Infrastructure.Migrations
                 });
 
             modelBuilder.Entity("SoftServeCinema.Core.Entities.SessionEntity", b =>
+                {
+                    b.Navigation("Tickets");
+                });
+
+            modelBuilder.Entity("SoftServeCinema.Core.Entities.UserEntity", b =>
                 {
                     b.Navigation("Tickets");
                 });

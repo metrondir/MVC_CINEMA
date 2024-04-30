@@ -5,6 +5,7 @@ namespace SoftServeCinema.Core.Interfaces.Services
     public interface IDirectorService
     {
         Task<List<DirectorDTO>> GetAllDirectorsAsync();
+        Task<List<DirectorDTO>> GetDirectorsByIdsAsync(ICollection<int> directorIds);
         Task<DirectorDTO> GetDirectorByIdAsync(int directorId);
         Task<DirectorWithMoviesDTO> GetDirectorWithMoviesAsync(int directorId);
         Task<bool> IsNameUniqueAsync(string name);

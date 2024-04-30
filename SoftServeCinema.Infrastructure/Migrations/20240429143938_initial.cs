@@ -103,6 +103,26 @@ namespace SoftServeCinema.Infrastructure.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    FirstName = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    LastName = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Email = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    RoleName = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "ActorEntityMovieEntity",
                 columns: table => new
                 {
@@ -232,6 +252,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     SessionId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     RowNumber = table.Column<short>(type: "smallint", nullable: false),
                     SeatNumber = table.Column<short>(type: "smallint", nullable: false),
                     ReservationDate = table.Column<DateTime>(type: "datetime", nullable: false),
@@ -245,6 +266,12 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         name: "FK_Tickets_Sessions_SessionId",
                         column: x => x.SessionId,
                         principalTable: "Sessions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Tickets_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -297,8 +324,8 @@ namespace SoftServeCinema.Infrastructure.Migrations
                 columns: new[] { "Id", "Desc", "Duration", "EndRentalDate", "GraduationYear", "ImagePath", "StartRentalDate", "Title", "TrailerUrl" },
                 values: new object[,]
                 {
-                    { 1, "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.", (ushort)108, new DateTime(2024, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (ushort)2024, "/movies/sw-vend.jpg", new DateTime(2024, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Повстання Штатів", "https://www.youtube.com/watch?v=my8iHV3dpNI" },
-                    { 2, "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.", (ushort)126, new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), (ushort)2024, "/movies/fall_guy-vend.jpg", new DateTime(2024, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "Каскадер", "https://www.youtube.com/watch?v=Xmi7ZsHL6Jg" }
+                    { 1, "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.", (ushort)108, new DateTime(2024, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (ushort)2024, "/movies/sw-vend.jpg", new DateTime(2024, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Повстання Штатів", "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq" },
+                    { 2, "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.", (ushort)126, new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), (ushort)2024, "/movies/fall_guy-vend.jpg", new DateTime(2024, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "Каскадер", "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY" }
                 });
 
             migrationBuilder.InsertData(
@@ -383,6 +410,11 @@ namespace SoftServeCinema.Infrastructure.Migrations
                 name: "IX_Tickets_SessionId",
                 table: "Tickets",
                 column: "SessionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tickets_UserId",
+                table: "Tickets",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -417,6 +449,9 @@ namespace SoftServeCinema.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sessions");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Movies");
