@@ -6,3 +6,17 @@
 document.getElementById('alert').addEventListener('click', e => {
     e.target.remove();
 });
+//document.getElementById('login-button').addEventListener('click', e => {
+//    const body = {};
+//    body.email =
+//    fetch('https://5304-178-255-168-80.ngrok-free.app', {
+//        method: "POST",
+//        headers: {
+//            'Content-Type': 'application/json',
+//        },
+
+//    })
+//})
+window.addEventListener('load', function () {
+    document.body.classList.add('loaded');
+});

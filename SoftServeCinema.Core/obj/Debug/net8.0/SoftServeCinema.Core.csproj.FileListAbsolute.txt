@@ -36,3 +36,16 @@ C:\Users\Public\Documents\Labs3course\SystemAnalitics\Project_SoftServe\SoftServ
 C:\Users\Public\Documents\Labs3course\SystemAnalitics\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\refint\SoftServeCinema.Core.dll
 C:\Users\Public\Documents\Labs3course\SystemAnalitics\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.pdb
 C:\Users\Public\Documents\Labs3course\SystemAnalitics\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\ref\SoftServeCinema.Core.dll
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.csproj.AssemblyReference.cache
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.AssemblyInfoInputs.cache
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.AssemblyInfo.cs
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.csproj.CoreCompileInputs.cache
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.sourcelink.json
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.dll
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\refint\SoftServeCinema.Core.dll
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\SoftServeCinema.Core.pdb
+D:\Project_SoftServe\SoftServeCinema.Core\bin\Debug\net8.0\SoftServeCinema.Core.deps.json
+D:\Project_SoftServe\SoftServeCinema.Core\bin\Debug\net8.0\SoftServeCinema.Core.dll
+D:\Project_SoftServe\SoftServeCinema.Core\bin\Debug\net8.0\SoftServeCinema.Core.pdb
+D:\Project_SoftServe\SoftServeCinema.Core\obj\Debug\net8.0\ref\SoftServeCinema.Core.dll

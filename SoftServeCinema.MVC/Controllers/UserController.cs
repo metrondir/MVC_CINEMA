@@ -11,6 +11,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Net.Http.Headers;
 
 
 namespace SoftServeCinema.MVC.Controllers
@@ -26,9 +27,9 @@ namespace SoftServeCinema.MVC.Controllers
         }
         public async Task<IActionResult> Index()
         {
-           
-           var accessToken = HttpContext.Session.GetString("accessToken");
-           var refreshToken =  HttpContext.Session.GetString("refreshToken");
+
+            var accessToken = HttpContext.Session.GetString("accessToken");
+            var refreshToken = HttpContext.Session.GetString("refreshToken");
             return View();
         }
 
@@ -51,23 +52,39 @@ namespace SoftServeCinema.MVC.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadAsStringAsync();
-                    var token = JsonConvert.DeserializeObject<TokenDTO>(result);
-                    HttpContext.Session.SetString("accessToken", token.accessToken);
-                    HttpContext.Session.SetString("refreshToken", token.refreshToken);
-                    
+                    var userWithToken = JsonConvert.DeserializeObject<UserDTOWithTokens>(result);
+
+                    var user = new UserRegisterDTO()
+                    {
+                        Email = userLoginDTO.Email,
+                        RoleName = userWithToken.Role,
+                        Id = userWithToken.Id,
+                        FirstName = HttpContext.Session.GetString("FirstName"),
+                        LastName = HttpContext.Session.GetString("LastName")
+                    };
+                    HttpContext.Session.Clear();
+                    await _userService.Create(user);
+                    HttpContext.Session.SetString("accessToken", userWithToken.AccessToken);
+                    HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
+
                     return RedirectToAction("Index");
                 }
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                dynamic errorObject = JsonConvert.DeserializeObject<dynamic>(errorMessage);
+                string errorMessageString = errorObject.title.ToString();
+                TempData["ErrorMessage"] = errorMessageString;
+                TempData["Email"] = userLoginDTO.Email;
             }
-            
-            return View();
+
+            return RedirectToAction("Login", "User");
         }
         public IActionResult Register()
         {
-            return View();
+            return View("Register");
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Register(UserRegisterDTO userRegisterDTO)
+        public async Task<IActionResult> Register(UserRegisterDTO userRegisterDTO, int v)
         {
             var url = WebConstants.ngrok + "/api/User/register";
             using (var httpClient = new HttpClient())
@@ -81,55 +98,110 @@ namespace SoftServeCinema.MVC.Controllers
                 {
                     var result = await response.Content.ReadAsStringAsync();
 
-                    await _userService.Create(userRegisterDTO);
+                    HttpContext.Session.SetString("FirstName", userRegisterDTO.FirstName);
+                    HttpContext.Session.SetString("LastName", userRegisterDTO.LastName);
                     return RedirectToAction("SuccessRegister");
                 }
+                //else if ((int)response.StatusCode == 500)
+                //    TempData["ErrorMessage"] = "Invalid password or email";
+                //else
+                //{
+                //    var errorMessage = await response.Content.ReadAsStringAsync();
+                //    dynamic errorObject = JsonConvert.DeserializeObject<dynamic>(errorMessage);
+                //    string errorMessageString = errorObject.title.ToString();
+                //    TempData["ErrorMessage"] = errorMessageString;
+                //    TempData["Email"] = userRegisterDTO.Email;
+                //    TempData["FirstName"] = userRegisterDTO.FirstName;
+                //    TempData["LastName"] = userRegisterDTO.LastName;
+                //}
             }
 
             return View();
         }
-        
-        public async Task RegisterByGoogle()
-        {
-            await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties
-            {
-                RedirectUri = Url.Action(nameof(GoogleResponse))
 
-            });
+        public async Task<IActionResult> GoogleLoginAsync()
+        {
+
+            var redirectUrl = Url.Action(nameof(GoogleResponse), "User", null, Request.Scheme);
+            var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+            var token = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
+
+
+            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
         }
 
-        public async Task<IActionResult> GoogleResponse()
-        {
-            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
-            {
-                claim.Type,
-                claim.Value,
-                claim.Issuer,
-                claim.OriginalIssuer,
-            });
-            return Json(claims);
 
+        public async Task<IActionResult> GoogleResponse(UserRegisterDTO userRegisterDTO)
+        {
+            var result = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
+            if (result?.Succeeded != true)
+            {
+                return RedirectToAction(nameof(Login));
+            }
+            var url = $"{WebConstants.ngrok}/api/User/signin-google";
+            using (var httpClient = new HttpClient())
+            {
+                userRegisterDTO = new UserRegisterDTO
+                {
+                    Email = result.Principal.FindFirst(ClaimTypes.Email).Value,
+                    FirstName = result.Principal.FindFirst(ClaimTypes.GivenName).Value,
+                    LastName = result.Principal.FindFirst(ClaimTypes.Surname).Value,
+                    Password = result.Principal.FindFirst(ClaimTypes.NameIdentifier).Value,
+                    RoleName = "User"
+                };
+
+                var json = JsonConvert.SerializeObject(userRegisterDTO);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync(url, data);
+                if (response.IsSuccessStatusCode)
+                {
+                    var securityResult = await response.Content.ReadAsStringAsync();
+                    var userWithToken = JsonConvert.DeserializeObject<UserDTOWithTokens>(securityResult);
+                    HttpContext.Session.SetString("accessToken", userWithToken.AccessToken);
+                    HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
+                    if (await _userService.Exist(userWithToken.Id))
+                    {
+                        return RedirectToAction("Index","Home");
+                    }
+                    userRegisterDTO.Id = userWithToken.Id;
+                    await _userService.Create(userRegisterDTO);
+                    return RedirectToAction("Index","Home");
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction(nameof(Login));
+        }
+
 
 
         [Authorize]
         [HttpGet]
         public async Task<IActionResult> LogOut()
         {
-            var url = WebConstants.ngrok + "/api/User/";
+            var url = WebConstants.ngrok + "/api/User/logout";
+
+            var accessToken = HttpContext.Session.GetString("accessToken");
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             using (var httpClient = new HttpClient())
             {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                 var response = await httpClient.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsStringAsync();
-
-                    return RedirectToAction("SuccessRegister");
+                    HttpContext.Session.Clear();
+                    return RedirectToAction("Index", "Home");
                 }
             }
-
             return View();
         }
 
