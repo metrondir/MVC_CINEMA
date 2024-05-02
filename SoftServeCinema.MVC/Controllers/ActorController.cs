@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SoftServeCinema.Core.DTOs.Actors;
 using SoftServeCinema.Core.Exceptions;
@@ -8,6 +9,8 @@ using X.PagedList;
 
 namespace SoftServeCinema.MVC.Controllers
 {
+    [Authorize(Roles = "RequireAdminRole")]
+
     public class ActorController : Controller
     {
         private readonly IActorService _actorService;

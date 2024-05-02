@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using SoftServeCinema.Core.DTOs;
 using SoftServeCinema.Core.DTOs.Actors;
 using SoftServeCinema.Core.DTOs.Directors;
 using SoftServeCinema.Core.DTOs.Genres;
 using SoftServeCinema.Core.DTOs.Movies;
 using SoftServeCinema.Core.DTOs.Tags;
+using SoftServeCinema.Core.DTOs.Users;
 using SoftServeCinema.Core.Entities;
 
 namespace SoftServeCinema.Core.Helpers
@@ -98,13 +100,29 @@ namespace SoftServeCinema.Core.Helpers
 
             CreateMap<MovieFormDTO, MovieEntity>();
 
+            CreateMap<TicketEntity, TicketDTO>();
 
-            //CreateMap<PhoneDTO, Phone>();
+            CreateMap<UserEntity, UserDTO>().ReverseMap();
+            CreateMap<UserEntity, UserLoginDTO>().ReverseMap();
+            CreateMap<UserEntity, UserRegisterDTO>().ReverseMap();
+            CreateMap<UserEntity, UserWithTicketsDTO>()
+        .ForMember(
+             dest => dest.Tickets,
+              opt => opt.MapFrom(src => src.Tickets)
+              );
 
-            //CreateMap<Phone, PhoneDTO>()
-            //    .ForMember(dest => dest.ColorName, act => act.MapFrom(src => src.Color.Name));
 
-            //CreateMap<Color, ColorDTO>().ReverseMap();
+        //CreateMap<UserEntity, UserWithTicketsDTO>()
+        //    .ForMember(
+        //         dest => dest.Tickets,
+        //          opt => opt.MapFrom(src => src.Tickets.Where(ticket => ticket.UserId == src.Id)
+        //    .Select(ticket => new TicketDTO
+        //    {
+
+        //    }.ToString()))
+        //    );
+
+
         }
     }
 }

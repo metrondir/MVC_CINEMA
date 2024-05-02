@@ -14,6 +14,7 @@ namespace SoftServeCinema.Core.Interfaces
         void Delete(int id);
         void Delete(TEntity entity);
         Task SaveAsync();
+        
         Task<IEnumerable<TEntity>> GetListBySpecAsync(ISpecification<TEntity> specification);
         Task<TEntity> GetFirstBySpecAsync(ISpecification<TEntity> specification);
     }
