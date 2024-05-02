@@ -36,30 +36,34 @@ namespace SoftServeCinema.Core.Services
             var user = (await _userRepository.GetFirstBySpecAsync(new UsersSpecifications.GetUserWithTickets(id))) ?? throw new EntityNotFoundException();
             return _mapper.Map<UserWithTicketsDTO>(user);
         }
-        
+
         public async Task<UserRegisterDTO> Create(UserRegisterDTO userRegisterDTO)
         {
-           var user = new UserEntity
-           {
-               Id = userRegisterDTO.Id,
-               FirstName = userRegisterDTO.FirstName,
-               LastName = userRegisterDTO.LastName,
-               Email = userRegisterDTO.Email,
-               RoleName = userRegisterDTO.RoleName
-           };
-           await _userRepository.InsertAsync(user);
-           await _userRepository.SaveAsync();
-           return _mapper.Map<UserRegisterDTO>(user);
+            if (await _userRepository.ExistAsync(userRegisterDTO.Id))
+            {
+                return null;
+            }
+            var user = new UserEntity
+            {
+                Id = userRegisterDTO.Id,
+                FirstName = userRegisterDTO.FirstName,
+                LastName = userRegisterDTO.LastName,
+                Email = userRegisterDTO.Email,
+                RoleName = userRegisterDTO.RoleName
+            };
+            await _userRepository.InsertAsync(user);
+            await _userRepository.SaveAsync();
+            return _mapper.Map<UserRegisterDTO>(user);
         }
-       
+
         public async Task<bool> Delete(Guid id, CancellationToken cancellationToken)
         {
-           if(!await _userRepository.ExistAsync(id))
+            if (!await _userRepository.ExistAsync(id))
             {
                 return false;
-           }
-           var user = await _userRepository.GetByIdAsync(id);
-             _userRepository.Delete(id);
+            }
+            var user = await _userRepository.GetByIdAsync(id);
+            _userRepository.Delete(id);
             await _userRepository.SaveAsync();
             return true;
         }
@@ -69,6 +73,6 @@ namespace SoftServeCinema.Core.Services
             return _userRepository.ExistAsync(id);
         }
 
-       
+
     }
 }
