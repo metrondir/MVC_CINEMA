@@ -70,13 +70,18 @@ namespace SoftServeCinema.MVC.Controllers
                     return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role").Value == "Admin" ? RedirectToAction("Home", "Admin") : RedirectToAction("Home", "User");
 
                 }
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                dynamic errorObject = JsonConvert.DeserializeObject<dynamic>(errorMessage);
+                string errorMessageString = errorObject.title.ToString();
+                TempData["ErrorMessage"] = errorMessageString;
+                TempData["Email"] = userLoginDTO.Email;
             }
 
-            return View();
+            return RedirectToAction("Login", "User");
         }
         public IActionResult Register()
         {
-            return View();
+            return View("Register");
         }
         [AllowAnonymous]
         [HttpPost]
@@ -180,7 +185,7 @@ namespace SoftServeCinema.MVC.Controllers
             return View();
         }
 
-
+     
 
         [Authorize]
         [HttpGet]

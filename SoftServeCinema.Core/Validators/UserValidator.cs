@@ -22,11 +22,11 @@ namespace SoftServeCinema.Core.Validators
             RuleSet("Create", () =>
             {
                 RuleFor(u => u.Email)
-                .NotEmpty().WithMessage("Email is required")
-                .NotNull().WithMessage("Email is required")
-                .EmailAddress(FluentValidation.Validators.EmailValidationMode.AspNetCoreCompatible).WithMessage("Email is not valid");
+        .NotEmpty().WithMessage("Email is required")
+        .NotNull().WithMessage("Email is required")
+        .EmailAddress(FluentValidation.Validators.EmailValidationMode.AspNetCoreCompatible).WithMessage("Email is not valid");
 
-                RuleFor(u => u.FirstName) 
+                RuleFor(u => u.FirstName)
                     .NotEmpty().WithMessage("First Name is required")
                     .NotNull().WithMessage("Last Name is required");
 
