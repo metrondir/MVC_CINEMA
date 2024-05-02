@@ -21,5 +21,14 @@ namespace SoftServeCinema.Core.Entities.Specifications
                     
             }
         }
+        public class GetUserByEmail : Specification<UserEntity>
+        {
+            public GetUserByEmail(string email)
+            {
+                Query
+                   .Where(t => t.Email == email)
+                   .Include(t => t.Tickets);
+            }
+        }
     }
 }

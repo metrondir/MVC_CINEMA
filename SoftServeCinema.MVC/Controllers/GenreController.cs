@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SoftServeCinema.Core.DTOs.Genres;
 using SoftServeCinema.Core.Exceptions;
@@ -8,6 +9,7 @@ using X.PagedList;
 
 namespace SoftServeCinema.MVC.Controllers
 {
+    [Authorize(Roles = "RequireAdminRole")]
     public class GenreController : Controller
     {
         private readonly IGenreService _genreService;

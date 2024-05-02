@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SoftServeCinema.Core.DTOs.Movies;
@@ -10,6 +11,7 @@ using X.PagedList;
 
 namespace SoftServeCinema.MVC.Controllers
 {
+    
     public class MovieController : Controller
     {
         private readonly IMovieService _movieService;

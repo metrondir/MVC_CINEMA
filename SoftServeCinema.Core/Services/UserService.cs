@@ -31,6 +31,11 @@ namespace SoftServeCinema.Core.Services
             var user = (await _userRepository.GetByIdAsync(id)) ?? throw new EntityNotFoundException();
             return _mapper.Map<UserDTO>(user);
         }
+        public async Task<UserDTO> GetUserByEmailAsync(string email)
+        {
+            var user = (await _userRepository.GetFirstBySpecAsync(new UsersSpecifications.GetUserByEmail(email))) ?? throw new EntityNotFoundException();
+            return _mapper.Map<UserDTO>(user);
+        }
         public async Task<UserWithTicketsDTO> GetUserWithTicketsByIdAsync(string id)
         {
             var user = (await _userRepository.GetFirstBySpecAsync(new UsersSpecifications.GetUserWithTickets(id))) ?? throw new EntityNotFoundException();
@@ -39,6 +44,10 @@ namespace SoftServeCinema.Core.Services
         
         public async Task<UserRegisterDTO> Create(UserRegisterDTO userRegisterDTO)
         {
+            if(await _userRepository.ExistAsync(userRegisterDTO.Id))
+            {
+                return null;
+            }
            var user = new UserEntity
            {
                Id = userRegisterDTO.Id,

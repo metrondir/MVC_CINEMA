@@ -11,6 +11,8 @@ namespace SoftServeCinema.Core.Interfaces.Services
     {
         Task<UserDTO> GetUserByIdAsync(Guid id );
         Task<UserWithTicketsDTO> GetUserWithTicketsByIdAsync(string id);
+
+        Task<UserDTO> GetUserByEmailAsync(string email);
         Task<UserRegisterDTO> Create(UserRegisterDTO userDTO);
         Task<bool> Delete(Guid id, CancellationToken cancellationToken);
         
