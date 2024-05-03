@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoftServeCinema.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad17f6f77c391287ad44aa082f60400a6a10f516")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38ba2efaf4b017fb3c468e0b27673b2b3bccd1bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoftServeCinema.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoftServeCinema.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

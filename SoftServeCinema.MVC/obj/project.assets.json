@@ -3006,23 +3006,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\38096\\.nuget\\packages\\": {},
+    "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.MVC\\SoftServeCinema.MVC.csproj",
+      "projectUniqueName": "D:\\Project_SoftServe\\SoftServeCinema.MVC\\SoftServeCinema.MVC.csproj",
       "projectName": "SoftServeCinema.MVC",
-      "projectPath": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.MVC\\SoftServeCinema.MVC.csproj",
-      "packagesPath": "C:\\Users\\38096\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.MVC\\obj\\",
+      "projectPath": "D:\\Project_SoftServe\\SoftServeCinema.MVC\\SoftServeCinema.MVC.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "D:\\Project_SoftServe\\SoftServeCinema.MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\38096\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3031,18 +3031,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {
-              "projectPath": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj"
+            "D:\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj": {
+              "projectPath": "D:\\Project_SoftServe\\SoftServeCinema.Core\\SoftServeCinema.Core.csproj"
             },
-            "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Public\\Documents\\Labs3course\\SystemAnalitics\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj"
+            "D:\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj": {
+              "projectPath": "D:\\Project_SoftServe\\SoftServeCinema.Infrastructure\\SoftServeCinema.Infrastructure.csproj"
             }
           }
         }
