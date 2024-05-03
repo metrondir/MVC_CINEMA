@@ -50,7 +50,14 @@ html, body {
 .footer {
     flex-shrink: 0;
 }
-.main {
-    height:100%;
-    width:100%;
+.footer__container { 
+}
+.container__fluid a {
+    text-decoration:none;
+    color:white !important;
+    display:block !important;
+}
+.main { 
+    height: 100%;
+    width: 100%;
 }
