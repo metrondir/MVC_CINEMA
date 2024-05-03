@@ -12,7 +12,7 @@ using SoftServeCinema.Infrastructure.Data;
 namespace SoftServeCinema.Infrastructure.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20240429143938_initial")]
+    [Migration("20240430080251_initial")]
     partial class initial
     {
         /// <inheritdoc />

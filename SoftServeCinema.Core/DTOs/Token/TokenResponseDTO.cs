@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SoftServeCinema.Core.DTOs.Users
+namespace SoftServeCinema.Core.DTOs.Token
 {
-    public class TokenResponseDTO
+    public class TokenResponse
     {
         public string AccessToken { get; set; }
         public string RefreshToken { get; set; }
     }
 }
-    

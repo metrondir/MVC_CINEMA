@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SoftServeCinema.Core.DTOs.Users
 {
-    public  class UserDTOWithTokens
+    public class UserDTOWithTokens
     {
         public Guid Id { get; set; }
         public string Email { get; set; }

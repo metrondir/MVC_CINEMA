@@ -142,6 +142,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFnXE1hbmFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Public/Documents/Labs3course/SystemAnalitics/Project_SoftServe/SoftServeCinema.MVC/Views/User/EmailConfirmed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFbWFpbENvbmZpcm1lZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Public/Documents/Labs3course/SystemAnalitics/Project_SoftServe/SoftServeCinema.MVC/Views/User/EmailNotConfirmed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFbWFpbE5vdENvbmZpcm1lZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Public/Documents/Labs3course/SystemAnalitics/Project_SoftServe/SoftServeCinema.MVC/Views/User/GoogleResponse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHb29nbGVSZXNwb25zZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -154,8 +162,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Public/Documents/Labs3course/SystemAnalitics/Project_SoftServe/SoftServeCinema.MVC/Views/User/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Public/Documents/Labs3course/SystemAnalitics/Project_SoftServe/SoftServeCinema.MVC/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Public/Documents/Labs3course/SystemAnalitics/Project_SoftServe/SoftServeCinema.MVC/Views/User/SuccessRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTdWNjZXNzUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Public/Documents/Labs3course/SystemAnalitics/Project_SoftServe/SoftServeCinema.MVC/Views/_ViewImports.cshtml]
