@@ -26,8 +26,8 @@ namespace SoftServeCinema.Core.Entities.Specifications
             public GetUserByEmail(string email)
             {
                 Query
-                   .Where(t => t.Email == email)
-                   .Include(t => t.Tickets);
+                   .Where(t => t.Email == email);
+                   //.Include(t => t.Tickets);
             }
         }
     }

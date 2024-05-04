@@ -5,6 +5,8 @@ using SoftServeCinema.Core.Exceptions;
 using SoftServeCinema.Infrastructure.Data;
 
 using SoftServeCinema.Core.Interfaces;
+using SoftServeCinema.Core.Entities.Specifications;
+using SoftServeCinema.Core.Entities;
 
 namespace SoftServeCinema.Infrastructure.Repositories
 {
@@ -98,6 +100,20 @@ namespace SoftServeCinema.Infrastructure.Repositories
                 }
             }
             this.disposed = true;
+        }
+
+       
+
+        public async Task UpdateAsync(TEntity entity)
+        {
+            _dbSet.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExistsAsync(ISpecification<TEntity> specification)
+        {
+            return await ApplySpecification(specification).AnyAsync();
         }
     }
 }

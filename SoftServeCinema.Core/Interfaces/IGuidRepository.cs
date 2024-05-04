@@ -1,4 +1,6 @@
 ﻿using Ardalis.Specification;
+using SoftServeCinema.Core.Entities;
+using SoftServeCinema.Core.Entities.Specifications;
 
 
 namespace SoftServeCinema.Core.Interfaces
@@ -16,7 +18,7 @@ namespace SoftServeCinema.Core.Interfaces
         Task<bool> ExistAsync(Guid id);
         Task<IEnumerable<TEntity>> GetListBySpecAsync(ISpecification<TEntity> specification);
         Task<TEntity> GetFirstBySpecAsync(ISpecification<TEntity> specification);
-
-       
+        Task<bool> ExistsAsync(ISpecification<TEntity> entity);
+        Task UpdateAsync(TEntity entity);
     }
 }

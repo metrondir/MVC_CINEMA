@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SoftServeCinema.Core.DTOs.Users.UserDTO>
+
+@{
+    ViewData["Title"] = "Користувачі";
+    ViewData["PaginatorAction"] = "Index";
+}
+
+<div>
+    <h3 class="text-center my-4">Теги</h3>
+
+    @await Html.PartialAsync("_Paginator", Model)
+    <div class="list-group my-4">
+        @foreach (var user in Model)
+        {
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">@user.Email</h5>
+            </div>
+            <div>
+                <form asp-controller="SuperAdmin" asp-action="ChangeRole" method="post">
+                    <input type="hidden" name="email" value="@user.Email" />
+                    <select name="roleName">
+                        @foreach (var role in Enum.GetValues(typeof(SoftServeCinema.Core.Enums.Roles)))
+                        {
+                            <option value="@role">@role</option>
+                        }
+                    </select>
+                    <button type="submit" class="btn btn-warning">
+                        <i class="bi bi-pencil-fill"></i> Редагувати
+                    </button>
+                </form>
+            </div>
+        }
+    </div>
+</div>
+
+@await Html.PartialAsync("_Paginator", Model)
+

@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.Google;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.IdentityModel.Tokens.Jwt;
+using System.Web;
 
 
 namespace SoftServeCinema.MVC.Controllers
@@ -52,7 +53,10 @@ namespace SoftServeCinema.MVC.Controllers
                     var userWithToken = JsonConvert.DeserializeObject<UserDTOWithTokens>(result);
                     if(await _userService.Exist(userWithToken.Id))
                     {
-                        return RedirectToAction("Home", "Index");
+                        HttpContext.Session.Clear();
+                        HttpContext.Session.SetString("accessToken", userWithToken.AccessToken);
+                        HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
+                        return RedirectToAction("Index", "Home");
                     }
                     var user = new UserRegisterDTO()
                     {
@@ -162,30 +166,55 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
-
+      
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> ForgetPassword(UserDTO userDTO)
+        public async Task<IActionResult> ForgotPassword(EmailDTO emailDTO)
         {
-            if (await _userService.GetUserByEmailAsync(userDTO.Email) == null)
-            {
-                return RedirectToAction("Home", "Index");
-            }
+            emailDTO.Subject= "Reset Password";
             var url = WebConstants.ngrok + "/api/User/reset";
             using (var httpClient = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(userDTO);
+                var json = JsonConvert.SerializeObject(emailDTO);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync(url, data);
                 if(response.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Home", "Index");
+                    return RedirectToAction("SuccessResetCode");
+
+                }
+            }
+            return View();
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult>ResetPassword(ResetCodeDTO resetPasswordDTO)
+        {
+            
+             var refererUrl = Request.Headers["Referer"].ToString();
+             var queryString = new Uri(refererUrl).Query;
+             var queryParameters = HttpUtility.ParseQueryString(queryString);
+             if (queryParameters["code"] == null || queryParameters["email"] == null)
+                return RedirectToAction("EmailNotConfirmed");
+            
+             resetPasswordDTO.ResetToken = queryParameters["code"];
+             resetPasswordDTO.Email = queryParameters["email"];
+            
+            
+            var url = WebConstants.ngrok + "/api/User/verify-reset-code";
+            using (var httpClient = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(resetPasswordDTO);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync(url, data);
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("User", "Login");
                 }
             }
             return View();
         }
 
-     
 
         [Authorize]
         [HttpGet]
@@ -246,6 +275,18 @@ namespace SoftServeCinema.MVC.Controllers
         }
 
         public IActionResult EmailNotConfirmed()
+        {
+            return View();
+        }
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+        public IActionResult SuccessResetCode()
         {
             return View();
         }
