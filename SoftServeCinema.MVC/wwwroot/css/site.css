@@ -37,7 +37,7 @@ html, body {
     min-height: 100%;
     overflow: clip;
 }
-.gradient-custom {
+.gradient-custom, .auth-info__container {
     background-image: url('../images/bg-chairs.jpg');
     background-size: cover;
     background-attachment: scroll;
@@ -61,3 +61,22 @@ html, body {
     height: 100%;
     width: 100%;
 }
+.auth-info__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color:white;
+    font-weight:700;
+    font-size:30px;
+}
+    .auth-info__container a {
+        padding: 5px 30px;
+        background: linear-gradient(to right, #B41616, #4E0A0A);
+        border-radius:10px;
+        color:white !important;
+        transition:background 1.7s ease none !important;
+    }
+        .auth-info__container a:hover {
+            background: linear-gradient(to right, #4E0A0A, #B41616);
+        }
