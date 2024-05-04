@@ -34,6 +34,7 @@ builder.Services.AddScoped<IActorService, ActorService>();
 builder.Services.AddScoped<IDirectorService, DirectorService>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ISuperAdminService, SuperAdminService>();
 builder.Services.AddTransient<AddTokenToHeader>();
 builder.Services.AddTransient<Interceptor>();
 //session
@@ -107,7 +108,8 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("RequireAdminRole",
     policy => policy.RequireClaim(ClaimTypes.Role, "Admin"));
-
+    options.AddPolicy("RequireSuperAdminRole",
+    policy => policy.RequireClaim(ClaimTypes.Role, "SuperAdmin"));
 });
 
 var app = builder.Build();

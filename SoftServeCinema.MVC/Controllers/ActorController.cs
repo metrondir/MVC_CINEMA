@@ -9,7 +9,7 @@ using X.PagedList;
 
 namespace SoftServeCinema.MVC.Controllers
 {
-    [Authorize(Roles = "RequireAdminRole")]
+    
 
     public class ActorController : Controller
     {
@@ -48,6 +48,7 @@ namespace SoftServeCinema.MVC.Controllers
             }
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Manage(int page = 1, int pageSize = 10)
         {
             if (page <= 0) page = 1;
@@ -59,11 +60,13 @@ namespace SoftServeCinema.MVC.Controllers
             return View(await actors.ToPagedListAsync(page, pageSize));
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         public IActionResult Create()
         {
             return View();
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> Create(ActorDTO actorDTO)
         {
@@ -81,6 +84,7 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Edit(int id)
         {
             if (id <= 0) return BadRequest();
@@ -96,6 +100,7 @@ namespace SoftServeCinema.MVC.Controllers
             }
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> Edit(ActorDTO actorDTO)
         {
@@ -113,6 +118,7 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();
