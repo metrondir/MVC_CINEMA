@@ -169,13 +169,17 @@ namespace SoftServeCinema.MVC.Controllers
       
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> ForgotPassword(EmailDTO emailDTO)
+
+        public async Task<IActionResult> ForgetPassword(UserLoginDTO userLoginDTO)
         {
-            emailDTO.Subject= "Reset Password";
+            if (await _userService.GetUserByEmailAsync(userLoginDTO.Email) == null)
+            {
+                return RedirectToAction("Home", "Index");
+            }
             var url = WebConstants.ngrok + "/api/User/reset";
             using (var httpClient = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(emailDTO);
+                var json = JsonConvert.SerializeObject(userLoginDTO);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync(url, data);
                 if(response.IsSuccessStatusCode)
@@ -290,5 +294,6 @@ namespace SoftServeCinema.MVC.Controllers
         {
             return View();
         }
+
     }
 }
