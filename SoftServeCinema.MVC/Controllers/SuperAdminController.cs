@@ -10,7 +10,7 @@ using X.PagedList;
 
 namespace SoftServeCinema.MVC.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    //[Authorize(Roles = "SuperAdmin")]
 
     public class SuperAdminController : Controller
     {

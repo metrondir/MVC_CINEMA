@@ -44,9 +44,7 @@ namespace SoftServeCinema.MVC.Controllers
             {
                 var json = JsonConvert.SerializeObject(userLoginDTO);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-
                 var response = await httpClient.PostAsync(url, data);
-
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadAsStringAsync();
@@ -71,7 +69,7 @@ namespace SoftServeCinema.MVC.Controllers
                     HttpContext.Session.SetString("accessToken", userWithToken.AccessToken);
                     HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
 
-                    return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role").Value == "Admin" ? RedirectToAction("Home", "Admin") : RedirectToAction("Home", "User");
+                    return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role").Value == "Admin" ? RedirectToAction("Home", "Admin") : RedirectToAction("Index", "Home");
 
                 }
                 var errorMessage = await response.Content.ReadAsStringAsync();
@@ -96,10 +94,7 @@ namespace SoftServeCinema.MVC.Controllers
             {
                 var json = JsonConvert.SerializeObject(userRegisterDTO);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-
                 var response = await httpClient.PostAsync(url, data);
-
-
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadAsStringAsync();
@@ -107,6 +102,13 @@ namespace SoftServeCinema.MVC.Controllers
                     HttpContext.Session.SetString("LastName", userRegisterDTO.LastName);
                     return RedirectToAction("SuccessRegister");
                 }
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                dynamic errorObject = JsonConvert.DeserializeObject<dynamic>(errorMessage);
+                string errorMessageString = errorObject.title.ToString();
+                TempData["ErrorMessage"] = errorMessageString;
+                TempData["Email"] = userRegisterDTO.Email;
+                TempData["FirstName"] = userRegisterDTO.FirstName;
+                TempData["LastName"] = userRegisterDTO.LastName;
                 return View();
             }
 
@@ -114,12 +116,9 @@ namespace SoftServeCinema.MVC.Controllers
 
         public async Task<IActionResult> GoogleLoginAsync()
         {
-
             var redirectUrl = Url.Action(nameof(GoogleResponse), "User", null, Request.Scheme);
             var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
             var token = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
-
-
             return Challenge(properties, GoogleDefaults.AuthenticationScheme);
         }
 
@@ -128,9 +127,7 @@ namespace SoftServeCinema.MVC.Controllers
          {
             var result = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
             if (result?.Succeeded != true)
-            {
                 return RedirectToAction(nameof(Login));
-            }
             var url = $"{WebConstants.ngrok}/api/User/signin-google";
             using (var httpClient = new HttpClient())
             {
@@ -155,12 +152,10 @@ namespace SoftServeCinema.MVC.Controllers
                     HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
                    
                     if (await _userService.Exist(userWithToken.Id))
-                    {
-                        return RedirectToAction("Home");
-                    }
+                        return RedirectToAction("Index", "Home");
                     userRegisterDTO.Id = userWithToken.Id;
                     await _userService.Create(userRegisterDTO);
-                    return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role").Value == "Admin" ? RedirectToAction("Home", "Admin") : RedirectToAction("Home", "User");
+                    return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role").Value == "Admin" ? RedirectToAction("Home", "Admin") : RedirectToAction("Index", "Home");
                 }
             }
             return RedirectToAction(nameof(HomeController.Index), "Home");
@@ -170,41 +165,41 @@ namespace SoftServeCinema.MVC.Controllers
         [AllowAnonymous]
         [HttpPost]
 
-        public async Task<IActionResult> ForgetPassword(UserLoginDTO userLoginDTO)
+        public async Task<IActionResult> ForgetPassword(EmailDTO emailDTO)
         {
-            if (await _userService.GetUserByEmailAsync(userLoginDTO.Email) == null)
-            {
-                return RedirectToAction("Home", "Index");
-            }
             var url = WebConstants.ngrok + "/api/User/reset";
             using (var httpClient = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(userLoginDTO);
+                emailDTO.Subject = "ResetPassword";
+                var json = JsonConvert.SerializeObject(emailDTO);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync(url, data);
                 if(response.IsSuccessStatusCode)
-                {
                     return RedirectToAction("SuccessResetCode");
-
-                }
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                dynamic errorObject = JsonConvert.DeserializeObject<dynamic>(errorMessage);
+                string errorMessageString = errorObject.title.ToString();
+                TempData["ErrorMessage"] = errorMessageString;
             }
             return View();
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult>ResetPassword(ResetCodeDTO resetPasswordDTO)
+        public async Task<IActionResult> ResetPassword(ResetCodeDTO resetPasswordDTO)
         {
-            
-             var refererUrl = Request.Headers["Referer"].ToString();
-             var queryString = new Uri(refererUrl).Query;
-             var queryParameters = HttpUtility.ParseQueryString(queryString);
-             if (queryParameters["code"] == null || queryParameters["email"] == null)
-                return RedirectToAction("EmailNotConfirmed");
-            
-             resetPasswordDTO.ResetToken = queryParameters["code"];
-             resetPasswordDTO.Email = queryParameters["email"];
-            
-            
+
+            var refererUrl = Request.Headers["Referer"].ToString();
+            var queryString = new Uri(refererUrl).Query;
+            var queryParameters = HttpUtility.ParseQueryString(queryString);
+
+            if (HttpContext.Session.GetString("code") == null || HttpContext.Session.GetString("email") == null)
+            {
+                HttpContext.Session.SetString("code", queryParameters["code"]);
+                HttpContext.Session.SetString("email", queryParameters["email"]);
+            }
+            resetPasswordDTO.Email = HttpContext.Session.GetString("email");
+            resetPasswordDTO.ResetToken = HttpContext.Session.GetString("code");
+
             var url = WebConstants.ngrok + "/api/User/verify-reset-code";
             using (var httpClient = new HttpClient())
             {
@@ -213,11 +208,17 @@ namespace SoftServeCinema.MVC.Controllers
                 var response = await httpClient.PostAsync(url, data);
                 if (response.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("User", "Login");
+                    HttpContext.Session.Clear();
+                    return RedirectToAction("Login", "User");
                 }
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                dynamic errorObject = JsonConvert.DeserializeObject<dynamic>(errorMessage);
+                string errorMessageString = errorObject.title.ToString();
+                TempData["ErrorMessage"] = errorMessageString;
             }
             return View();
         }
+
 
 
         [Authorize]
@@ -228,9 +229,7 @@ namespace SoftServeCinema.MVC.Controllers
 
             var accessToken = HttpContext.Session.GetString("accessToken");
             if (string.IsNullOrEmpty(accessToken))
-            {
-                return RedirectToAction("Home", "Index");
-            }
+                return RedirectToAction("Index", "Home");
 
             using (var httpClient = new HttpClient())
             {
@@ -240,10 +239,10 @@ namespace SoftServeCinema.MVC.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     HttpContext.Session.Clear();
-                    return RedirectToAction("Home", "Index");
+                    return RedirectToAction("Index", "Home");
                 }
             }
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         [Authorize]
@@ -251,9 +250,7 @@ namespace SoftServeCinema.MVC.Controllers
         public async Task<IActionResult> Delete()
         {
             if(User.FindFirst(ClaimTypes.NameIdentifier) == null)
-            {
                 return RedirectToAction("Home", "Index");
-            }
             var url = WebConstants.ngrok + "/api/User/";
             using (var httpClient = new HttpClient())
             {
@@ -282,7 +279,7 @@ namespace SoftServeCinema.MVC.Controllers
         {
             return View();
         }
-        public IActionResult ForgotPassword()
+        public IActionResult ForgetPassword()
         {
             return View();
         }
