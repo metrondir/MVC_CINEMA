@@ -1,0 +1,19 @@
+﻿@model SoftServeCinema.Core.DTOs.Sessions.SessionDetailsDTO
+
+@{
+    ViewData["Title"] = "Сеанс";
+}
+
+<div>
+    <h3 class="text-center my-4">Сеанс</h3>
+
+    <div class="list-group my-4">
+        <div class="row justify-content-between">
+            <h2>@Model.MovieTitle</h2>
+            <img class="w-25 m-auto" src="@Url.Content("~/images/" + Model.MovieImagePath)" alt="@Model.MovieTitle">
+            <p>Дата сеансу: @Model.StartDate.ToString("d MMMM yyyy 'р.' HH:mm")</p><br>
+            <p>Звичайний квиток: @Model.BasicPrice грн.</p><br>
+            <p>VIP квиток: @Model.VipPrice грн.</p><br>
+        </div>
+    </div>
+</div>

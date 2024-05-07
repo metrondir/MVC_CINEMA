@@ -21,22 +21,22 @@ namespace SoftServeCinema.Core.Services
             _ticketRepository = ticketRepository;
         }
 
-        public async Task<List<SessionFormDTO>> GetAllSessionsAsync()
+        public async Task<List<SessionDTO>> GetAllSessionsAsync()
         {
             var result = await _sessionRepository.GetAllAsync();
-            return _mapper.Map<List<SessionFormDTO>>(result);
+            return _mapper.Map<List<SessionDTO>>(result);
         }
 
-        public async Task<List<SessionFormDTO>> GetSessionsByDay(DateTime dateTime)
+        public async Task<List<SessionDTO>> GetSessionsByDay(DateTime dateTime)
         {
             var result = await _sessionRepository.GetListBySpecAsync(new SessionsSpecifications.GetByStartDateDay(dateTime));
-            return _mapper.Map<List<SessionFormDTO>>(result);
+            return _mapper.Map<List<SessionDTO>>(result);
         }
 
-        public async Task<SessionFormDTO> GetSessionFormByIdAsync(int sessionId)
+        public async Task<SessionDTO> GetSessionFormByIdAsync(int sessionId)
         {
             var session = await _sessionRepository.GetFirstBySpecAsync(new SessionsSpecifications.GetByIdForForm(sessionId));
-            return _mapper.Map<SessionFormDTO>(session);
+            return _mapper.Map<SessionDTO>(session);
         }
 
         public async Task<bool> IsSessionUniqueAsync(DateTime startDateTime)
@@ -52,7 +52,7 @@ namespace SoftServeCinema.Core.Services
             }
         }
 
-        public async Task CreateSessionAsync(SessionFormDTO sessionFormDTO)
+        public async Task CreateSessionAsync(SessionDTO sessionFormDTO)
         {
             var session = _mapper.Map<SessionEntity>(sessionFormDTO);
             session.Tickets = (ICollection<TicketEntity>)await _ticketRepository.GetFirstBySpecAsync(new TicketsSpecifications.GetByIds(sessionFormDTO.Tickets));
@@ -67,7 +67,7 @@ namespace SoftServeCinema.Core.Services
             await _sessionRepository.SaveAsync();
         }
 
-        public async Task UpdateSessionAsync(SessionFormDTO sessionFormDTO)
+        public async Task UpdateSessionAsync(SessionDTO sessionFormDTO)
         {
             await ClearSessionBaseRelations(sessionFormDTO.Id);
 

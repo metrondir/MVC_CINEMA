@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SoftServeCinema.Core.DTOs.Sessions;
@@ -15,13 +16,15 @@ namespace SoftServeCinema.MVC.Controllers
     public class SessionController : Controller
     {
         private readonly ISessionService _sessionService;
+        private readonly IMovieService _movieService;
         private readonly ITicketService _ticketService;
-        private readonly IValidator<SessionFormDTO> _sessionFormDTOValidator;
+        private readonly IValidator<SessionDTO> _sessionFormDTOValidator;
         private readonly IMapper _mapper;
 
-        public SessionController(ISessionService sessionService, ITicketService ticketService, IValidator<SessionFormDTO> sessionFormDTOValidator, IMapper mapper)
+        public SessionController(ISessionService sessionService, IMovieService movieService, ITicketService ticketService, IValidator<SessionDTO> sessionFormDTOValidator, IMapper mapper)
         {
             _sessionService = sessionService;
+            _movieService = movieService;
             _ticketService = ticketService;
             _sessionFormDTOValidator = sessionFormDTOValidator;
             _mapper = mapper;
@@ -31,12 +34,18 @@ namespace SoftServeCinema.MVC.Controllers
         {
             if (page <= 0) page = 1;
 
-            var actualSessions = await _sessionService.GetSessionsByDay(DateTime.UtcNow);
-            ViewBag.ActualSessions = actualSessions;
-
             var sessions = await _sessionService.GetAllSessionsAsync();
 
-            return View(await sessions.ToPagedListAsync(page, pageSize));
+            var sessionViewModels = sessions.Select(s => new SessionViewModelDTO
+            {
+                Id = s.Id,
+                MovieId = s.MovieId,
+                StartDate = s.StartDate,
+                TicketsCount = _ticketService.GetAvailableAsync().Result.Count,
+                MovieTitle = _movieService.GetMovieByIdAsync(s.MovieId).Result.Title
+            });
+            
+            return View(await sessionViewModels.ToPagedListAsync(page, pageSize));
         }
 
         public async Task<IActionResult> Details(int id)
@@ -46,7 +55,19 @@ namespace SoftServeCinema.MVC.Controllers
             try
             {
                 var session = await _sessionService.GetSessionFormByIdAsync(id);
-                return View(session);
+
+                var sessionDetails =  new SessionDetailsDTO
+                {
+                    Id = session.Id,
+                    MovieId = session.MovieId,
+                    StartDate = session.StartDate,
+                    MovieTitle = _movieService.GetMovieByIdAsync(session.MovieId).Result.Title,
+                    MovieImagePath = _movieService.GetMovieByIdAsync(session.MovieId).Result.ImagePath,
+                    BasicPrice = session.BasicPrice,
+                    VipPrice = session.VipPrice
+                };
+
+                return View(sessionDetails);
             }
             catch (EntityNotFoundException)
             {
@@ -54,25 +75,37 @@ namespace SoftServeCinema.MVC.Controllers
             }
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Manage(int page = 1, int pageSize = 10)
         {
             if (page <= 0) page = 1;
 
             var sessions = await _sessionService.GetAllSessionsAsync();
 
-            if (sessions.Count() <= (page - 1) * pageSize) return BadRequest();
+            var sessionViewModels = sessions.Select(s => new SessionViewModelDTO
+            {
+                Id = s.Id,
+                MovieId = s.MovieId,
+                StartDate = s.StartDate,
+                TicketsCount = _ticketService.GetAvailableAsync().Result.Count,
+                MovieTitle = _movieService.GetMovieByIdAsync(s.MovieId).Result.Title
+            });
 
-            return View(await sessions.ToPagedListAsync(page, pageSize));
+            if (sessionViewModels.Count() <= (page - 1) * pageSize) return BadRequest();
+
+            return View(await sessionViewModels.ToPagedListAsync(page, pageSize));
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Create()
         {
             await FillViewBagSessionCreateUpdate();
             return View();
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
-        public async Task<IActionResult> Create(SessionFormDTO sessionFormDTO)
+        public async Task<IActionResult> Create(SessionDTO sessionFormDTO)
         {
             var result = _sessionFormDTOValidator.Validate(sessionFormDTO, s => s.IncludeRuleSets("Create"));
             if (!result.IsValid)
@@ -90,6 +123,7 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Edit(int id)
         {
             if (id <= 0) return BadRequest();
@@ -106,8 +140,9 @@ namespace SoftServeCinema.MVC.Controllers
             }
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
-        public async Task<IActionResult> Edit(SessionFormDTO sessionFormDTO)
+        public async Task<IActionResult> Edit(SessionDTO sessionFormDTO)
         {
             var result = _sessionFormDTOValidator.Validate(sessionFormDTO, s => s.IncludeRuleSets("Edit"));
             if (!result.IsValid)
@@ -125,6 +160,7 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
+        //[Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();
@@ -142,6 +178,17 @@ namespace SoftServeCinema.MVC.Controllers
             }
         }
 
+        private async Task FillViewBagMovies()
+        {
+            ViewBag.Movies = (await _movieService.GetAllMoviesAsync())
+                .Select(m => new SelectListItem
+                {
+                    Value = m.Id.ToString(),
+                    Text = m.Title
+                })
+                .ToList();
+        }
+
         private async Task FillViewBagTickets()
         {
             ViewBag.Tickets = (await _ticketService.GetAllTicketsAsync())
@@ -155,6 +202,7 @@ namespace SoftServeCinema.MVC.Controllers
 
         private async Task FillViewBagSessionCreateUpdate()
         {
+            await FillViewBagMovies();
             await FillViewBagTickets();
         }
     }

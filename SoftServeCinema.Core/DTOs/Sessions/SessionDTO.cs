@@ -1,6 +1,6 @@
 ﻿namespace SoftServeCinema.Core.DTOs.Sessions
 {
-    public class SessionFormDTO
+    public class SessionDTO
     {
         public int Id { get; set; }
         public int MovieId { get; set; }

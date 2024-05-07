@@ -4,7 +4,7 @@ using SoftServeCinema.Core.Interfaces.Services;
 
 namespace SoftServeCinema.Core.Validators
 {
-    public class SessionFormDTOValidator : AbstractValidator<SessionFormDTO>
+    public class SessionFormDTOValidator : AbstractValidator<SessionDTO>
     {
         private readonly ISessionService _sessionService;
 
