@@ -27,7 +27,7 @@ namespace SoftServeCinema.Core.Services
             return _mapper.Map<List<SessionDTO>>(result);
         }
 
-        public async Task<List<SessionDTO>> GetSessionsByDay(DateTime dateTime)
+        public async Task<List<SessionDTO>> GetSessionsByDayAsync(DateTime dateTime)
         {
             var result = await _sessionRepository.GetListBySpecAsync(new SessionsSpecifications.GetByStartDateDay(dateTime));
             return _mapper.Map<List<SessionDTO>>(result);
@@ -69,7 +69,7 @@ namespace SoftServeCinema.Core.Services
 
         public async Task UpdateSessionAsync(SessionDTO sessionFormDTO)
         {
-            await ClearSessionBaseRelations(sessionFormDTO.Id);
+            await ClearSessionBaseRelationsAsync(sessionFormDTO.Id);
 
             var session = _mapper.Map<SessionEntity>(sessionFormDTO);
 
@@ -84,7 +84,7 @@ namespace SoftServeCinema.Core.Services
             await _sessionRepository.SaveAsync();
         }
 
-        public async Task ClearSessionBaseRelations(int sessionId)
+        public async Task ClearSessionBaseRelationsAsync(int sessionId)
         {
             var session = await _sessionRepository.GetFirstBySpecAsync(new SessionsSpecifications.GetByIdWithRel(sessionId));
             session.Tickets.Clear();

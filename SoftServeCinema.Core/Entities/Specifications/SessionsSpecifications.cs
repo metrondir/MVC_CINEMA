@@ -2,7 +2,7 @@
 
 namespace SoftServeCinema.Core.Entities.Specifications
 {
-    internal class SessionsSpecifications
+    public class SessionsSpecifications
     {
         public class GetByStartDateDay : Specification<SessionEntity>
         {

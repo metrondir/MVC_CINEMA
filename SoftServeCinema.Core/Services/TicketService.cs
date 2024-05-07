@@ -31,7 +31,7 @@ namespace SoftServeCinema.Core.Services
             return _mapper.Map<List<TicketDTO>>(result);
         }
 
-        public async Task<List<TicketDTO>> GetTicketByIdsAsync(ICollection<int> ticketIds)
+        public async Task<List<TicketDTO>> GetTicketsByIdsAsync(ICollection<int> ticketIds)
         {
             var result = await _ticketRepository.GetListBySpecAsync(new TicketsSpecifications.GetByIds(ticketIds));
             return _mapper.Map<List<TicketDTO>>(result);
@@ -41,12 +41,6 @@ namespace SoftServeCinema.Core.Services
         {
             var ticket = (await _ticketRepository.GetByIdAsync(ticketId)) ?? throw new EntityNotFoundException();
             return _mapper.Map<TicketDTO>(ticket);
-        }
-
-        public Task<bool> IsTicketUniqueAsync(int ticketId)
-        {
-            // realisation
-            throw new NotImplementedException();
         }
 
         public async Task CreateTicketAsync(TicketDTO ticketDTO)

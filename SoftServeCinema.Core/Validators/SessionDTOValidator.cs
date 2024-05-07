@@ -4,11 +4,11 @@ using SoftServeCinema.Core.Interfaces.Services;
 
 namespace SoftServeCinema.Core.Validators
 {
-    public class SessionFormDTOValidator : AbstractValidator<SessionDTO>
+    public class SessionDTOValidator : AbstractValidator<SessionDTO>
     {
         private readonly ISessionService _sessionService;
 
-        public SessionFormDTOValidator(ISessionService sessionService)
+        public SessionDTOValidator(ISessionService sessionService)
         {
             _sessionService = sessionService;
 
@@ -54,7 +54,7 @@ namespace SoftServeCinema.Core.Validators
 
         private bool IsValidDate(DateTime date)
         {
-            return date >= DateTime.UtcNow.AddDays(1);
+            return date >= DateTime.UtcNow;
         }
     }
 }

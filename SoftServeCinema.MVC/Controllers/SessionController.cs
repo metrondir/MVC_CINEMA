@@ -18,15 +18,15 @@ namespace SoftServeCinema.MVC.Controllers
         private readonly ISessionService _sessionService;
         private readonly IMovieService _movieService;
         private readonly ITicketService _ticketService;
-        private readonly IValidator<SessionDTO> _sessionFormDTOValidator;
+        private readonly IValidator<SessionDTO> _sessionDTOValidator;
         private readonly IMapper _mapper;
 
-        public SessionController(ISessionService sessionService, IMovieService movieService, ITicketService ticketService, IValidator<SessionDTO> sessionFormDTOValidator, IMapper mapper)
+        public SessionController(ISessionService sessionService, IMovieService movieService, ITicketService ticketService, IValidator<SessionDTO> sessionDTOValidator, IMapper mapper)
         {
             _sessionService = sessionService;
             _movieService = movieService;
             _ticketService = ticketService;
-            _sessionFormDTOValidator = sessionFormDTOValidator;
+            _sessionDTOValidator = sessionDTOValidator;
             _mapper = mapper;
         }
 
@@ -107,7 +107,7 @@ namespace SoftServeCinema.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(SessionDTO sessionFormDTO)
         {
-            var result = _sessionFormDTOValidator.Validate(sessionFormDTO, s => s.IncludeRuleSets("Create"));
+            var result = _sessionDTOValidator.Validate(sessionFormDTO, s => s.IncludeRuleSets("Create"));
             if (!result.IsValid)
             {
                 foreach (var error in result.Errors)
@@ -144,7 +144,7 @@ namespace SoftServeCinema.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(SessionDTO sessionFormDTO)
         {
-            var result = _sessionFormDTOValidator.Validate(sessionFormDTO, s => s.IncludeRuleSets("Edit"));
+            var result = _sessionDTOValidator.Validate(sessionFormDTO, s => s.IncludeRuleSets("Edit"));
             if (!result.IsValid)
             {
                 foreach (var error in result.Errors)
