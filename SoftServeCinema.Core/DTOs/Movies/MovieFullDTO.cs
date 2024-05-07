@@ -1,6 +1,7 @@
 ﻿using SoftServeCinema.Core.DTOs.Actors;
 using SoftServeCinema.Core.DTOs.Directors;
 using SoftServeCinema.Core.DTOs.Genres;
+using SoftServeCinema.Core.DTOs.Sessions;
 using SoftServeCinema.Core.DTOs.Tags;
 
 namespace SoftServeCinema.Core.DTOs.Movies
@@ -21,6 +22,6 @@ namespace SoftServeCinema.Core.DTOs.Movies
         public ICollection<TagDTO> Tags { get; set; } = [];
         public ICollection<DirectorDTO> Directors { get; set; } = [];
         public ICollection<ActorDTO> Actors { get; set; } = [];
-        public ICollection<SessionDTO> Sessions { get; set; } = [];
+        public ICollection<SessionFormDTO> Sessions { get; set; } = [];
     }
 }

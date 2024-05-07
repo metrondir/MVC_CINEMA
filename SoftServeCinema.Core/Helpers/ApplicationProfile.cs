@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
-using SoftServeCinema.Core.DTOs;
 using SoftServeCinema.Core.DTOs.Actors;
 using SoftServeCinema.Core.DTOs.Directors;
 using SoftServeCinema.Core.DTOs.Genres;
 using SoftServeCinema.Core.DTOs.Movies;
+using SoftServeCinema.Core.DTOs.Sessions;
 using SoftServeCinema.Core.DTOs.Tags;
+using SoftServeCinema.Core.DTOs.Tickets;
 using SoftServeCinema.Core.DTOs.Users;
 using SoftServeCinema.Core.Entities;
 
@@ -79,7 +80,6 @@ namespace SoftServeCinema.Core.Helpers
                 );
             CreateMap<MovieFullDTO, MovieEntity>();
 
-
             CreateMap<MovieEntity, MovieFormDTO>()
                 .ForMember(
                     dest => dest.SelectedGenres,
@@ -97,20 +97,26 @@ namespace SoftServeCinema.Core.Helpers
                     dest => dest.SelectedActors,
                     opt => opt.MapFrom(src => src.Actors.Select(a => a.Id))
                 );
-
             CreateMap<MovieFormDTO, MovieEntity>();
 
-            CreateMap<TicketEntity, TicketDTO>();
+            CreateMap<SessionEntity, SessionFormDTO>()
+                .ForMember(
+                    dest => dest.Tickets,
+                    opt => opt.MapFrom(src => src.Tickets.Select(t => t.Id))
+                );
+            CreateMap<SessionFormDTO, SessionEntity>();
+
+            CreateMap<TicketEntity, TicketDTO>().ReverseMap();
+            CreateMap<TicketDTO, TicketEntity>();
 
             CreateMap<UserEntity, UserDTO>().ReverseMap();
             CreateMap<UserEntity, UserLoginDTO>().ReverseMap();
             CreateMap<UserEntity, UserRegisterDTO>().ReverseMap();
             CreateMap<UserEntity, UserWithTicketsDTO>()
-        .ForMember(
-             dest => dest.Tickets,
-              opt => opt.MapFrom(src => src.Tickets)
-              );
-
+                .ForMember(
+                    dest => dest.Tickets,
+                    opt => opt.MapFrom(src => src.Tickets)
+                );
 
         //CreateMap<UserEntity, UserWithTicketsDTO>()
         //    .ForMember(

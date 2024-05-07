@@ -1,4 +1,4 @@
-﻿namespace SoftServeCinema.Core.DTOs
+﻿namespace SoftServeCinema.Core.DTOs.Tickets
 {
     public class TicketDTO
     {
