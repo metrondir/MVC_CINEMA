@@ -215,3 +215,19 @@ main.main {
         #mySelectOptions label:hover {
             background-color: #1e90ff;
         }
+.ticket__seat {
+    padding:20px;
+}
+.ticket__seat-available {
+    border-color:blue;
+}
+.ticket__seat-unavailable {
+    background-color:gray;
+
+}
+.ticket__seat-basic {
+    border-color:blue;
+}
+.ticket__seat-vip {
+    border-color: red;
+}

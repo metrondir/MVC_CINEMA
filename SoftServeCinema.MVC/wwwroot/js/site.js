@@ -1,87 +1,85 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-//$(document).ready(() => {
-//    $('.form-control').select2();
+﻿//document.getElementById('alert').addEventListener('click', e => {
+//    e.target.remove();
 //});
-document.getElementById('alert').addEventListener('click', e => {
-    e.target.remove();
+//window.addEventListener('load', function () {
+//    document.body.classList.add('loaded');
+//});
+let ticket_array = [];
+const ticket_container = document.querySelector('.ticket__container');
+const ticketOrder = document.querySelector('.ticket__order');
+ticketOrder.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (e.target.dataset.id !== null) {
+        if (ticket_array.filter(item => { return item.id == e.target.dataset.id; }).length !== 0
+        ) {
+            ticket_array = ticket_array.filter((item) => {
+                return item.id !== e.target.dataset.id;
+            });
+            fromUnavailableToAvailable(ticket_container.querySelector('[data-id="'+e.target.dataset.id+'"]'));
+            orderUpdate();
+        }
+    }
+})
+
+ticket_container.addEventListener('click', e => {
+    e.preventDefault();
+    if (e.target.dataset.id !== null) {
+        if (ticket_array.filter(item => {return item.id == e.target.dataset.id;}).length == 0
+        ) {
+            ticket_array.push({
+                id: e.target.dataset.id,
+                row: e.target.dataset.row,
+                seat: e.target.dataset.seat,
+                price: e.target.dataset.price,
 });
+            fromAvailableToUnavailable(e.target);
+            orderUpdate();
+        }
+    }
+})
+const orderUpdate = () => {
+    
+    ticketOrder.innerHTML = ' ';
+    ticket_array.forEach((ticket) => {
+        
+        const p = document.createElement('p');
+        p.innerText = ticket.row + '/' + ticket.seat + '  ' + ticket.price;
+        p.dataset.id = ticket.id;
+        ticketOrder.appendChild(p);
+        
+    })
+   
+    document.querySelector('#ticketsJSON').value = JSON.stringify(ticket_array.map((item) => {
+        return item.id;
+    }))
+}
+const fromAvailableToUnavailable = (button) => {
+    button.classList.remove('ticket__seat-available');
+    button.classList.add("ticket__seat-unavailable");
+}
+const fromUnavailableToAvailable = (button) => {
+    button.classList.remove('ticket__seat-unavailable');
+    button.classList.add("ticket__seat-available");
+}
 
-//document.getElementById('login-button').addEventListener('click', e => {
-//    const body = {};
-//    body.email =
-//    fetch('https://5304-178-255-168-80.ngrok-free.app', {
-//        method: "POST",
-//        headers: {
-//            'Content-Type': 'application/json',
-//        },
-
-//    })
-//})
-window.addEventListener('load', function () {
-    document.body.classList.add('loaded');
+const ticket_buy = document.querySelector('#buyButton');
+ticket_buy.addEventListener('click', () => {
+    fetch("https://localhost:7262/Tag/Create", {
+        method: 'post',
+        body: JSON.stringify(ticket_array.map((item) => {
+            return item.id;
+        })),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then((response) => {
+        return response.json()
+    }).then((res) => {
+        if (res.status === 201) {
+            console.log("Post successfully created!")
+        }
+    }).catch((error) => {
+        ticketOrder.innerText = error;
+    })
 });
-
-//window.onload = (event) => {
-//    initMultiselect();
-//};
-
-//function initMultiselect() {
-//    checkboxStatusChange();
-
-//    document.addEventListener("click", function (evt) {
-//        var flyoutElement = document.getElementById('myMultiselect'),
-//            targetElement = evt.target; // clicked element
-
-//        do {
-//            if (targetElement == flyoutElement) {
-//                // This is a click inside. Do nothing, just return.
-//                //console.log('click inside');
-//                return;
-//            }
-
-//            // Go up the DOM
-//            targetElement = targetElement.parentNode;
-//        } while (targetElement);
-
-//        // This is a click outside.
-//        toggleCheckboxArea(true);
-//        //console.log('click outside');
-//    });
-//}
-
-//function checkboxStatusChange() {
-//    var multiselect = document.getElementById("mySelectLabel");
-//    var multiselectOption = multiselect.getElementsByTagName('option')[0];
-
-//    var values = [];
-//    var checkboxes = document.getElementById("mySelectOptions");
-//    var checkedCheckboxes = checkboxes.querySelectorAll('input[type=checkbox]:checked');
-
-//    for (const item of checkedCheckboxes) {
-//        var checkboxValue = item.getAttribute('value');
-//        values.push(checkboxValue);
-//    }
-
-//    var dropdownValue = "Nothing is selected";
-//    if (values.length > 0) {
-//        dropdownValue = values.join(', ');
-//    }
-
-//    multiselectOption.innerText = dropdownValue;
-//}
-
-//function toggleCheckboxArea(onlyHide = false) {
-//    var checkboxes = document.getElementById("mySelectOptions");
-//    var displayValue = checkboxes.style.display;
-
-//    if (displayValue != "block") {
-//        if (onlyHide == false) {
-//            checkboxes.style.display = "block";
-//        }
-//    } else {
-//        checkboxes.style.display = "none";
-//    }
-//}
