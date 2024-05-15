@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\select2-4.1.0-rc.0\**" />
+    <Content Remove="wwwroot\lib\select2-4.1.0-rc.0\**" />
+    <EmbeddedResource Remove="wwwroot\lib\select2-4.1.0-rc.0\**" />
+    <None Remove="wwwroot\lib\select2-4.1.0-rc.0\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
@@ -28,6 +35,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\lib\bootstrap\heelo\" />
   </ItemGroup>
 
 </Project>

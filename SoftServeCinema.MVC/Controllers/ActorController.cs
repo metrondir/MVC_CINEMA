@@ -135,5 +135,9 @@ namespace SoftServeCinema.MVC.Controllers
                 return NotFound();
             }
         }
+        public async Task<IActionResult> Admin()
+        {
+            return RedirectToAction("Index", "Admin");
+        }
     }
 }

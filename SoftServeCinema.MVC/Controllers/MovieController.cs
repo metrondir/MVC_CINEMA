@@ -233,5 +233,9 @@ namespace SoftServeCinema.MVC.Controllers
             await FillViewBagDirectors();
             await FillViewBagActors();
         }
+        public async Task<IActionResult> Admin()
+        {
+            return RedirectToAction("Index", "Admin");
+        }
     }
 }
