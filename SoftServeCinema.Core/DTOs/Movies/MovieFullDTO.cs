@@ -1,6 +1,7 @@
 ﻿using SoftServeCinema.Core.DTOs.Actors;
 using SoftServeCinema.Core.DTOs.Directors;
 using SoftServeCinema.Core.DTOs.Genres;
+using SoftServeCinema.Core.DTOs.Sessions;
 using SoftServeCinema.Core.DTOs.Tags;
 
 namespace SoftServeCinema.Core.DTOs.Movies

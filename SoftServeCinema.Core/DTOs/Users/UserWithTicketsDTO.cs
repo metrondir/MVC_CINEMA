@@ -1,4 +1,5 @@
 ﻿using SoftServeCinema.Core.DTOs.Movies;
+using SoftServeCinema.Core.DTOs.Tickets;
 using System;
 using System.Collections.Generic;
 using System.Linq;

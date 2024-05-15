@@ -1,0 +1,26 @@
+﻿@model IEnumerable<SoftServeCinema.Core.DTOs.Tickets.TicketDTO>
+
+@{
+    ViewData["Title"] = "Квитки";
+    ViewData["PaginatorAction"] = "Index";
+}
+
+<div>
+    <h3 class="text-center my-4">Квитки</h3>
+
+    @await Html.PartialAsync("_Paginator", Model)
+    <div class="list-group my-4">
+        @foreach (var ticket in Model)
+        {
+            <a asp-action="Details" asp-route-id="@ticket.Id" class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Дата @ticket.ReservationDate</h5>
+                    <h5 class="mb-1">Ряд @ticket.RowNumber</h5>
+                    <h5 class="mb-1">Місце @ticket.SeatNumber</h5>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+
+@await Html.PartialAsync("_Paginator", Model)

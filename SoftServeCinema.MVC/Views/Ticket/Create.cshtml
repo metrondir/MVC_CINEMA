@@ -1,0 +1,45 @@
+﻿@model SoftServeCinema.Core.DTOs.Tickets.TicketDTO
+
+@{
+    ViewData["Title"] = "Додати квиток";
+}
+
+<h1 class="text-center">Новий квиток</h1>
+<hr />
+
+<form asp-action="Create" method="post" class="row g-3">
+    <div class="form-group">
+        <label asp-for="SessionId" class="control-label">Сесія</label>
+        <select asp-for="SessionId" asp-items="@(ViewBag.Sessions)" multiple class="form-control"></select>
+        <span asp-validation-for="SessionId" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="RowNumber" class="form-label">Ряд</label>
+        <input asp-for="RowNumber" class="form-control">
+        <span asp-validation-for="RowNumber" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="SeatNumber" class="form-label">Місце</label>
+        <input asp-for="SeatNumber" class="form-control">
+        <span asp-validation-for="SeatNumber" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label asp-for="ReservationDate" class="form-label">Дата бронювання</label>
+        <input asp-for="ReservationDate" class="form-control">
+        <span asp-validation-for="ReservationDate" class="text-danger"></span>
+    </div>
+
+    <div class="col-6">
+        <a asp-action="Manage" class="btn btn-secondary w-100">
+            <i class="bi bi-arrow-left"></i> Назад
+        </a>
+    </div>
+    <div class="col-6">
+        <button type="submit" class="btn btn-primary w-100">
+            <i class="bi bi-plus"></i> Додати
+        </button>
+    </div>
+</form>
