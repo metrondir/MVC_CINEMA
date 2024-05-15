@@ -252,7 +252,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     SessionId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    UserId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     RowNumber = table.Column<short>(type: "smallint", nullable: false),
                     SeatNumber = table.Column<short>(type: "smallint", nullable: false),
                     ReservationDate = table.Column<DateTime>(type: "datetime", nullable: false),
@@ -272,8 +272,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         name: "FK_Tickets_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -324,8 +323,8 @@ namespace SoftServeCinema.Infrastructure.Migrations
                 columns: new[] { "Id", "Desc", "Duration", "EndRentalDate", "GraduationYear", "ImagePath", "StartRentalDate", "Title", "TrailerUrl" },
                 values: new object[,]
                 {
-                    { 1, "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.", (ushort)108, new DateTime(2024, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (ushort)2024, "/movies/sw-vend.jpg", new DateTime(2024, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Повстання Штатів", "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq" },
-                    { 2, "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.", (ushort)126, new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), (ushort)2024, "/movies/fall_guy-vend.jpg", new DateTime(2024, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "Каскадер", "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY" }
+                    { 1, "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.", (ushort)108, new DateTime(2024, 6, 14, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9086), (ushort)2024, "/movies/sw-vend.jpg", new DateTime(2024, 5, 14, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9071), "Повстання Штатів", "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq" },
+                    { 2, "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.", (ushort)126, new DateTime(2024, 7, 4, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9091), (ushort)2024, "/movies/fall_guy-vend.jpg", new DateTime(2024, 5, 20, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9090), "Каскадер", "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY" }
                 });
 
             migrationBuilder.InsertData(
@@ -336,6 +335,11 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     { 1, "18+" },
                     { 2, "12+" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Email", "FirstName", "LastName", "RoleName" },
+                values: new object[] { new Guid("551b099b-91de-48ab-bb52-518a67f35e5b"), "romanmedvedev0201@gmail.com", "Roman", "Koval", "User" });
 
             migrationBuilder.InsertData(
                 table: "ActorEntityMovieEntity",
@@ -379,6 +383,54 @@ namespace SoftServeCinema.Infrastructure.Migrations
                 {
                     { 1, 1 },
                     { 2, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Sessions",
+                columns: new[] { "Id", "BasicPrice", "MovieId", "StartDate", "VipPrice" },
+                values: new object[] { 1, 200m, 1, new DateTime(2024, 5, 16, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9589), 350m });
+
+            migrationBuilder.InsertData(
+                table: "Tickets",
+                columns: new[] { "Id", "ReservationDate", "RowNumber", "SeatNumber", "SessionId", "Status", "UserId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)1, (short)1, 1, "Available", null },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)1, (short)2, 1, "Available", null },
+                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)1, (short)3, 1, "Available", null },
+                    { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)1, (short)4, 1, "Available", null },
+                    { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)1, (short)5, 1, "Available", null },
+                    { 6, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)1, (short)6, 1, "Available", null },
+                    { 7, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)2, (short)1, 1, "Available", null },
+                    { 8, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)2, (short)2, 1, "Available", null },
+                    { 9, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)2, (short)3, 1, "Available", null },
+                    { 10, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)2, (short)4, 1, "Available", null },
+                    { 11, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)2, (short)5, 1, "Available", null },
+                    { 12, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)2, (short)6, 1, "Available", null },
+                    { 13, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)3, (short)1, 1, "Available", null },
+                    { 14, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)3, (short)2, 1, "Available", null },
+                    { 15, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)3, (short)3, 1, "Available", null },
+                    { 16, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)3, (short)4, 1, "Available", null },
+                    { 17, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)3, (short)5, 1, "Available", null },
+                    { 18, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)3, (short)6, 1, "Available", null },
+                    { 19, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)4, (short)1, 1, "Available", null },
+                    { 20, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)4, (short)2, 1, "Available", null },
+                    { 21, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)4, (short)3, 1, "Available", null },
+                    { 22, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)4, (short)4, 1, "Available", null },
+                    { 23, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)4, (short)5, 1, "Available", null },
+                    { 24, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)4, (short)6, 1, "Available", null },
+                    { 25, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)5, (short)1, 1, "Available", null },
+                    { 26, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)5, (short)2, 1, "Available", null },
+                    { 27, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)5, (short)3, 1, "Available", null },
+                    { 28, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)5, (short)4, 1, "Available", null },
+                    { 29, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)5, (short)5, 1, "Available", null },
+                    { 30, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)5, (short)6, 1, "Available", null },
+                    { 31, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)6, (short)1, 1, "Available", null },
+                    { 32, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)6, (short)2, 1, "Available", null },
+                    { 33, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)6, (short)3, 1, "Available", null },
+                    { 34, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)6, (short)4, 1, "Available", null },
+                    { 35, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)6, (short)5, 1, "Available", null },
+                    { 36, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), (short)6, (short)6, 1, "Available", null }
                 });
 
             migrationBuilder.CreateIndex(

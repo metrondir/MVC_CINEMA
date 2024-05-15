@@ -384,10 +384,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 1,
                             Desc = "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.",
                             Duration = (ushort)108,
-                            EndRentalDate = new DateTime(2024, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndRentalDate = new DateTime(2024, 6, 14, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9086),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/sw-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartRentalDate = new DateTime(2024, 5, 14, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9071),
                             Title = "Повстання Штатів",
                             TrailerUrl = "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq"
                         },
@@ -396,10 +396,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 2,
                             Desc = "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.",
                             Duration = (ushort)126,
-                            EndRentalDate = new DateTime(2024, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndRentalDate = new DateTime(2024, 7, 4, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9091),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/fall_guy-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartRentalDate = new DateTime(2024, 5, 20, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9090),
                             Title = "Каскадер",
                             TrailerUrl = "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY"
                         });
@@ -430,6 +430,16 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     b.HasIndex("MovieId");
 
                     b.ToTable("Sessions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BasicPrice = 200m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 16, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9589),
+                            VipPrice = 350m
+                        });
                 });
 
             modelBuilder.Entity("SoftServeCinema.Core.Entities.TagEntity", b =>
@@ -487,7 +497,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("char(36)");
 
                     b.HasKey("Id");
@@ -497,6 +507,332 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Tickets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)1,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)2,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)3,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)4,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)5,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)6,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)1,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)2,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)3,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)4,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)5,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)6,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)1,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)2,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)3,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)4,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)5,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)6,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)1,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)2,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)3,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)4,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)5,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)6,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)1,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)2,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)3,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)4,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)5,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)6,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)1,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)2,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)3,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)4,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)5,
+                            SessionId = 1,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)6,
+                            SessionId = 1,
+                            Status = "Available"
+                        });
                 });
 
             modelBuilder.Entity("SoftServeCinema.Core.Entities.UserEntity", b =>
@@ -528,6 +864,16 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("551b099b-91de-48ab-bb52-518a67f35e5b"),
+                            Email = "romanmedvedev0201@gmail.com",
+                            FirstName = "Roman",
+                            LastName = "Koval",
+                            RoleName = "User"
+                        });
                 });
 
             modelBuilder.Entity("ActorEntityMovieEntity", b =>
@@ -611,9 +957,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
 
                     b.HasOne("SoftServeCinema.Core.Entities.UserEntity", "User")
                         .WithMany("Tickets")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Session");
 

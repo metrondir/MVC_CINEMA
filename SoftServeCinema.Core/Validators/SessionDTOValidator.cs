@@ -26,8 +26,7 @@ namespace SoftServeCinema.Core.Validators
                 RuleFor(s => s.VipPrice)
                     .GreaterThanOrEqualTo(0).WithMessage("VIP price must be non-negative");
 
-                RuleFor(s => s.Tickets)
-                    .NotEmpty().WithMessage("Tickets list must not be empty");
+
             });
 
             RuleSet("Edit", () =>

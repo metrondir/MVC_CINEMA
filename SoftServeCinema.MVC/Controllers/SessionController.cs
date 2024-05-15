@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SoftServeCinema.Core.DTOs.Sessions;
+using SoftServeCinema.Core.Entities;
 using SoftServeCinema.Core.Exceptions;
 using SoftServeCinema.Core.Interfaces.Services;
 using SoftServeCinema.Core.Services;
@@ -41,7 +42,7 @@ namespace SoftServeCinema.MVC.Controllers
                 Id = s.Id,
                 MovieId = s.MovieId,
                 StartDate = s.StartDate,
-                TicketsCount = _ticketService.GetAvailableAsync().Result.Count,
+                TicketsCount = _ticketService.GetAvailableAsync().Result.FindAll(t=> t.SessionId== s.Id).Count,
                 MovieTitle = _movieService.GetMovieByIdAsync(s.MovieId).Result.Title
             });
             
@@ -64,7 +65,8 @@ namespace SoftServeCinema.MVC.Controllers
                     MovieTitle = _movieService.GetMovieByIdAsync(session.MovieId).Result.Title,
                     MovieImagePath = _movieService.GetMovieByIdAsync(session.MovieId).Result.ImagePath,
                     BasicPrice = session.BasicPrice,
-                    VipPrice = session.VipPrice
+                    VipPrice = session.VipPrice,
+                    Tickets = session.Tickets,
                 };
 
                 return View(sessionDetails);
@@ -87,7 +89,7 @@ namespace SoftServeCinema.MVC.Controllers
                 Id = s.Id,
                 MovieId = s.MovieId,
                 StartDate = s.StartDate,
-                TicketsCount = _ticketService.GetAvailableAsync().Result.Count,
+                TicketsCount = _ticketService.GetAvailableAsync().Result.FindAll(t=> t.SessionId== s.Id).Count,
                 MovieTitle = _movieService.GetMovieByIdAsync(s.MovieId).Result.Title
             });
 
@@ -119,7 +121,9 @@ namespace SoftServeCinema.MVC.Controllers
             }
 
             await _sessionService.CreateSessionAsync(sessionFormDTO);
-            TempData[WebConstants.alertSuccessKey] = "Session created successfully";
+
+           
+                TempData[WebConstants.alertSuccessKey] = "Session created successfully";
             return RedirectToAction(nameof(Manage));
         }
 

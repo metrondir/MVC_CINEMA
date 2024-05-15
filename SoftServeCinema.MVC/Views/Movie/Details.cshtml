@@ -18,6 +18,15 @@
             <p>Прокат: З @Model.StartRentalDate.ToShortDateString() до @Model.EndRentalDate.ToShortDateString()</p>
             <p>Тривалість: @Model.Duration хв.</p>
             <p>Рік: @Model.GraduationYear</p>
+            @foreach(var session in Model.Sessions)
+            {
+                <p>
+                    Сеанс:
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">@session.StartDate.ToString() </a>
+                    Кількість місць: @session.Tickets.Count(t => t.Status == "Available")
+                </p>
+                
+            })
             <iframe width="560" height="315" src="@Model.TrailerUrl" frameborder="0" allowfullscreen></iframe>
             <h3>Опис</h3>
             <p>@Model.Desc</p>

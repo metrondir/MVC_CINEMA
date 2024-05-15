@@ -1,4 +1,6 @@
-﻿namespace SoftServeCinema.Core.DTOs.Sessions
+﻿using SoftServeCinema.Core.DTOs.Tickets;
+
+namespace SoftServeCinema.Core.DTOs.Sessions
 {
     public class SessionDTO
     {
@@ -8,6 +10,6 @@
         public decimal BasicPrice { get; set; } = 0;
         public decimal VipPrice { get; set; } = 0;
 
-        public List<int> Tickets { get; set; } = [];
+        public List<TicketDTO> Tickets { get; set; } = [];
     }
 }
