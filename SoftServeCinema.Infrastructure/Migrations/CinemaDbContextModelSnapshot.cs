@@ -384,10 +384,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 1,
                             Desc = "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.",
                             Duration = (ushort)108,
-                            EndRentalDate = new DateTime(2024, 6, 14, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9086),
+                            EndRentalDate = new DateTime(2024, 6, 14, 18, 4, 39, 829, DateTimeKind.Utc).AddTicks(8525),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/sw-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 14, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9071),
+                            StartRentalDate = new DateTime(2024, 5, 14, 18, 4, 39, 829, DateTimeKind.Utc).AddTicks(8520),
                             Title = "Повстання Штатів",
                             TrailerUrl = "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq"
                         },
@@ -396,10 +396,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 2,
                             Desc = "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.",
                             Duration = (ushort)126,
-                            EndRentalDate = new DateTime(2024, 7, 4, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9091),
+                            EndRentalDate = new DateTime(2024, 7, 4, 18, 4, 39, 829, DateTimeKind.Utc).AddTicks(8530),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/fall_guy-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 20, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9090),
+                            StartRentalDate = new DateTime(2024, 5, 20, 18, 4, 39, 829, DateTimeKind.Utc).AddTicks(8529),
                             Title = "Каскадер",
                             TrailerUrl = "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY"
                         });
@@ -437,7 +437,7 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 1,
                             BasicPrice = 200m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 16, 14, 56, 40, 160, DateTimeKind.Utc).AddTicks(9589),
+                            StartDate = new DateTime(2024, 5, 16, 18, 4, 39, 829, DateTimeKind.Utc).AddTicks(9084),
                             VipPrice = 350m
                         });
                 });

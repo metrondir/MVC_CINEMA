@@ -8,26 +8,25 @@
     <h3 class="text-center my-4">Сеанс</h3>
 
     <div class="list-group my-4">
-        <div class="row justify-content-between">
+        <div class="col-2 justify-content-between">
             <h2>@Model.MovieTitle</h2>
             <img class="w-25 m-auto" src="@Url.Content("~/images/" + Model.MovieImagePath)" alt="@Model.MovieTitle">
             <p>Дата сеансу: @Model.StartDate.ToString("d MMMM yyyy 'р.' HH:mm")</p><br>
             <p>Звичайний квиток: @Model.BasicPrice грн.</p><br>
             
             <p>VIP квиток: @Model.VipPrice грн.</p><br>
-            @foreach(var ticket in Model.Tickets)
-            {
-                if(ticket.Status == "Available")
+            <div class="ticket__container">
+                @foreach(var ticket in Model.Tickets)
                 {
-                    <span>Вільно: @ticket.RowNumber / @ticket.SeatNumber</span>
-
+                    <button data-price="@(ticket.RowNumber == 6 ? @Model.VipPrice : @Model.BasicPrice)" data-id="@ticket.Id" data-row="@ticket.RowNumber" data-seat="@ticket.SeatNumber" value=" " class="ticket__seat @(ticket.RowNumber == 6 ? "ticket__seat-vip" : "ticket__seat-basic") @(ticket.Status =="Available" ? "ticket__seat-available" : "ticket__seat-unavailable")"></button>
                 }
-                else
-                {
-                    <span>Зайнято: @ticket.RowNumber / @ticket.SeatNumber</span>
-
-                }
-            }
+            </div>
         </div>
+        <div class="ticket__order"></div>
+        <form action="/Tag/CreateNatalochka" method="get" class="row g-3 text-center">
+                <input type="hidden" name="tickets" value="5" id="ticketsJSON" />
+                <input type="submit" value="buy"/>
+            </form>
+
     </div>
 </div>
