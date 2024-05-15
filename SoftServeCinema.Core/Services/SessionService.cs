@@ -55,7 +55,6 @@ namespace SoftServeCinema.Core.Services
         public async Task CreateSessionAsync(SessionDTO sessionFormDTO)
         {
             var session = _mapper.Map<SessionEntity>(sessionFormDTO);
-            session.Tickets = (ICollection<TicketEntity>)await _ticketRepository.GetFirstBySpecAsync(new TicketsSpecifications.GetByIds(sessionFormDTO.Tickets));
 
             await _sessionRepository.InsertAsync(session);
 
@@ -65,15 +64,31 @@ namespace SoftServeCinema.Core.Services
             }
 
             await _sessionRepository.SaveAsync();
-        }
 
+            int seseionId = (await _sessionRepository.GetAllAsync()).Max(s => s.Id);
+
+            for (int i = 1; i <= 6; i++)
+            {
+                for (int j = 1; j <= 6; j++)
+                {
+                    await _ticketRepository.InsertAsync(new TicketEntity
+                    {
+                        SessionId = seseionId,
+                        RowNumber = i,
+                        SeatNumber = j,
+                        Status = "Available"
+                    });
+                }
+            }
+            await _ticketRepository.SaveAsync();
+        }
         public async Task UpdateSessionAsync(SessionDTO sessionFormDTO)
         {
             await ClearSessionBaseRelationsAsync(sessionFormDTO.Id);
 
             var session = _mapper.Map<SessionEntity>(sessionFormDTO);
 
-            session.Tickets = (ICollection<TicketEntity>)await _ticketRepository.GetListBySpecAsync(new TicketsSpecifications.GetByIds(sessionFormDTO.Tickets));
+            session.Tickets = (ICollection<TicketEntity>)await _ticketRepository.GetListBySpecAsync(new TicketsSpecifications.GetByIds(sessionFormDTO.Tickets.Select(t => t.Id).ToArray()));
 
             foreach (var ticket in session.Tickets)
             {

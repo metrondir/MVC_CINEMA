@@ -72,10 +72,13 @@ namespace SoftServeCinema.Core.Entities.Specifications
             {
                 Query
                     .Where(m => m.Id == movieId)
+                    .Include(m => m.Sessions)
+                    .ThenInclude(s => s.Tickets)
                     .Include(m => m.Genres)
                     .Include(m => m.Tags)
                     .Include(m => m.Directors)
                     .Include(m => m.Actors);
+                   
             }
         }
     }

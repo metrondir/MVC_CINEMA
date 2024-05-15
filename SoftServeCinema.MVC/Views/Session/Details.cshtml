@@ -13,7 +13,21 @@
             <img class="w-25 m-auto" src="@Url.Content("~/images/" + Model.MovieImagePath)" alt="@Model.MovieTitle">
             <p>Дата сеансу: @Model.StartDate.ToString("d MMMM yyyy 'р.' HH:mm")</p><br>
             <p>Звичайний квиток: @Model.BasicPrice грн.</p><br>
+            
             <p>VIP квиток: @Model.VipPrice грн.</p><br>
+            @foreach(var ticket in Model.Tickets)
+            {
+                if(ticket.Status == "Available")
+                {
+                    <span>Вільно: @ticket.RowNumber / @ticket.SeatNumber</span>
+
+                }
+                else
+                {
+                    <span>Зайнято: @ticket.RowNumber / @ticket.SeatNumber</span>
+
+                }
+            }
         </div>
     </div>
 </div>

@@ -19,7 +19,7 @@
                             <h5 class="card-title">@session.MovieTitle</h5>
                             <p class="card-text">
                                 <span>Дата сеансу: @session.StartDate.ToString("d MMMM yyyy 'р.' HH:mm")</span><br>
-                                <span>Кількість місць: @session.TicketsCount</span>
+                                <span>Кількість вільних місць: @session.TicketsCount</span>
                             </p>
                             <a class="btn btn-primary" asp-route-id="@session.Id" asp-controller="Session" asp-action="Details">Детальніше</a>
                         </div>

@@ -18,8 +18,8 @@ namespace SoftServeCinema.Infrastructure.Data
                     Desc = "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.",
                     GraduationYear = 2024,
                     Duration = 108,
-                    StartRentalDate = new DateTime(2024, 4, 11),
-                    EndRentalDate = new DateTime(2024, 5, 1)
+                    StartRentalDate =  DateTime.UtcNow.AddDays(-1),
+                    EndRentalDate = DateTime.UtcNow.AddDays(30)
                 },
                 new MovieEntity()
                 {
@@ -30,8 +30,8 @@ namespace SoftServeCinema.Infrastructure.Data
                     Desc = "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.",
                     GraduationYear = 2024,
                     Duration = 126,
-                    StartRentalDate = new DateTime(2024, 4, 25),
-                    EndRentalDate = new DateTime(2024, 5, 15)
+                    StartRentalDate = DateTime.UtcNow.AddDays(5),
+                    EndRentalDate = DateTime.UtcNow.AddDays(50)
                 }
             });
 
@@ -193,6 +193,52 @@ namespace SoftServeCinema.Infrastructure.Data
                 new { MoviesId = 1, TagsId = 1 },
                 new { MoviesId = 2, TagsId = 2 }
             );
-        }
+            modelBuilder.Entity<SessionEntity>().HasData(new SessionEntity[]
+           {
+                new SessionEntity()
+                {
+                    Id = 1,
+                    MovieId = 1,
+                    StartDate =  DateTime.UtcNow.AddDays(1),
+                    BasicPrice = 200,
+                    VipPrice = 350,
+
+                },
+           });
+            modelBuilder.Entity<UserEntity>().HasData(new UserEntity[]
+         {
+                new UserEntity()
+                {
+                    Id = Guid.Parse("551b099b-91de-48ab-bb52-518a67f35e5b") ,
+                    FirstName="Roman",
+                    LastName="Koval",
+                    Email="romanmedvedev0201@gmail.com",
+                    RoleName = "User"
+                },
+         });
+
+            for (int i = 1 , countId=1; i <= 6; i++)
+            {
+                for (int j = 1; j <= 6; j++)
+                {
+                    modelBuilder.Entity<TicketEntity>().HasData(new TicketEntity[]
+            {
+                new TicketEntity()
+                {
+                    
+                    Id = countId++,
+                    SessionId = 1,
+                    RowNumber = i,
+                    SeatNumber = j,
+                    Status ="Available" ,
+
+                },
+
+            });
+                }
+              
+            }
+    }
+
     }
 }

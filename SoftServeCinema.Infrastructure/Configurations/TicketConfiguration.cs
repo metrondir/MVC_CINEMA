@@ -27,7 +27,7 @@ namespace SoftServeCinema.Infrastructure.Configurations
             builder
                 .Property(t => t.ReservationDate)
                 .HasColumnType("datetime")
-                .IsRequired()
+                
             ;
 
             builder
@@ -46,6 +46,7 @@ namespace SoftServeCinema.Infrastructure.Configurations
                .HasOne(t => t.User)
                .WithMany(s => s.Tickets)
                .HasForeignKey(t => t.UserId)
+               .IsRequired(false)
            ;
         }
     }
