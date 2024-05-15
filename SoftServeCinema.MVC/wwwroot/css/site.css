@@ -37,6 +37,12 @@ html, body {
     min-height: 100%;
     overflow: clip;
 }
+.admin__wrapper {
+    min-height:100%;
+    overflow:clip;
+    display:flex;
+    flex-direction:column;
+}
 .gradient-custom, .auth-info__container {
     background-image: url('../images/bg-chairs.jpg');
     background-size: cover;
@@ -57,18 +63,30 @@ html, body {
     color:white !important;
     display:block !important;
 }
-.main { 
+main.main {
     height: 100%;
     width: 100%;
+}
+.main__admin {
+    height: 100vh;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-position: 0% 115%;
+    background-image: url('../images/bg-chairs.jpg');
+    background-size: cover;
+    background-attachment: scroll;
+    background-color: #333;
 }
 .auth-info__container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color:white;
-    font-weight:700;
-    font-size:30px;
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
 }
     .auth-info__container a {
         padding: 5px 30px;
@@ -79,4 +97,121 @@ html, body {
     }
         .auth-info__container a:hover {
             background: linear-gradient(to right, #4E0A0A, #B41616);
+        }
+
+.admin__container {
+    padding: 30px;
+    column-gap: 10px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap:100px;
+    grid-column-gap:150px;
+}
+
+.admin__button {
+    cursor: pointer;
+    position: relative;
+    padding: 20px 30px;
+    background: black;
+    font-size: 28px;
+    text-align:center;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all 1s;
+    text-decoration: none;
+}
+
+    .admin__button:after,
+    .admin__button:before {
+        content: " ";
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        border: 0px solid #eee;
+        transition: all 1s;
+    }
+
+    .admin__button:after {
+        top: -1px;
+        left: -1px;
+        border-top: 5px solid white;
+        border-left: 5px solid white;
+    }
+
+    .admin__button:before {
+        bottom: -1px;
+        right: -1px;
+        border-bottom: 5px solid white;
+        border-right: 5px solid white;
+    }
+
+    .admin__button:hover {
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+        .admin__button:hover:before,
+        .admin__button:hover:after {
+            width: 100%;
+            height: 100%;
+        }
+.manage__container {
+    margin:25px;
+}
+.manage__container table {
+    display:inline;
+}
+.manage__container form label{
+    font-size:24px;
+}
+    .manage__container form > div:not(:first-child) {
+        justify-content: center;
+    }
+.multiselect {
+    width: 100%;
+}
+
+.selectBox {
+    position: relative;
+   
+}
+.selectBox select option{
+    box-sizing:border-box;
+}
+    .selectBox select option {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+#mySelectOptions {
+    display: none;
+    border: 0.5px #7c7c7c solid;
+    background-color: #ffffff;
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
+    #mySelectOptions label {
+        display: block;
+        font-weight: normal;
+        display: block;
+        white-space: nowrap;
+        min-height: 1.2em;
+        background-color: #ffffff00;
+        padding: 0 2.25rem 0 .75rem;
+        /* padding: .375rem 2.25rem .375rem .75rem; */
+    }
+
+        #mySelectOptions label:hover {
+            background-color: #1e90ff;
         }

@@ -2,25 +2,35 @@
 
 @{
     ViewData["Title"] = "Редагувати жанр " + Model.Name;
+    Layout = "_StockLayout";
+    Layout = "_StockLayout";
 }
-
+<div class="manage__container">
 <h1 class="text-center">Редагувати жанр</h1>
 <hr />
 
-<form asp-action="Edit" method="post" class="row g-3">
-    <div class="col-12">
-        <label asp-for="Name" class="form-label">Назва</label>
-        <input asp-for="Name" class="form-control">
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="col-6">
-        <a asp-action="Manage" class="btn btn-secondary w-100">
-            <i class="bi bi-arrow-left"></i> Назад
-        </a>
-    </div>
-    <div class="col-6">
-        <button type="submit" class="btn btn-primary w-100">
-            <i class="bi bi-pencil"></i> Оновити
-        </button>
-    </div>
-</form>
+    <form asp-action="Edit" method="post" class="row g-3 text-center">
+        <div class="row mt-3">
+            <div class="col-1 ">
+                <a asp-action="Manage" class="btn btn-secondary w-100">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row mb-3 ">
+        <div class="col-3">
+                    <label asp-for="Name" class="form-label">Назва</label>
+                    <input asp-for="Name" class="form-control">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+        </div>
+        <div class="row mb-3">
+        <div class="col-3">
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="bi bi-pencil"></i> Оновити
+            </button>
+        </div>
+            </div>
+    </form>
+</div>
