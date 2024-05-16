@@ -39,7 +39,10 @@
                         </ul>
                         <ul class="navbar-nav d-flex flex-row-reverse">
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="New" asp-action="Index">My Tickets</a>
+                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Reserved">My Reserved Tickets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Bought">My Bought Tickets</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="User" asp-action="@auth">@auth</a>

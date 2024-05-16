@@ -112,8 +112,12 @@ namespace SoftServeCinema.Core.Helpers
                   opt => opt.MapFrom(src => src.Tickets)
               );
             CreateMap<SessionDetailsDTO, SessionEntity>();
+
+
             CreateMap<TicketEntity, TicketDTO>().ReverseMap();
             CreateMap<TicketDTO, TicketEntity>();
+            CreateMap<TicketEntity, TicketDetailDTO>();
+               
 
             CreateMap<UserEntity, UserDTO>().ReverseMap();
             CreateMap<UserEntity, UserLoginDTO>().ReverseMap();

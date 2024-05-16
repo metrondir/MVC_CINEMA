@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SoftServeCinema.Core.Entities;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SoftServeCinema.Infrastructure.Data
 {
@@ -21,6 +22,7 @@ namespace SoftServeCinema.Infrastructure.Data
                     StartRentalDate =  DateTime.UtcNow.AddDays(-1),
                     EndRentalDate = DateTime.UtcNow.AddDays(30)
                 },
+                
                 new MovieEntity()
                 {
                     Id = 2,
@@ -32,7 +34,7 @@ namespace SoftServeCinema.Infrastructure.Data
                     Duration = 126,
                     StartRentalDate = DateTime.UtcNow.AddDays(5),
                     EndRentalDate = DateTime.UtcNow.AddDays(50)
-                }
+                },
             });
 
             modelBuilder.Entity<GenreEntity>().HasData(new GenreEntity[]
@@ -187,26 +189,52 @@ namespace SoftServeCinema.Infrastructure.Data
                     Id = 2,
                     Name = "12+"
                 },
+                 new TagEntity()
+                {
+                    Id = 3,
+                    Name = "VR"
+                },
+                  new TagEntity()
+                {
+                    Id = 4,
+                    Name = "Дивитись разом"
+                },
+                   new TagEntity()
+                {
+                    Id = 5,
+                    Name = "У темряві"
+                },
+                  new TagEntity()
+                {
+                    Id = 6,
+                    Name = "Для підлітків"
+                },
+                    new TagEntity()
+                {
+                    Id = 7,
+                    Name = "Фінансовий"
+                }
+                  
             });
 
             modelBuilder.Entity("MovieEntityTagEntity").HasData(
                 new { MoviesId = 1, TagsId = 1 },
                 new { MoviesId = 2, TagsId = 2 }
             );
-            modelBuilder.Entity<SessionEntity>().HasData(new SessionEntity[]
-           {
-                new SessionEntity()
+
+            for(int i=1; i<=20; i++)
+            {
+                modelBuilder.Entity<SessionEntity>().HasData(new SessionEntity()
                 {
-                    Id = 1,
-                    MovieId = 1,
-                    StartDate =  DateTime.UtcNow.AddDays(1),
-                    BasicPrice = 200,
-                    VipPrice = 350,
+                    Id = i,
+                    MovieId = (new Random()).Next(1,3),
+                    StartDate = DateTime.UtcNow.AddDays((new Random()).Next(1, 20)).AddHours((new Random()).Next(1, 24)).AddMinutes((new Random().Next(1,60))),
+                    BasicPrice = (new Random()).Next(100, 200),
+                    VipPrice = (new Random()).Next(250, 400),
 
-                }
-
-                
-           });
+                });
+            }
+          
             modelBuilder.Entity<UserEntity>().HasData(new UserEntity[]
          {
                 new UserEntity()
@@ -217,30 +245,34 @@ namespace SoftServeCinema.Infrastructure.Data
                     Email="romanmedvedev0201@gmail.com",
                     RoleName = "User"
                 },
+                 new UserEntity()
+                {
+                    Id = Guid.Parse("a4612de6-84ef-454c-bca5-579bea951d02") ,
+                    FirstName="Roman",
+                    LastName="Medvedev",
+                    Email="r.medvedev@nltu.lviv.ua",
+                    RoleName = "SuperAdmin" //passsword= SumailLol222""
+                },
          });
 
-            for (int i = 1 , countId=1; i <= 6; i++)
+            int ticketId = 1;
+            for (int sessionId = 1; sessionId <= 20; sessionId++)
             {
-                for (int j = 1; j <= 6; j++)
+                for (int i = 1; i <= 6; i++)
                 {
-                    modelBuilder.Entity<TicketEntity>().HasData(new TicketEntity[]
+                    for (int j = 1; j <= 6; j++)
                     {
-                        new TicketEntity()
+                        modelBuilder.Entity<TicketEntity>().HasData(new TicketEntity()
                         {
-                    
-                            Id = countId++,
-                            SessionId = 1,
+                            Id = ticketId++,
+                            SessionId = sessionId,
                             RowNumber = i,
                             SeatNumber = j,
-                            Status ="Available" ,
-
-                        },
-
-                     });
+                            Status = "Available",
+                        });
+                    }
                 }
-              
             }
-         }
-
+        }
     }
 }
