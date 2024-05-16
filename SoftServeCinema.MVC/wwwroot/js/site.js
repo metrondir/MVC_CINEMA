@@ -23,7 +23,7 @@ ticketOrder.addEventListener('click', (e) => {
 
 ticket_container.addEventListener('click', e => {
     e.preventDefault();
-    if (e.target.dataset.id !== null) {
+    if (e.target.dataset.id !== null && !e.target.classList.contains("ticket__seat-unavailable")) {
         if (ticket_array.filter(item => {return item.id == e.target.dataset.id;}).length == 0
         ) {
             ticket_array.push({
@@ -62,24 +62,3 @@ const fromUnavailableToAvailable = (button) => {
     button.classList.add("ticket__seat-available");
 }
 
-const ticket_buy = document.querySelector('#buyButton');
-ticket_buy.addEventListener('click', () => {
-    fetch("https://localhost:7262/Tag/Create", {
-        method: 'post',
-        body: JSON.stringify(ticket_array.map((item) => {
-            return item.id;
-        })),
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    }).then((response) => {
-        return response.json()
-    }).then((res) => {
-        if (res.status === 201) {
-            console.log("Post successfully created!")
-        }
-    }).catch((error) => {
-        ticketOrder.innerText = error;
-    })
-});

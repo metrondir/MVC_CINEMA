@@ -222,9 +222,30 @@ main.main {
     border-color:blue;
 }
 .ticket__seat-unavailable {
-    background-color:gray;
-
+    position: relative; 
+    background-color: #ccc; 
 }
+
+    .ticket__seat-unavailable::before,
+    .ticket__seat-unavailable::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px; 
+        background-color: red; 
+    }
+
+    .ticket__seat-unavailable::before {
+        transform: rotate(45deg); 
+        top: 50%; 
+        left: 0;
+    }
+
+    .ticket__seat-unavailable::after {
+        transform: rotate(-45deg); 
+        top: 50%; 
+        left: 0;
+    }
 .ticket__seat-basic {
     border-color:blue;
 }
