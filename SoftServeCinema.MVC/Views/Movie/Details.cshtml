@@ -18,12 +18,12 @@
             <p>Прокат: З @Model.StartRentalDate.ToShortDateString() до @Model.EndRentalDate.ToShortDateString()</p>
             <p>Тривалість: @Model.Duration хв.</p>
             <p>Рік: @Model.GraduationYear</p>
+            
             @foreach(var session in Model.Sessions)
             {
                 <p>
                     Сеанс:
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">@session.StartDate.ToString() </a>
-                    Кількість місць: @session.Tickets.Count(t => t.Status == "Available")
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">@session.StartDate.ToLongTimeString() </a>
                 </p>
                 
             })

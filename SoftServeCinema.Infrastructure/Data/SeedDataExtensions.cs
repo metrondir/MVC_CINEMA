@@ -203,7 +203,9 @@ namespace SoftServeCinema.Infrastructure.Data
                     BasicPrice = 200,
                     VipPrice = 350,
 
-                },
+                }
+
+                
            });
             modelBuilder.Entity<UserEntity>().HasData(new UserEntity[]
          {
@@ -222,23 +224,23 @@ namespace SoftServeCinema.Infrastructure.Data
                 for (int j = 1; j <= 6; j++)
                 {
                     modelBuilder.Entity<TicketEntity>().HasData(new TicketEntity[]
-            {
-                new TicketEntity()
-                {
+                    {
+                        new TicketEntity()
+                        {
                     
-                    Id = countId++,
-                    SessionId = 1,
-                    RowNumber = i,
-                    SeatNumber = j,
-                    Status ="Available" ,
+                            Id = countId++,
+                            SessionId = 1,
+                            RowNumber = i,
+                            SeatNumber = j,
+                            Status ="Available" ,
 
-                },
+                        },
 
-            });
+                     });
                 }
               
             }
-    }
+         }
 
     }
 }

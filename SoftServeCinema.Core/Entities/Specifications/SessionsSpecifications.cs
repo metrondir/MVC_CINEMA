@@ -23,7 +23,15 @@ namespace SoftServeCinema.Core.Entities.Specifications
                     .AsNoTracking();
             }
         }
-
+        public class GetByStartDateTimeWithoutId : Specification<SessionEntity>
+        {
+            public GetByStartDateTimeWithoutId(int sessionId,DateTime dateTime)
+            {
+                Query
+                    .Where(s => s.StartDate.Date == dateTime.Date && s.StartDate.TimeOfDay == dateTime.TimeOfDay && s.Id != sessionId )
+                    .AsNoTracking();
+            }
+        }
         public class GetByIdForForm : Specification<SessionEntity>
         {
             public GetByIdForForm(int sessionId)

@@ -113,5 +113,20 @@ namespace SoftServeCinema.Core.Services
             _sessionRepository.Delete(sessionId);
             await _sessionRepository.SaveAsync();
         }
+
+        public async Task<bool> IsSessionUniqueWithoutIdAsync(int sessionId , DateTime startDateTime)
+
+        {
+            try
+            {
+                await _sessionRepository.GetFirstBySpecAsync(new SessionsSpecifications.GetByStartDateTimeWithoutId(sessionId,startDateTime));
+                return false;
+            }
+            catch (EntityNotFoundException)
+            {
+                return true;
+            }
+       
+    }
     }
 }

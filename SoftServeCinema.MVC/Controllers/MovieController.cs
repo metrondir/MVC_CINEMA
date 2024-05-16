@@ -57,6 +57,28 @@ namespace SoftServeCinema.MVC.Controllers
 
             return View(await expectedMovies.ToPagedListAsync(page, pageSize));
         }
+        public async Task<IActionResult> New(int page = 1, int pageSize = 10)
+        {
+            if (page <= 0) page = 1;
+
+            var newMovies = await _movieService.GetExpectedAsync();
+
+            if (newMovies.Count() != 0 && newMovies.Count() <= (page - 1) * pageSize) return BadRequest();
+
+            return View(await newMovies.ToPagedListAsync(page, pageSize));
+        }
+        public async Task<IActionResult> Actuals(int page = 1, int pageSize = 10)
+        {
+            if (page <= 0) page = 1;
+
+            var actualMovies = await _movieService.GetActualsAsync();
+           
+
+
+            if (actualMovies.Count() != 0 && actualMovies.Count() <= (page - 1) * pageSize) return BadRequest();
+
+            return View(await actualMovies.ToPagedListAsync(page, pageSize));
+        }
 
         public async Task<IActionResult> Details(int id)
         {
