@@ -54,22 +54,22 @@ namespace SoftServeCinema.MVC.Controllers
                         HttpContext.Session.Clear();
                         HttpContext.Session.SetString("accessToken", userWithToken.AccessToken);
                         HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
-                        return RedirectToAction("Index", "Home");
+                        return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role")?.Value is "Admin" or "SuperAdmin" ? RedirectToAction("Index", "Admin") : RedirectToAction("Index", "Home");
                     }
                     var user = new UserRegisterDTO()
                     {
                         Email = userLoginDTO.Email,
                         RoleName = userWithToken.Role,
                         Id = userWithToken.Id,
-                        FirstName = HttpContext.Session.GetString("FirstName"),
-                        LastName = HttpContext.Session.GetString("LastName")
+                        FirstName = "HttpContext.Session.GetString('FirstName')",
+                        LastName =" HttpContext.Session.GetString('LastName')"
                     };
                     HttpContext.Session.Clear();
                     await _userService.Create(user);
                     HttpContext.Session.SetString("accessToken", userWithToken.AccessToken);
                     HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
 
-                    return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role").Value == "Admin" ? RedirectToAction("Home", "Admin") : RedirectToAction("Index", "Home");
+                    return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role")?.Value is "Admin" or "SuperAdmin" ? RedirectToAction("Index", "Admin") : RedirectToAction("Index", "Home");
 
                 }
                 var errorMessage = await response.Content.ReadAsStringAsync();
