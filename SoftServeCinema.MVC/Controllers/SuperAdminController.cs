@@ -1,21 +1,22 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using SoftServeCinema.Core.DTOs.Tags;
 using SoftServeCinema.Core.DTOs.Users;
 using SoftServeCinema.Core.Interfaces.Services;
 using SoftServeCinema.Core.Services;
 using SoftServeCinema.MVC.Helpers;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Headers;
 using System.Text;
 using X.PagedList;
 
 namespace SoftServeCinema.MVC.Controllers
 {
-    //[Authorize(Roles = "SuperAdmin")]
+    [Authorize(Roles = "SuperAdmin")]
 
     public class SuperAdminController : Controller
     {
-
-
         private readonly ISuperAdminService _superAdminService;
         public SuperAdminController(ISuperAdminService superAdminService)
         {
@@ -36,26 +37,41 @@ namespace SoftServeCinema.MVC.Controllers
         {
             return View();
         }
-       
+
+
+
+        [HttpPost]
         public async Task<IActionResult> ChangeRole(ChangeRoleDTO changeRoleDTO)
         {
-           
-            var url = WebConstants.ngrok + "/api/User/changeRole";
+            var accessToken = HttpContext.Session.GetString("accessToken");
+
+            var queryParams = new List<string>
+            {
+                $"Role={Uri.EscapeDataString(changeRoleDTO.RoleName)}",
+                $"Email={Uri.EscapeDataString(changeRoleDTO.Email)}"
+            };
+
+            var queryString = string.Join("&", queryParams);
+            var url = $"{WebConstants.ngrok}/api/User/change-role?{queryString}";
             using (var httpClient = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(changeRoleDTO);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-                var response = await httpClient.PostAsync(url, data);
+                var response = await httpClient.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await _superAdminService.ChangeRoleAsync(changeRoleDTO);
-                    if(result)
-                        return RedirectToAction("Manage");
-                    return View();
+                    if (result)
+                    {
+                        TempData[WebConstants.alertSuccessKey] = $"Роль користувача {changeRoleDTO.Email}  успішно змінена на {changeRoleDTO.RoleName}";
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                    return RedirectToAction(nameof(Index));
                 }
-                return View();
+                return RedirectToAction(nameof(Index));
+
             }
         }
 

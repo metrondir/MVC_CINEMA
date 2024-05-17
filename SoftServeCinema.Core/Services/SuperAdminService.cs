@@ -29,7 +29,7 @@ namespace SoftServeCinema.Core.Services
 
         public async Task<bool> ChangeRoleAsync(ChangeRoleDTO changeRoleDTO)
         {
-            if (await _userRepository.ExistsAsync(new GetUserByEmail(changeRoleDTO.Email)))
+            if (!await _userRepository.ExistsAsync(new GetUserByEmail(changeRoleDTO.Email)))
             {
                 return false;
             }

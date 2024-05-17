@@ -81,11 +81,7 @@ namespace SoftServeCinema.MVC.Controllers
             TempData[WebConstants.alertSuccessKey] = "Тег додано успішно!";
             return RedirectToAction(nameof(Manage));
         }
-        [HttpGet]
-        public async Task<IActionResult> CreateNatalochka(string tickets)
-        {
-            return RedirectToAction(nameof(Manage));
-        }
+        
         //[Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Edit(int id)
         {

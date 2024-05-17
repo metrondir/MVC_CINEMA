@@ -29,7 +29,9 @@ ticketOrder.addEventListener('click', (e) => {
 
 ticket_container.addEventListener('click', e => {
     e.preventDefault();
+
     if (e.target.dataset.id != null && !e.target.classList.contains("ticket__seat-unavailable") && ticket_array.length < 8) {
+
         if (ticket_array.filter(item => {return item.id == e.target.dataset.id;}).length == 0
         ) {
             ticket_array.push({
@@ -110,4 +112,6 @@ const fromAvailableToUnavailable = (button) => {
 const fromUnavailableToAvailable = (button) => {
     button.classList.remove('ticket__seat-unavailable');
     button.classList.add("ticket__seat-available");
+
 }
+

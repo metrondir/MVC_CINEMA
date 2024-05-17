@@ -8,6 +8,10 @@ namespace SoftServeCinema.Core.Interfaces.Services
         Task<List<SessionDTO>> GetSessionsByDayAsync(DateTime dateTime);
         Task<SessionDTO> GetSessionFormByIdAsync(int sessionId);
         Task<bool> IsSessionUniqueAsync(DateTime startDateTime);
+
+        Task<bool> IsSessionUniqueWithoutIdAsync(int sessionId ,DateTime startDateTime);
+
+
         Task CreateSessionAsync(SessionDTO sessionFormDTO);
         Task UpdateSessionAsync(SessionDTO sessionFormDTO);
         Task ClearSessionBaseRelationsAsync(int sessionId);

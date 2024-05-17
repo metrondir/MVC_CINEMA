@@ -34,15 +34,18 @@
                     <div class="navbar-collapse collapse flex justify-content-between">
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="New" asp-action="Index">New</a>
+                                <a class="nav-link" asp-area="" asp-controller="Movie" asp-action="New">New</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Actual</a>
+                                <a class="nav-link" asp-area="" asp-controller="Movie" asp-action="Actuals">Actual</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav d-flex flex-row-reverse">
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="New" asp-action="Index">My Tickets</a>
+                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Reserved">My Reserved Tickets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Bought">My Bought Tickets</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="User" asp-action="@auth">@auth</a>

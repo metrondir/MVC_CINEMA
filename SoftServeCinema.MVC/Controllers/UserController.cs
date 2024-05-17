@@ -12,6 +12,7 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.IdentityModel.Tokens.Jwt;
 using System.Web;
+using Newtonsoft.Json.Linq;
 
 
 namespace SoftServeCinema.MVC.Controllers
@@ -70,7 +71,6 @@ namespace SoftServeCinema.MVC.Controllers
                     HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
 
                     return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role")?.Value is "Admin" or "SuperAdmin" ? RedirectToAction("Index", "Admin") : RedirectToAction("Index", "Home");
-
                 }
                 var errorMessage = await response.Content.ReadAsStringAsync();
                 dynamic errorObject = JsonConvert.DeserializeObject<dynamic>(errorMessage);
@@ -155,7 +155,8 @@ namespace SoftServeCinema.MVC.Controllers
                         return RedirectToAction("Index", "Home");
                     userRegisterDTO.Id = userWithToken.Id;
                     await _userService.Create(userRegisterDTO);
-                    return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role").Value == "Admin" ? RedirectToAction("Home", "Admin") : RedirectToAction("Index", "Home");
+                    return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role")?.Value is "Admin" or "SuperAdmin" ? RedirectToAction("Index", "Admin") : RedirectToAction("Index", "Home");
+
                 }
             }
             return RedirectToAction(nameof(HomeController.Index), "Home");

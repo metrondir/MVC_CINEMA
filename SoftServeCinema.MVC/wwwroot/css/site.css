@@ -223,8 +223,10 @@ main.main {
     border-color:blue;
 }
 .ticket__seat-unavailable {
+
     position: relative;
     background-color: #ccc;
+
 }
 
     .ticket__seat-unavailable::before,
@@ -232,6 +234,7 @@ main.main {
         content: '';
         position: absolute;
         width: 100%;
+
         height: 2px;
         background-color: red;
     }
@@ -243,8 +246,10 @@ main.main {
     }
 
     .ticket__seat-unavailable::after {
+
         transform: rotate(-45deg);
         top: 50%;
+
         left: 0;
     }
 .ticket__seat-basic {
