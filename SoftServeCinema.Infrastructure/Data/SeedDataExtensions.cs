@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SoftServeCinema.Core.Entities;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SoftServeCinema.Infrastructure.Data
 {
@@ -32,8 +31,190 @@ namespace SoftServeCinema.Infrastructure.Data
                     Desc = "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.",
                     GraduationYear = 2024,
                     Duration = 126,
-                    StartRentalDate = DateTime.UtcNow.AddDays(5),
-                    EndRentalDate = DateTime.UtcNow.AddDays(50)
+                    StartRentalDate = DateTime.UtcNow.AddDays(-20),
+                    EndRentalDate = DateTime.UtcNow.AddDays(15)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 3,
+                    ImagePath = "/movies/kotpota_vend.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/Ed-rbhWhzTU?si=mIuERJ2K7Q-exaYq",
+                    Title = "Королівство планети мавп",
+                    Desc = "Минуло кілька поколінь з часів правління Цезаря. Молодий шимпанзе Ноа (Овен Тіґ) уважно слухає усе, що розповідають йому про минуле і про те, як відбувався розвиток тих чи інших технологій. Він починає помічати дедалі більше невідповідностей. Аби пересвідчитись чи правильні його здогадки, він бере з собою людську дівчину на ім’я Мей (Фрея Алан). Люди давно здичавіли, тож не варто очікувати від неї багато. Разом Ноа та Мей вирушають у виснажливу подорож, результати якої визначать подальший розвиток як мавп, так і людей.\r\n\r\nФантастичний бойовик «Королівство планети мавп» є прямим продовженням фільму «Війна за планету мавп», що вийшов у 2017 році та четвертим фільмом перезапуску франшизи «Планета мавп». Про ідею цього фільму говорили ще у 2016 році. У 2019 році компанія Walt Disney оголосила, що у розробці знаходяться нові фільми та їх події розгортатимуться у тому ж всесвіті, що й фільм «Повстання планети мавп» 2011 року . Передбачається, що на екрани вийде ще щонайменше 2 фільми.",
+                    GraduationYear = 2024,
+                    Duration = 145,
+                    StartRentalDate = DateTime.UtcNow.AddDays(-7),
+                    EndRentalDate = DateTime.UtcNow.AddDays(20)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 4,
+                    ImagePath = "/movies/if-vend2.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/EFrEPzxmQjM?si=d-0RtIH00F7L0dg6",
+                    Title = "Уявні Друзі",
+                    Desc = "Дівчинка на ім’я Бі (Кейлі Флемінг) раптом починає бачити уявних друзів. Звісно, деякі діти фантазують про таку компанію. Однак Бі нічого не вигадувала. Дівчинка бачить безліч дивних персонажів, яких вигадав хтось інший. Виявляється, що такою самою силою наділений і її сусід (Раян Рейнольдс). Тепер вони удвох даватимуть раду чималій когорті чудернацьких створінь. Справа в тім, що діти, які вигадали цих персонажів, давно виросли та забули про своїх кращих друзів. Було б добре їм знову зустрітися.\r\n\r\nФентезійна комедійна драма «Уявні Друзі (УД)» – це дітище Джона Красінскі, відомого передовсім за роллю у серіалі «Офіс». Він має досвід створення повнометражного кіно («Тихе місце»), однак цього разу вдався до нового для себе жанру, сам займався сценарієм та режисурою. Проект для сімейного перегляду задумав у співпраці з батьком чотирьох дітей Раяном Рейнольдсом. Вони удвох продюсували фільм та знімалися у ньому.",
+                    GraduationYear = 2024,
+                    Duration = 104,
+                    StartRentalDate = DateTime.UtcNow.AddDays(-1),
+                    EndRentalDate = DateTime.UtcNow.AddDays(30)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 5,
+                    ImagePath = "/movies/stalker-vend2.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/wkSS8XmDSGc?si=l-lyfNL7pmUzB-ia",
+                    Title = "ЕПІЗОДИ: Тінь Чорнобиля",
+                    Desc = "У 2001 році молоді київські розробники на чолі з Сергієм Григоровичем вирішують зробити найскладнішу гру в світі з реалістичною графікою, відкритим світом і нетиповим сюжетом довкола Чорнобильської зони.\r\n\r\nЗ початку промокампанії S.T.A.L.K.E.R. чекали сотні тисяч людей по всьому світу, але розробники стали заручниками своїх амбіцій. Вони безкінечно покращували гру та з року в рік переносили дату виходу. Але в один момент американському видавцю увірвався терпець.\r\n\r\nЦе історія про індустрію відеоігор, любов до своєї роботи та проєкт, який перейшов межі екранів і став попкультурним феноменом.\r\n\r\n«ЕПІЗОДИ» — це історії незалежної України. Вони здаються такими різними, але водночас дуже схожі: наївні, сумні, амбітні. Це визначні події, на яких виросли цілі покоління. Розповіді від перших осіб із використанням унікальних архівних матеріалів.",
+                    GraduationYear = 2024,
+                    Duration = 77,
+                    StartRentalDate = DateTime.UtcNow.AddDays(-4),
+                    EndRentalDate = DateTime.UtcNow.AddDays(22)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 6,
+                    ImagePath = "/movies/reflection-vend.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/voDDciroV1A?si=6tx7HhMJM0hbKrMb",
+                    Title = "Відблиск",
+                    Desc = "Восени 2014 року хірург Сергій (Роман Луцький), який останнім часом оперує багато поранених на російсько-українській війні, вирішує стати військовим лікарем. Майже одразу Сергій потрапляє в полон. Він пережив нелюдські тортури та приниження. Від смерті його врятувало тільки те, що ФСБшникам, які катували полонених, потрібно було радитись з лікарем. Повернувшись додому після обміну Сергій намагається налагодити мирне життя та відновити спілкування з колишньою дружиною та донькою Поліною (Ніка Мислицька).\r\n\r\nВоєнна драма «Відблиск», знята режисером та сценаристом Валентином Васяновичем, є першою українською стрічкою, що брала участь у основній програмі Венеціанського кінофестивалю. Сценарій був готовий у 2019 році, а основні зйомки проходили з літа 2020 року по січень 2021 у Києві та його околицях Серед тих, хто знімався у фільмі – справжній хірург Олександр Данилюк, який зробив в польових умовах понад 70 операцій та журналіст Станіслав Асєєв, який два роки пробув у російському полоні.",
+                    GraduationYear = 2021,
+                    Duration = 126,
+                    StartRentalDate = DateTime.UtcNow.AddDays(-4),
+                    EndRentalDate = DateTime.UtcNow.AddDays(22)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 7,
+                    ImagePath = "/movies/10Lives-vend.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/wIQE7rBdr1c?si=XDXbqcIQFyXus8Nk",
+                    Title = "10 життя",
+                    Desc = "Беккет (Мо Гілліган) був маленьким беззахисним кошеням, коли мало не загинув. Його врятувала Роуз (Сімон Ешлі) та забрала жити до себе. Відтоді Беккет став геть іншим – сміливішим, впевненішим у собі та, звісно, огряднішим. Незмінними лишилися лише його впізнавані різнокольорові очі. Кіт був впевнений у тому, що вся увага та любов Роуз налижить лише йому. Тож коли дівчина почала дбати не лише про нього, Беккет втнув дещо необачне. Як результат він витратив відведені йому 9 життів. Аби повернутися до улюбленої хазяйки він знову потрапить на землю, але це буде зовсім не те життя, до якого він звик.\r\n\r\nКомедійний сімейний мультфільм «10 життя» створено спільно Великою Британією та Канадою на монреальській студії L'Atelier Animation. Режисер та сценарист проекту – Крістофер Дженкінс, кар’єра якого починалася у Walt Disney Pictures. У якості аніматора ефектів він працював над багатьма мультфільмами студії, серед яких «Русалонька» та «Король Лев».",
+                    GraduationYear = 2024,
+                    Duration = 88,
+                    StartRentalDate = DateTime.UtcNow.AddDays(-10),
+                    EndRentalDate = DateTime.UtcNow.AddDays(26)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 8,
+                    ImagePath = "/movies/BSNR-vend.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/EdwK7LCzw1k?si=7Ms_0kyh7mJKAgLg",
+                    Title = "Будинок «Слово». Нескінчений роман",
+                    Desc = "1927 року у Харкові за наказом Сталіна збудовано особливий будинок. Тут оселилися кращі українські митці – поети, письменники, художники та режисери. Сама лише можливість жити тут вже була для тогочасних творців визнанням. Якось у будинку з’являється новенький. Він працює коректором преси та понад усе мріє влитися в когорту провідних письменників. Аби оселитися тут йому дійсно знадобився талант – талант підслуховувати та переповідати все почуте агенту НКВС.\r\n\r\nІсторична драма «Будинок «Слово». Нескінчений роман» знята Тарасом Томенком за сценарієм, написаним ним спільно з Любов’ю Якимчук. У 2017 році він зняв документальний фільм «Будинок «Слово»», робота над яким надихнула на подальше дослідження епохи та персоналій. Проект художнього фільму став одним з переможців конкурсу від Держкіно та отримав державне фінансування, що покрило половину витрат на виробництво.",
+                    GraduationYear = 2024,
+                    Duration = 120,
+                    StartRentalDate = DateTime.UtcNow.AddDays(-10),
+                    EndRentalDate = DateTime.UtcNow.AddDays(20)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 9,
+                    ImagePath = "/movies/TAROT-vend.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/j3wUuh8GJto?si=OrZerBeec68n6Yrv",
+                    Title = "Таро",
+                    Desc = "Компанія друзів збирається разом. Замість звичних посиденьок вони влаштовують ворожіння на картах Таро, які одна з дівчат випадково знайшла на захаращеному горищі. Головна помилка, якої вони припустились – порушення незмінного правила про те, що не можна брати до рук чужі карти. Вечір довгий, тож поворожити встигли усім присутнім. Такі їхні дії вивільнили древні зли сили, які не прощають тим, хто порушив їхній спокій. Колода карт була проклятою і тепер смерть чекає на кожного, хто насмілився дізнатися свою подальшу долю з їх допомогою. Для кожного, кому ворожили, починаються перегони зі лихою силою, яка не знає ані втоми, ані жалю.\r\n\r\nФільм жахів «Таро» зняли Спенсер Коен та Анна Ройс. Вони спільно написали сценарій, використавши за основу книгу «Жахи», написану Ніколасом Адамсом у 1992 році. Режисурою зайнялися також удвох і для обох цей фільм став дебютним на великому екрані, тоді як у сценарній справі досвід мали обоє.",
+                    GraduationYear = 2024,
+                    Duration = 92,
+                    StartRentalDate = DateTime.UtcNow.AddDays(-1),
+                    EndRentalDate = DateTime.UtcNow.AddDays(24)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 10,
+                    ImagePath = "/movies/CHLNGRS-vend2.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/ckcxzebS5hk?si=ERSDSJqtNnVuBH1n",
+                    Title = "Суперники",
+                    Desc = "Чемпіон Турніру Великого шлему Арт Дональдсон (Майк Файст) зазнає серію поразок. Колись він був посереднім гравцем. Чемпіона з нього зробила його дружина Таші (Зендея). Тенісистка у минулому, нині вона присвятила себе тренуванню чоловіка. Аби він повернув собі жагу до перемог, Таші записує його до участі у турнірі Challenger. Зазвичай у ньому беруть участь початківці або гравці другого дивізіону. Однак для ситуації, що склалася у Арта, це буде доречно. Незадовго до змагань чоловік дізнається, що у турнірній сітці його суперником буде Патрік Цвейг (Джош О'Коннор), колишній коханець його дружини та його кращий друг.\r\n\r\nСпортивну мелодраму «Суперники» зняв режисер Лука Ґуаданьїно, чотириразовий володар премій Венеціанського кінофестивалю. Для зйомок у фільмі Зендая впродовж трьох місяців займалася з професійним тенісним тренером. Зйомки розпочалися у травні 2022 року у Бостоні. Цьому передували кастинги, під час яких серед місцевих жителів шукали акторів масовки.",
+                    GraduationYear = 2024,
+                    Duration = 132,
+                    StartRentalDate = DateTime.UtcNow.AddDays(-15),
+                    EndRentalDate = DateTime.UtcNow.AddDays(25)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 11,
+                    ImagePath = "/movies/vend.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/vtmo7fplVWo?si=DKOyUUar-Z5cFUwj",
+                    Title = "Лазня диявола (в рамках фестивалю)",
+                    Desc = "Дівчина з бідної родини виходить заміж та оселяється у віддаленому будинку її обранця посеред густого лісу. Світ чоловіка для неї геть чужий, а мрії про дитину стають нездійсненним тягарем. З кожним днем важкої рутини та марних сподівань, вона все більше закривається в собі. Допоки не опиняється на темному шляху, що веде до злих думок. Можливо, не лише думок…",
+                    GraduationYear = 2024,
+                    Duration = 121,
+                    StartRentalDate = DateTime.UtcNow.AddDays(1),
+                    EndRentalDate = DateTime.UtcNow.AddDays(1)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 12,
+                    ImagePath = "/movies/obmin-vend-18.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/obiN4-XK7_4?si=Tv8aIjC6LNcY96Nt",
+                    Title = "Обмін",
+                    Desc = "Війна, що триває з 2014 року, вплинула на життя багатьох українців. Якось посеред ночі на телефон батька (В'ячеслав Довженко) замість сина з його номера зателефонував невідомий. Так стало відомо, що хлопець, який виконував бойове завдання, потрапив у полон. Аби визволити його батько повинен сам поїхати на лінію розмежування та привезти зазначену суму. Однак на обмін замість сина привезли іншого хлопця. У таких самих або подібних обставинах не лише ці син і батько. З кожним днем число родин, чиє життя докорінно змінила війна, щоразу більшає. Тож чи можна домовитися з ворогом, для якого не існує ніяких правил та етичних норм?\r\n\r\nВоєнна драма «Обмін» створена за підтримки Державного агентства з питань кіно. Режисер проекту Володимир Харченко-Куликовський має великий досвід у виробництві серіалів для українського телебачення. Зйомки велися на території Київської області, у Броварському районі, який на початку повномасштабного вторгнення був частково окупований.",
+                    GraduationYear = 2024,
+                    Duration = 90,
+                    StartRentalDate = DateTime.UtcNow.AddDays(-2),
+                    EndRentalDate = DateTime.UtcNow.AddDays(7)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 13,
+                    ImagePath = "/movies/vend1.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/ecp1xSqaA5c?si=OvYH_CGwjXdqGGNw",
+                    Title = "Виходячи за межі (в рамках фестивалю)",
+                    Desc = "Зимова Олімпіада 1976 року. Гірськолижнику Францу Кламмеру тільки 22 роки, а його вже називають майбутньою зіркою. За плечима юнака чимало перемог, тож преса й публіка сподіваються на його нові здобутки. Але тиск очікувань тисяч австрійців — не єдиний виклик у цьому змаганні. Незадовго до перегонів спонсор вирішує змінити звичні форму та спорядження, погодні умови чимдалі гіршають, а траса здається неприступною. Єдине, що не дає герою зламатися — кохання його життя.",
+                    GraduationYear = 2024,
+                    Duration = 100,
+                    StartRentalDate = DateTime.UtcNow.AddDays(1),
+                    EndRentalDate = DateTime.UtcNow.AddDays(1)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 14,
+                    ImagePath = "/movies/ol-vend3.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/R0qZJggKri0?si=Iu5Rg7eDTJeoF6-q",
+                    Title = "Одне життя",
+                    Desc = "1988 року Ніколаса Вінтона (Ентоні Гопкінс) запрошують на телевізійне шоу. Ведуча розповідає про унікальну місію порятунку сотень дітей. Напередодні Другої світової війни з Праги до Великої Британії перевезли спеціальними поїздами дітей, переважно єврейських. Усі вони змушені були шукати новий дім з остраху перед діями нацистів. Координував операцію 29-річний Ніколас Вінтон (Джонні Флінн). Кожному перевезеному потрібно було знайти нове місце проживання та чималу суму грошей. Близько 50 років деталі перевезення не оприлюднювалися і ось, нарешті, настав час оцінити масштаби зробленого.\r\n\r\nБіографічна драма «Одне життя» заснована на книзі Барбари Вінтон, яку жінка написала про свого батька, Ніколаса Вінтона. На початку 1939 року він організував маршрут, яким було перевезено 669 дітей. На зйомках фільму були задіяні нащадки врятованих дітей. Барбара Вінтон особисто попросила Ентоні Хопкінса виконати роль її батька. Знімали фільм у Празі та Лондоні наприкінці 2022 року.",
+                    GraduationYear = 2023,
+                    Duration = 108,
+                    StartRentalDate = DateTime.UtcNow.AddDays(6),
+                    EndRentalDate = DateTime.UtcNow.AddDays(12)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 15,
+                    ImagePath = "/movies/STRNGR1-vend.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/dUe_Ac4V-R4?si=fxBrFFENDZKs2iPA",
+                    Title = "Незнайомці: Частина перша",
+                    Desc = "Закохана пара Майа (Меделін Петш) та Райан (Фрой Гутьєррез) на честь своєї п’ятої річниці подорожують крізь усю країну до Тихоокеанського узбережжя. Дорогою через штат Орегон в них ламається машина. Заночувати доведеться у єдиному доступному місці – старенькому будиночку десь у хащах на околиці маленького непривітного міста. Що люди, що краєвиди не викликали жодної симпатії, але Майа звикла знаходити хороше у всьому, що їх оточує. З настанням ночі всього оптимізму світу не вистачить, аби розгледіти бодай щось хороше у тому, що почало відбуватись. До хатини вдерлося троє незнайомців у масках.\r\n\r\nЖахи «Незнайомці: Частина перша» є продовженням франшизи «Незнайомці», перший фільм якої вийшов на екрани у 2008 році. Продовження презентували 2018 року. Новий фільм стане першим у трилогії, яку знімали одночасно. Передбачається, що сюжет розкриє історію появи людей у масках та покаже що стається з їхніми жертвами. Знімали у столиці Словаччини Братиславі наприкінці 2022 року.",
+                    GraduationYear = 2024,
+                    Duration = 91,
+                    StartRentalDate = DateTime.UtcNow.AddDays(13),
+                    EndRentalDate = DateTime.UtcNow.AddDays(20)
+                },
+
+                new MovieEntity()
+                {
+                    Id = 16,
+                    ImagePath = "/movies/lampo-vend.jpg",
+                    TrailerUrl = @"https://www.youtube.com/embed/iynOv10VcNU?si=YG_3DrY0TLYM4_Qv",
+                    Title = "Лампо: Вірний пес",
+                    Desc = "Життя милої дівчинки Зузі (Ліліана Зайберт) докорінно змінюється, коли тато (Матеуш Дамецький) приводить з залізничної станції, де він працює, собаку. Песику дали ім’я Лампо та оточили турботою. Цей пес – справжній мандрівник і довго сидіти на місці він не любить. Куди б він не їхав, він зачаровує пасажирів та стає улюбленцем. Само тому мережею шириться безліч світлин з Лампо. Нажаль, є й ті, кому слава милого песика не до вподоби. Заздрісники хочуть назавжди позбавити Лампо дому та можливості подорожувати, а дівчинку Зузі розлучити з кращим другом.\r\n\r\nСімейний фільм «Лампо: Вірний пес» знято польською режисеркою Магдалиною Ніц. У основі сюжету – популярна у Польщі дитяча книга, яка входить до місцевої шкільної програми. Історію написав у 1967 році Роман Писарський, польський письменник, який народився у Івано-Франківську. Пес, про якого йдеться у дитячій історії, справді жив у 1950-х роках та без супроводу людей подорожував Європою на поїздах.",
+                    GraduationYear = 2023,
+                    Duration = 120,
+                    StartRentalDate = DateTime.UtcNow.AddDays(16),
+                    EndRentalDate = DateTime.UtcNow.AddDays(23)
                 },
             });
 
@@ -98,19 +279,109 @@ namespace SoftServeCinema.Infrastructure.Data
                 {
                     Id = 12,
                     Name = "документальний"
+                },
+                new GenreEntity()
+                {
+                    Id = 13,
+                    Name = "наукова фантастика"
+                },
+                new GenreEntity()
+                {
+                    Id = 14,
+                    Name = "фантастика"
+                },
+                new GenreEntity()
+                {
+                    Id = 15,
+                    Name = "воєнна драма"
+                },
+                new GenreEntity()
+                {
+                    Id = 16,
+                    Name = "українське"
+                },
+                new GenreEntity()
+                {
+                    Id = 17,
+                    Name = "анімація"
+                },
+                new GenreEntity()
+                {
+                    Id = 18,
+                    Name = "історія"
+                },
+                new GenreEntity()
+                {
+                    Id = 19,
+                    Name = "мелодрама"
+                },
+                new GenreEntity()
+                {
+                    Id = 20,
+                    Name = "містика"
+                },
+                new GenreEntity()
+                {
+                    Id = 21,
+                    Name = "біографія"
                 }
             });
 
             modelBuilder.Entity("GenreEntityMovieEntity").HasData(
+                //MovieId 1
                 new { GenresId = 1, MoviesId = 1 },
                 new { GenresId = 2, MoviesId = 1 },
                 new { GenresId = 3, MoviesId = 1 },
+                //MovieId 2
                 new { GenresId = 2, MoviesId = 2 },
-                new { GenresId = 4, MoviesId = 2 }
+                new { GenresId = 4, MoviesId = 2 },
+                //MovieId 3
+                new { GenresId = 2, MoviesId = 3 },
+                new { GenresId = 13, MoviesId = 3 },
+                //MovieId 4
+                new { GenresId = 7, MoviesId = 4 },
+                new { GenresId = 14, MoviesId = 4 },
+                //MovieId 5
+                new { GenresId = 12, MoviesId = 5 },
+                new { GenresId = 10, MoviesId = 5 },
+                //MovieId 6
+                new { GenresId = 15, MoviesId = 6 },
+                new { GenresId = 16, MoviesId = 6 },
+                //MovieId 7
+                new { GenresId = 17, MoviesId = 7 },
+                new { GenresId = 9, MoviesId = 7 },
+                new { GenresId = 7, MoviesId = 7 },
+                //MovieId 8
+                new { GenresId = 10, MoviesId = 8 },
+                new { GenresId = 18, MoviesId = 8 },
+                new { GenresId = 16, MoviesId = 8 },
+                //MovieId 9
+                new { GenresId = 5, MoviesId = 9 },
+                //MovieId 10
+                new { GenresId = 10, MoviesId = 10 },
+                new { GenresId = 19, MoviesId = 10 },
+                new { GenresId = 11, MoviesId = 10 },
+                //MovieId 11
+                new { GenresId = 10, MoviesId = 11 },
+                new { GenresId = 20, MoviesId = 11 },
+                new { GenresId = 6, MoviesId = 11 },
+                //MovieId 12
+                new { GenresId = 10, MoviesId = 12 },
+                //MovieId 13
+                new { GenresId = 21, MoviesId = 13 },
+                new { GenresId = 11, MoviesId = 13 },
+                new { GenresId = 10, MoviesId = 13 },
+                //MovieId 14
+                new { GenresId = 10, MoviesId = 14 },
+                //MovieId 15
+                new { GenresId = 6, MoviesId = 15 },
+                //MovieId 16
+                new { GenresId = 9, MoviesId = 16 }
             );
 
             modelBuilder.Entity<ActorEntity>().HasData(new ActorEntity[]
             {
+                //MovieId 1
                 new ActorEntity()
                 {
                     Id = 1,
@@ -134,28 +405,517 @@ namespace SoftServeCinema.Infrastructure.Data
                 new ActorEntity()
                 {
                     Id = 5,
-                    Name = "Раян Ґослінґ"
+                    Name = "Джефферсон Вайт"
                 },
                 new ActorEntity()
                 {
                     Id = 6,
+                    Name = "Вагнер Моура"
+                },
+                //MovieId 2
+                new ActorEntity()
+                {
+                    Id = 7,
+                    Name = "Раян Ґослінґ"
+                },
+                new ActorEntity()
+                {
+                    Id = 8,
                     Name = "Емілі Блант"
                 },
                 new ActorEntity()
                 {
-                    Id = 7,
+                    Id = 9,
                     Name = "Аарон Тейлор-Джонсон"
+                },
+                new ActorEntity()
+                {
+                    Id = 10,
+                    Name = "Тереза Палмер"
+                },
+                new ActorEntity()
+                {
+                    Id = 11,
+                    Name = "Вінстон Дюк"
+                },
+                //MovieId 3
+                new ActorEntity()
+                {
+                    Id = 12,
+                    Name = "Овен Тіґ"
+                },
+                new ActorEntity()
+                {
+                    Id = 13,
+                    Name = "Фрея Аллан"
+                },
+                new ActorEntity()
+                {
+                    Id = 14,
+                    Name = "Кевін Дюранд"
+                },
+                new ActorEntity()
+                {
+                    Id = 15,
+                    Name = "Пітер Макон"
+                },
+                new ActorEntity()
+                {
+                    Id = 16,
+                    Name = "Вільям Мейсі"
+                },
+                //MovieId 4
+                new ActorEntity()
+                {
+                    Id = 17,
+                    Name = "Фібі Воллер-Брідж"
+                },
+                new ActorEntity()
+                {
+                    Id = 18,
+                    Name = "Раян Рейнольдс"
+                },
+                new ActorEntity()
+                {
+                    Id = 19,
+                    Name = "Кейлі Флемінг"
+                },
+                new ActorEntity()
+                {
+                    Id = 20,
+                    Name = "Метт Деймон"
+                },
+                //MovieId 5
+                new ActorEntity()
+                {
+                    Id = 21,
+                    Name = "Андрій Прохоров"
+                },
+                new ActorEntity()
+                {
+                    Id = 22,
+                    Name = "Олег Яворський"
+                },
+                new ActorEntity()
+                {
+                    Id = 23,
+                    Name = "Олексій Ситянов"
+                },
+                new ActorEntity()
+                {
+                    Id = 24,
+                    Name = "Олександр Кохановський"
+                },
+                new ActorEntity()
+                {
+                    Id = 25,
+                    Name = "Володимир Корунчак"
+                },
+                new ActorEntity()
+                {
+                    Id = 26,
+                    Name = "Олександр Новіков"
+                },
+                new ActorEntity()
+                {
+                    Id = 27,
+                    Name = "Олександр Максимчук"
+                },
+                new ActorEntity()
+                {
+                    Id = 28,
+                    Name = "Олег Данилов"
+                },
+                new ActorEntity()
+                {
+                    Id = 29,
+                    Name = "Дін Шарп"
+                },
+                //MovieId 6
+                new ActorEntity()
+                {
+                    Id = 30,
+                    Name = "Андрій Римарук"
+                },
+                new ActorEntity()
+                {
+                    Id = 31,
+                    Name = "Роман Луцький"
+                },
+                new ActorEntity()
+                {
+                    Id = 32,
+                    Name = "Ніка Мислицька"
+                },
+                new ActorEntity()
+                {
+                    Id = 33,
+                    Name = "Надія Левченко"
+                },
+                new ActorEntity()
+                {
+                    Id = 34,
+                    Name = "Ігор Шульга"
+                },
+                new ActorEntity()
+                {
+                    Id = 35,
+                    Name = "Олександр Данилюк"
+                },
+                new ActorEntity()
+                {
+                    Id = 36,
+                    Name = "Станіслав Асєєв"
+                },
+                //MovieId 7
+                new ActorEntity()
+                {
+                    Id = 37,
+                    Name = "Білл Наї"
+                },
+                new ActorEntity()
+                {
+                    Id = 38,
+                    Name = "Сімон Ешлі"
+                },
+                new ActorEntity()
+                {
+                    Id = 39,
+                    Name = "Софі Оконедо"
+                },
+                new ActorEntity()
+                {
+                    Id = 40,
+                    Name = "Зейн Малік"
+                },
+                new ActorEntity()
+                {
+                    Id = 41,
+                    Name = "Мо Гілліган"
+                },
+                //MovieId 8
+                new ActorEntity()
+                {
+                    Id = 42,
+                    Name = "Дмитро Олійник"
+                },
+                new ActorEntity()
+                {
+                    Id = 43,
+                    Name = "В'ячеслав Довженко"
+                },
+                new ActorEntity()
+                {
+                    Id = 44,
+                    Name = "Станіслав Сукненко"
+                },
+                new ActorEntity()
+                {
+                    Id = 45,
+                    Name = "Ніна Набока"
+                },
+                new ActorEntity()
+                {
+                    Id = 46,
+                    Name = "Марина Кошкіна"
+                },
+                new ActorEntity()
+                {
+                    Id = 47,
+                    Name = "Юрій Одинокий"
+                },
+                new ActorEntity()
+                {
+                    Id = 48,
+                    Name = "Борис Георгієвський"
+                },
+                new ActorEntity()
+                {
+                    Id = 49,
+                    Name = "Ігор Гнєзділов"
+                },
+                //MovieId 9
+                new ActorEntity()
+                {
+                    Id = 50,
+                    Name = "Гаррієт Слейтер"
+                },
+                new ActorEntity()
+                {
+                    Id = 51,
+                    Name = "Адаїн Бредлі"
+                },
+                new ActorEntity()
+                {
+                    Id = 52,
+                    Name = "Джейкоб Баталон"
+                },
+                //MovieId 10
+                new ActorEntity()
+                {
+                    Id = 53,
+                    Name = "Джош О’Коннор"
+                },
+                new ActorEntity()
+                {
+                    Id = 54,
+                    Name = "Майк Файст"
+                },
+                new ActorEntity()
+                {
+                    Id = 55,
+                    Name = "Кіану Хем"
+                },
+                //MovieId 11
+                new ActorEntity()
+                {
+                    Id = 56,
+                    Name = "Анна Плаж"
+                },
+                new ActorEntity()
+                {
+                    Id = 57,
+                    Name = "Марія Гофштеттер"
+                },
+                new ActorEntity()
+                {
+                    Id = 58,
+                    Name = "Давід Шайд"
+                },
+                //MovieId 12
+                new ActorEntity()
+                {
+                    Id = 59,
+                    Name = "Єгор Козлов"
+                },
+                new ActorEntity()
+                {
+                    Id = 60,
+                    Name = "Дмитро Лінартович"
+                },
+                new ActorEntity()
+                {
+                    Id = 61,
+                    Name = "Василь Баша"
+                },
+                new ActorEntity()
+                {
+                    Id = 62,
+                    Name = "Ганна Адамович"
+                },
+                new ActorEntity()
+                {
+                    Id = 63,
+                    Name = "Владислав Мамчур"
+                },
+                //MovieId 13
+                new ActorEntity()
+                {
+                    Id = 64,
+                    Name = "Юліан Вальднер"
+                },
+                new ActorEntity()
+                {
+                    Id = 65,
+                    Name = "Валері Губер"
+                },
+                new ActorEntity()
+                {
+                    Id = 66,
+                    Name = "Отто Янкович"
+                },
+                new ActorEntity()
+                {
+                    Id = 67,
+                    Name = "Рафаель Ніколас"
+                },
+                //MovieId 14
+                new ActorEntity()
+                {
+                    Id = 68,
+                    Name = "Ентоні Гопкінс"
+                },
+                new ActorEntity()
+                {
+                    Id = 69,
+                    Name = "Джонні Флінн"
+                },
+                new ActorEntity()
+                {
+                    Id = 70,
+                    Name = "Гелена Бонем Картер"
+                },
+                new ActorEntity()
+                {
+                    Id = 71,
+                    Name = "Джонатан Прайс"
+                },
+                new ActorEntity()
+                {
+                    Id = 72,
+                    Name = "Зіггі Хіт"
+                },
+                new ActorEntity()
+                {
+                    Id = 73,
+                    Name = "Марта Келлер"
+                },
+                //MovieId 15
+                new ActorEntity()
+                {
+                    Id = 74,
+                    Name = "Меделін Петш"
+                },
+                new ActorEntity()
+                {
+                    Id = 75,
+                    Name = "Фрой Гутьєррез"
+                },
+                new ActorEntity()
+                {
+                    Id = 76,
+                    Name = "Рейчел Шентон"
+                },
+                new ActorEntity()
+                {
+                    Id = 77,
+                    Name = "Річард Брейк"
+                },
+                new ActorEntity()
+                {
+                    Id = 78,
+                    Name = "Ема Хорват"
+                },
+                //MovieId 16
+                new ActorEntity()
+                {
+                    Id = 79,
+                    Name = "Матеуш Дамецький"
+                },
+                new ActorEntity()
+                {
+                    Id = 80,
+                    Name = "Моніка Пікула"
+                },
+                new ActorEntity()
+                {
+                    Id = 81,
+                    Name = "Даріуш Якубовскі"
+                },
+                new ActorEntity()
+                {
+                    Id = 82,
+                    Name = "Ліліана Зайберт"
+                },
+                new ActorEntity()
+                {
+                    Id = 83,
+                    Name = "Адам Воронович"
                 }
             });
 
             modelBuilder.Entity("ActorEntityMovieEntity").HasData(
+                //MovieId 1
                 new { ActorsId = 1, MoviesId = 1 },
                 new { ActorsId = 2, MoviesId = 1 },
                 new { ActorsId = 3, MoviesId = 1 },
                 new { ActorsId = 4, MoviesId = 1 },
-                new { ActorsId = 5, MoviesId = 2 },
-                new { ActorsId = 6, MoviesId = 2 },
-                new { ActorsId = 7, MoviesId = 2 }
+                new { ActorsId = 5, MoviesId = 1 },
+                new { ActorsId = 6, MoviesId = 1 },
+                //MovieId 2
+                new { ActorsId = 7, MoviesId = 2 },
+                new { ActorsId = 8, MoviesId = 2 },
+                new { ActorsId = 9, MoviesId = 2 },
+                new { ActorsId = 10, MoviesId = 2 },
+                new { ActorsId = 11, MoviesId = 2 },
+                //MovieId 3
+                new { ActorsId = 12, MoviesId = 3 },
+                new { ActorsId = 13, MoviesId = 3 },
+                new { ActorsId = 14, MoviesId = 3 },
+                new { ActorsId = 15, MoviesId = 3 },
+                new { ActorsId = 16, MoviesId = 3 },
+                //MovieId 4
+                new { ActorsId = 17, MoviesId = 4 },
+                new { ActorsId = 8, MoviesId = 4 },
+                new { ActorsId = 18, MoviesId = 4 },
+                new { ActorsId = 19, MoviesId = 4 },
+                new { ActorsId = 20, MoviesId = 4 },
+                //MovieId 5
+                new { ActorsId = 21, MoviesId = 5 },
+                new { ActorsId = 22, MoviesId = 5 },
+                new { ActorsId = 23, MoviesId = 5 },
+                new { ActorsId = 24, MoviesId = 5 },
+                new { ActorsId = 25, MoviesId = 5 },
+                new { ActorsId = 26, MoviesId = 5 },
+                new { ActorsId = 27, MoviesId = 5 },
+                new { ActorsId = 28, MoviesId = 5 },
+                new { ActorsId = 29, MoviesId = 5 },
+                //MovieId 6
+                new { ActorsId = 30, MoviesId = 6 },
+                new { ActorsId = 31, MoviesId = 6 },
+                new { ActorsId = 32, MoviesId = 6 },
+                new { ActorsId = 33, MoviesId = 6 },
+                new { ActorsId = 34, MoviesId = 6 },
+                new { ActorsId = 35, MoviesId = 6 },
+                new { ActorsId = 36, MoviesId = 6 },
+                //MovieId 7
+                new { ActorsId = 37, MoviesId = 7 },
+                new { ActorsId = 38, MoviesId = 7 },
+                new { ActorsId = 39, MoviesId = 7 },
+                new { ActorsId = 40, MoviesId = 7 },
+                new { ActorsId = 41, MoviesId = 7 },
+                //MovieId 8
+                new { ActorsId = 42, MoviesId = 8 },
+                new { ActorsId = 43, MoviesId = 8 },
+                new { ActorsId = 44, MoviesId = 8 },
+                new { ActorsId = 45, MoviesId = 8 },
+                new { ActorsId = 46, MoviesId = 8 },
+                new { ActorsId = 47, MoviesId = 8 },
+                new { ActorsId = 48, MoviesId = 8 },
+                new { ActorsId = 49, MoviesId = 8 },
+                //MovieId 9
+                new { ActorsId = 50, MoviesId = 9 },
+                new { ActorsId = 51, MoviesId = 9 },
+                new { ActorsId = 52, MoviesId = 9 },
+                //MovieId 10
+                new { ActorsId = 53, MoviesId = 10 },
+                new { ActorsId = 54, MoviesId = 10 },
+                new { ActorsId = 55, MoviesId = 10 },
+                //MovieId 11
+                new { ActorsId = 56, MoviesId = 11 },
+                new { ActorsId = 57, MoviesId = 11 },
+                new { ActorsId = 58, MoviesId = 11 },
+                //MovieId 12
+                new { ActorsId = 43, MoviesId = 12 },
+                new { ActorsId = 59, MoviesId = 12 },
+                new { ActorsId = 60, MoviesId = 12 },
+                new { ActorsId = 61, MoviesId = 12 },
+                new { ActorsId = 62, MoviesId = 12 },
+                new { ActorsId = 63, MoviesId = 12 },
+                //MovieId 13
+                new { ActorsId = 64, MoviesId = 13 },
+                new { ActorsId = 65, MoviesId = 13 },
+                new { ActorsId = 66, MoviesId = 13 },
+                new { ActorsId = 67, MoviesId = 13 },
+                //MovieId 14
+                new { ActorsId = 68, MoviesId = 14 },
+                new { ActorsId = 69, MoviesId = 14 },
+                new { ActorsId = 70, MoviesId = 14 },
+                new { ActorsId = 71, MoviesId = 14 },
+                new { ActorsId = 72, MoviesId = 14 },
+                new { ActorsId = 73, MoviesId = 14 },
+                //MovieId 15
+                new { ActorsId = 74, MoviesId = 15 },
+                new { ActorsId = 75, MoviesId = 15 },
+                new { ActorsId = 76, MoviesId = 15 },
+                new { ActorsId = 77, MoviesId = 15 },
+                new { ActorsId = 78, MoviesId = 15 },
+                //MovieId 16
+                new { ActorsId = 79, MoviesId = 16 },
+                new { ActorsId = 80, MoviesId = 16 },
+                new { ActorsId = 81, MoviesId = 16 },
+                new { ActorsId = 82, MoviesId = 16 },
+                new { ActorsId = 83, MoviesId = 16 }
             );
 
             modelBuilder.Entity<DirectorEntity>().HasData(new DirectorEntity[]
@@ -170,15 +930,112 @@ namespace SoftServeCinema.Infrastructure.Data
                     Id = 2,
                     Name = "Девід Літч"
                 },
+                new DirectorEntity()
+                {
+                    Id = 3,
+                    Name = "Вес Болл"
+                },
+                new DirectorEntity()
+                {
+                    Id = 4,
+                    Name = "Джон Красінскі"
+                },
+                new DirectorEntity()
+                {
+                    Id = 5,
+                    Name = "Артем Григорян"
+                },
+                new DirectorEntity()
+                {
+                    Id = 6,
+                    Name = "Валентин Васянович"
+                },
+                new DirectorEntity()
+                {
+                    Id = 7,
+                    Name = "Крістофер Дженкінс"
+                },
+                new DirectorEntity()
+                {
+                    Id = 8,
+                    Name = "Тарас Томенко"
+                },
+                new DirectorEntity()
+                {
+                    Id = 9,
+                    Name = "Спенсер Коен"
+                },
+                new DirectorEntity()
+                {
+                    Id = 10,
+                    Name = "Анна Голберґ"
+                },
+                new DirectorEntity()
+                {
+                    Id = 11,
+                    Name = "Лука Ґуаданьїно"
+                },
+                new DirectorEntity()
+                {
+                    Id = 12,
+                    Name = "Северін Фіала"
+                },
+                new DirectorEntity()
+                {
+                    Id = 13,
+                    Name = "Вероніка Франц"
+                },
+                new DirectorEntity()
+                {
+                    Id = 14,
+                    Name = "Володимир Харченко-Куликовський"
+                },
+                new DirectorEntity()
+                {
+                    Id = 15,
+                    Name = "Андреас Шмід"
+                },
+                new DirectorEntity()
+                {
+                    Id = 16,
+                    Name = "Джеймс Хоуз"
+                },
+                new DirectorEntity()
+                {
+                    Id = 17,
+                    Name = "Ренні Гарлін"
+                },
+                new DirectorEntity()
+                {
+                    Id = 18,
+                    Name = "Маґдалена Нєц"
+                }
             });
 
             modelBuilder.Entity("DirectorEntityMovieEntity").HasData(
                 new { DirectorsId = 1, MoviesId = 1 },
-                new { DirectorsId = 2, MoviesId = 2 }
+                new { DirectorsId = 2, MoviesId = 2 },
+                new { DirectorsId = 3, MoviesId = 3 },
+                new { DirectorsId = 4, MoviesId = 4 },
+                new { DirectorsId = 5, MoviesId = 5 },
+                new { DirectorsId = 6, MoviesId = 6 },
+                new { DirectorsId = 7, MoviesId = 7 },
+                new { DirectorsId = 8, MoviesId = 8 },
+                new { DirectorsId = 9, MoviesId = 9 },
+                new { DirectorsId = 10, MoviesId = 9 },
+                new { DirectorsId = 11, MoviesId = 10 },
+                new { DirectorsId = 12, MoviesId = 11 },
+                new { DirectorsId = 13, MoviesId = 11 },
+                new { DirectorsId = 14, MoviesId = 12 },
+                new { DirectorsId = 15, MoviesId = 13 },
+                new { DirectorsId = 16, MoviesId = 14 },
+                new { DirectorsId = 17, MoviesId = 15 },
+                new { DirectorsId = 18, MoviesId = 16 }
             );
 
             modelBuilder.Entity<TagEntity>().HasData(new TagEntity[]
             {
+                //Tags by age
                 new TagEntity()
                 {
                     Id = 1,
@@ -187,31 +1044,42 @@ namespace SoftServeCinema.Infrastructure.Data
                 new TagEntity()
                 {
                     Id = 2,
-                    Name = "12+"
+                    Name = "16+"
                 },
-                 new TagEntity()
+                new TagEntity()
                 {
                     Id = 3,
-                    Name = "VR"
+                    Name = "12+"
                 },
-                  new TagEntity()
+                new TagEntity()
                 {
                     Id = 4,
-                    Name = "Дивитись разом"
+                    Name = "0+"
                 },
-                   new TagEntity()
+                //Tags by type
+                new TagEntity()
                 {
                     Id = 5,
-                    Name = "У темряві"
+                    Name = "VR"
                 },
-                  new TagEntity()
+                new TagEntity()
                 {
                     Id = 6,
-                    Name = "Для підлітків"
+                    Name = "Дивитись разом"
                 },
-                    new TagEntity()
+                new TagEntity()
                 {
                     Id = 7,
+                    Name = "У темряві"
+                },
+                new TagEntity()
+                {
+                    Id = 8,
+                    Name = "Для підлітків"
+                },
+                new TagEntity()
+                {
+                    Id = 9,
                     Name = "Фінансовий"
                 }
                   
@@ -219,9 +1087,23 @@ namespace SoftServeCinema.Infrastructure.Data
 
             modelBuilder.Entity("MovieEntityTagEntity").HasData(
                 new { MoviesId = 1, TagsId = 1 },
-                new { MoviesId = 2, TagsId = 2 }
+                new { MoviesId = 2, TagsId = 3 },
+                new { MoviesId = 3, TagsId = 2 },
+                new { MoviesId = 4, TagsId = 4 },
+                new { MoviesId = 5, TagsId = 3 },
+                new { MoviesId = 6, TagsId = 2 },
+                new { MoviesId = 7, TagsId = 4 },
+                new { MoviesId = 8, TagsId = 2 },
+                new { MoviesId = 9, TagsId = 2 },
+                new { MoviesId = 10, TagsId = 2 },
+                new { MoviesId = 11, TagsId = 2 },
+                new { MoviesId = 12, TagsId = 1 },
+                new { MoviesId = 13, TagsId = 2 },
+                new { MoviesId = 14, TagsId = 2 },
+                new { MoviesId = 15, TagsId = 1 },
+                new { MoviesId = 16, TagsId = 3 }
             );
-
+            
             for(int i=1; i<=20; i++)
             {
                 modelBuilder.Entity<SessionEntity>().HasData(new SessionEntity()
@@ -236,7 +1118,7 @@ namespace SoftServeCinema.Infrastructure.Data
             }
           
             modelBuilder.Entity<UserEntity>().HasData(new UserEntity[]
-         {
+            {
                 new UserEntity()
                 {
                     Id = Guid.Parse("551b099b-91de-48ab-bb52-518a67f35e5b") ,
@@ -245,7 +1127,7 @@ namespace SoftServeCinema.Infrastructure.Data
                     Email="romanmedvedev0201@gmail.com",
                     RoleName = "User"
                 },
-                 new UserEntity()
+                new UserEntity()
                 {
                     Id = Guid.Parse("a4612de6-84ef-454c-bca5-579bea951d02") ,
                     FirstName="Roman",
@@ -253,7 +1135,7 @@ namespace SoftServeCinema.Infrastructure.Data
                     Email="r.medvedev@nltu.lviv.ua",
                     RoleName = "SuperAdmin" //passsword= SumailLol222""
                 },
-         });
+            });
 
             int ticketId = 1;
             for (int sessionId = 1; sessionId <= 20; sessionId++)
