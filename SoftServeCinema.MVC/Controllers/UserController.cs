@@ -61,8 +61,8 @@ namespace SoftServeCinema.MVC.Controllers
                         Email = userLoginDTO.Email,
                         RoleName = userWithToken.Role,
                         Id = userWithToken.Id,
-                        FirstName = "HttpContext.Session.GetString('FirstName')",
-                        LastName =" HttpContext.Session.GetString('LastName')"
+                        FirstName = HttpContext.Session.GetString("FirstName"),
+                        LastName = HttpContext.Session.GetString("LastName")
                     };
                     HttpContext.Session.Clear();
                     await _userService.Create(user);
