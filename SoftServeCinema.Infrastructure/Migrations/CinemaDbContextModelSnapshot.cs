@@ -60,17 +60,407 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         new
                         {
                             ActorsId = 5,
-                            MoviesId = 2
+                            MoviesId = 1
                         },
                         new
                         {
                             ActorsId = 6,
-                            MoviesId = 2
+                            MoviesId = 1
                         },
                         new
                         {
                             ActorsId = 7,
                             MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 8,
+                            MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 9,
+                            MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 10,
+                            MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 11,
+                            MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 12,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 13,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 14,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 15,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 16,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 17,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 8,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 18,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 19,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 20,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 21,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 22,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 23,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 24,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 25,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 26,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 27,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 28,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 29,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 30,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 31,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 32,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 33,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 34,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 35,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 36,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 37,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 38,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 39,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 40,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 41,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 42,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 43,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 44,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 45,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 46,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 47,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 48,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 49,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 50,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            ActorsId = 51,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            ActorsId = 52,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            ActorsId = 53,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            ActorsId = 54,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            ActorsId = 55,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            ActorsId = 56,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            ActorsId = 57,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            ActorsId = 58,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            ActorsId = 43,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 59,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 60,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 61,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 62,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 63,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 64,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            ActorsId = 65,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            ActorsId = 66,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            ActorsId = 67,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            ActorsId = 68,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 69,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 70,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 71,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 72,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 73,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 74,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 75,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 76,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 77,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 78,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 79,
+                            MoviesId = 16
+                        },
+                        new
+                        {
+                            ActorsId = 80,
+                            MoviesId = 16
+                        },
+                        new
+                        {
+                            ActorsId = 81,
+                            MoviesId = 16
+                        },
+                        new
+                        {
+                            ActorsId = 82,
+                            MoviesId = 16
+                        },
+                        new
+                        {
+                            ActorsId = 83,
+                            MoviesId = 16
                         });
                 });
 
@@ -98,6 +488,86 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         {
                             DirectorsId = 2,
                             MoviesId = 2
+                        },
+                        new
+                        {
+                            DirectorsId = 3,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            DirectorsId = 4,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            DirectorsId = 5,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            DirectorsId = 6,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            DirectorsId = 7,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            DirectorsId = 8,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            DirectorsId = 9,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            DirectorsId = 10,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            DirectorsId = 11,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            DirectorsId = 12,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            DirectorsId = 13,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            DirectorsId = 14,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            DirectorsId = 15,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            DirectorsId = 16,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            DirectorsId = 17,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            DirectorsId = 18,
+                            MoviesId = 16
                         });
                 });
 
@@ -140,6 +610,146 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         {
                             GenresId = 4,
                             MoviesId = 2
+                        },
+                        new
+                        {
+                            GenresId = 2,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            GenresId = 13,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            GenresId = 7,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            GenresId = 14,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            GenresId = 12,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            GenresId = 10,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            GenresId = 15,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            GenresId = 16,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            GenresId = 17,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            GenresId = 9,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            GenresId = 7,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            GenresId = 10,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            GenresId = 18,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            GenresId = 16,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            GenresId = 5,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            GenresId = 10,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            GenresId = 19,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            GenresId = 11,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            GenresId = 10,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            GenresId = 20,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            GenresId = 6,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            GenresId = 10,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            GenresId = 21,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            GenresId = 11,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            GenresId = 10,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            GenresId = 10,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            GenresId = 6,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            GenresId = 9,
+                            MoviesId = 16
                         });
                 });
 
@@ -166,7 +776,77 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         new
                         {
                             MoviesId = 2,
+                            TagsId = 3
+                        },
+                        new
+                        {
+                            MoviesId = 3,
                             TagsId = 2
+                        },
+                        new
+                        {
+                            MoviesId = 4,
+                            TagsId = 4
+                        },
+                        new
+                        {
+                            MoviesId = 5,
+                            TagsId = 3
+                        },
+                        new
+                        {
+                            MoviesId = 6,
+                            TagsId = 2
+                        },
+                        new
+                        {
+                            MoviesId = 7,
+                            TagsId = 4
+                        },
+                        new
+                        {
+                            MoviesId = 8,
+                            TagsId = 2
+                        },
+                        new
+                        {
+                            MoviesId = 9,
+                            TagsId = 2
+                        },
+                        new
+                        {
+                            MoviesId = 10,
+                            TagsId = 2
+                        },
+                        new
+                        {
+                            MoviesId = 11,
+                            TagsId = 2
+                        },
+                        new
+                        {
+                            MoviesId = 12,
+                            TagsId = 1
+                        },
+                        new
+                        {
+                            MoviesId = 13,
+                            TagsId = 2
+                        },
+                        new
+                        {
+                            MoviesId = 14,
+                            TagsId = 2
+                        },
+                        new
+                        {
+                            MoviesId = 15,
+                            TagsId = 1
+                        },
+                        new
+                        {
+                            MoviesId = 16,
+                            TagsId = 3
                         });
                 });
 
@@ -211,17 +891,397 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            Name = "Раян Ґослінґ"
+                            Name = "Джефферсон Вайт"
                         },
                         new
                         {
                             Id = 6,
-                            Name = "Емілі Блант"
+                            Name = "Вагнер Моура"
                         },
                         new
                         {
                             Id = 7,
+                            Name = "Раян Ґослінґ"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Емілі Блант"
+                        },
+                        new
+                        {
+                            Id = 9,
                             Name = "Аарон Тейлор-Джонсон"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Тереза Палмер"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Вінстон Дюк"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Овен Тіґ"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Фрея Аллан"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Кевін Дюранд"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Пітер Макон"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Вільям Мейсі"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "Фібі Воллер-Брідж"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "Раян Рейнольдс"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "Кейлі Флемінг"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "Метт Деймон"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "Андрій Прохоров"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Name = "Олег Яворський"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Name = "Олексій Ситянов"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Name = "Олександр Кохановський"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Name = "Володимир Корунчак"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Name = "Олександр Новіков"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Name = "Олександр Максимчук"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Name = "Олег Данилов"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Name = "Дін Шарп"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Name = "Андрій Римарук"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Name = "Роман Луцький"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Name = "Ніка Мислицька"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Name = "Надія Левченко"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Name = "Ігор Шульга"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Name = "Олександр Данилюк"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Name = "Станіслав Асєєв"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Name = "Білл Наї"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Name = "Сімон Ешлі"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Name = "Софі Оконедо"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Name = "Зейн Малік"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Name = "Мо Гілліган"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Name = "Дмитро Олійник"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Name = "В'ячеслав Довженко"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Name = "Станіслав Сукненко"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Name = "Ніна Набока"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Name = "Марина Кошкіна"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Name = "Юрій Одинокий"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Name = "Борис Георгієвський"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Name = "Ігор Гнєзділов"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Name = "Гаррієт Слейтер"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Name = "Адаїн Бредлі"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Name = "Джейкоб Баталон"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Name = "Джош О’Коннор"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Name = "Майк Файст"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Name = "Кіану Хем"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Name = "Анна Плаж"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Name = "Марія Гофштеттер"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Name = "Давід Шайд"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Name = "Єгор Козлов"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Name = "Дмитро Лінартович"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Name = "Василь Баша"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Name = "Ганна Адамович"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Name = "Владислав Мамчур"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Name = "Юліан Вальднер"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Name = "Валері Губер"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Name = "Отто Янкович"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Name = "Рафаель Ніколас"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Name = "Ентоні Гопкінс"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            Name = "Джонні Флінн"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            Name = "Гелена Бонем Картер"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            Name = "Джонатан Прайс"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            Name = "Зіггі Хіт"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            Name = "Марта Келлер"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            Name = "Меделін Петш"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            Name = "Фрой Гутьєррез"
+                        },
+                        new
+                        {
+                            Id = 76,
+                            Name = "Рейчел Шентон"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            Name = "Річард Брейк"
+                        },
+                        new
+                        {
+                            Id = 78,
+                            Name = "Ема Хорват"
+                        },
+                        new
+                        {
+                            Id = 79,
+                            Name = "Матеуш Дамецький"
+                        },
+                        new
+                        {
+                            Id = 80,
+                            Name = "Моніка Пікула"
+                        },
+                        new
+                        {
+                            Id = 81,
+                            Name = "Даріуш Якубовскі"
+                        },
+                        new
+                        {
+                            Id = 82,
+                            Name = "Ліліана Зайберт"
+                        },
+                        new
+                        {
+                            Id = 83,
+                            Name = "Адам Воронович"
                         });
                 });
 
@@ -252,6 +1312,86 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         {
                             Id = 2,
                             Name = "Девід Літч"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Вес Болл"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Джон Красінскі"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Артем Григорян"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Валентин Васянович"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Крістофер Дженкінс"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Тарас Томенко"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Спенсер Коен"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Анна Голберґ"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Лука Ґуаданьїно"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Северін Фіала"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Вероніка Франц"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Володимир Харченко-Куликовський"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Андреас Шмід"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Джеймс Хоуз"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "Ренні Гарлін"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "Маґдалена Нєц"
                         });
                 });
 
@@ -332,6 +1472,51 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         {
                             Id = 12,
                             Name = "документальний"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "наукова фантастика"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "фантастика"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "воєнна драма"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "українське"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "анімація"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "історія"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "мелодрама"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "містика"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "біографія"
                         });
                 });
 
@@ -384,10 +1569,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 1,
                             Desc = "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.",
                             Duration = (ushort)108,
-                            EndRentalDate = new DateTime(2024, 6, 15, 20, 7, 56, 735, DateTimeKind.Utc).AddTicks(7616),
+                            EndRentalDate = new DateTime(2024, 6, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4775),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/sw-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 15, 20, 7, 56, 735, DateTimeKind.Utc).AddTicks(7594),
+                            StartRentalDate = new DateTime(2024, 5, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4769),
                             Title = "Повстання Штатів",
                             TrailerUrl = "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq"
                         },
@@ -396,12 +1581,180 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 2,
                             Desc = "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.",
                             Duration = (ushort)126,
-                            EndRentalDate = new DateTime(2024, 7, 5, 20, 7, 56, 735, DateTimeKind.Utc).AddTicks(7627),
+                            EndRentalDate = new DateTime(2024, 6, 1, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4778),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/fall_guy-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 21, 20, 7, 56, 735, DateTimeKind.Utc).AddTicks(7626),
+                            StartRentalDate = new DateTime(2024, 4, 27, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4778),
                             Title = "Каскадер",
                             TrailerUrl = "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Desc = "Минуло кілька поколінь з часів правління Цезаря. Молодий шимпанзе Ноа (Овен Тіґ) уважно слухає усе, що розповідають йому про минуле і про те, як відбувався розвиток тих чи інших технологій. Він починає помічати дедалі більше невідповідностей. Аби пересвідчитись чи правильні його здогадки, він бере з собою людську дівчину на ім’я Мей (Фрея Алан). Люди давно здичавіли, тож не варто очікувати від неї багато. Разом Ноа та Мей вирушають у виснажливу подорож, результати якої визначать подальший розвиток як мавп, так і людей.\r\n\r\nФантастичний бойовик «Королівство планети мавп» є прямим продовженням фільму «Війна за планету мавп», що вийшов у 2017 році та четвертим фільмом перезапуску франшизи «Планета мавп». Про ідею цього фільму говорили ще у 2016 році. У 2019 році компанія Walt Disney оголосила, що у розробці знаходяться нові фільми та їх події розгортатимуться у тому ж всесвіті, що й фільм «Повстання планети мавп» 2011 року . Передбачається, що на екрани вийде ще щонайменше 2 фільми.",
+                            Duration = (ushort)145,
+                            EndRentalDate = new DateTime(2024, 6, 6, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4781),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/kotpota_vend.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 10, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4781),
+                            Title = "Королівство планети мавп",
+                            TrailerUrl = "https://www.youtube.com/embed/Ed-rbhWhzTU?si=mIuERJ2K7Q-exaYq"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Desc = "Дівчинка на ім’я Бі (Кейлі Флемінг) раптом починає бачити уявних друзів. Звісно, деякі діти фантазують про таку компанію. Однак Бі нічого не вигадувала. Дівчинка бачить безліч дивних персонажів, яких вигадав хтось інший. Виявляється, що такою самою силою наділений і її сусід (Раян Рейнольдс). Тепер вони удвох даватимуть раду чималій когорті чудернацьких створінь. Справа в тім, що діти, які вигадали цих персонажів, давно виросли та забули про своїх кращих друзів. Було б добре їм знову зустрітися.\r\n\r\nФентезійна комедійна драма «Уявні Друзі (УД)» – це дітище Джона Красінскі, відомого передовсім за роллю у серіалі «Офіс». Він має досвід створення повнометражного кіно («Тихе місце»), однак цього разу вдався до нового для себе жанру, сам займався сценарієм та режисурою. Проект для сімейного перегляду задумав у співпраці з батьком чотирьох дітей Раяном Рейнольдсом. Вони удвох продюсували фільм та знімалися у ньому.",
+                            Duration = (ushort)104,
+                            EndRentalDate = new DateTime(2024, 6, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4784),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/if-vend2.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4784),
+                            Title = "Уявні Друзі",
+                            TrailerUrl = "https://www.youtube.com/embed/EFrEPzxmQjM?si=d-0RtIH00F7L0dg6"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Desc = "У 2001 році молоді київські розробники на чолі з Сергієм Григоровичем вирішують зробити найскладнішу гру в світі з реалістичною графікою, відкритим світом і нетиповим сюжетом довкола Чорнобильської зони.\r\n\r\nЗ початку промокампанії S.T.A.L.K.E.R. чекали сотні тисяч людей по всьому світу, але розробники стали заручниками своїх амбіцій. Вони безкінечно покращували гру та з року в рік переносили дату виходу. Але в один момент американському видавцю увірвався терпець.\r\n\r\nЦе історія про індустрію відеоігор, любов до своєї роботи та проєкт, який перейшов межі екранів і став попкультурним феноменом.\r\n\r\n«ЕПІЗОДИ» — це історії незалежної України. Вони здаються такими різними, але водночас дуже схожі: наївні, сумні, амбітні. Це визначні події, на яких виросли цілі покоління. Розповіді від перших осіб із використанням унікальних архівних матеріалів.",
+                            Duration = (ushort)77,
+                            EndRentalDate = new DateTime(2024, 6, 8, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4787),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/stalker-vend2.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 13, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4786),
+                            Title = "ЕПІЗОДИ: Тінь Чорнобиля",
+                            TrailerUrl = "https://www.youtube.com/embed/wkSS8XmDSGc?si=l-lyfNL7pmUzB-ia"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Desc = "Восени 2014 року хірург Сергій (Роман Луцький), який останнім часом оперує багато поранених на російсько-українській війні, вирішує стати військовим лікарем. Майже одразу Сергій потрапляє в полон. Він пережив нелюдські тортури та приниження. Від смерті його врятувало тільки те, що ФСБшникам, які катували полонених, потрібно було радитись з лікарем. Повернувшись додому після обміну Сергій намагається налагодити мирне життя та відновити спілкування з колишньою дружиною та донькою Поліною (Ніка Мислицька).\r\n\r\nВоєнна драма «Відблиск», знята режисером та сценаристом Валентином Васяновичем, є першою українською стрічкою, що брала участь у основній програмі Венеціанського кінофестивалю. Сценарій був готовий у 2019 році, а основні зйомки проходили з літа 2020 року по січень 2021 у Києві та його околицях Серед тих, хто знімався у фільмі – справжній хірург Олександр Данилюк, який зробив в польових умовах понад 70 операцій та журналіст Станіслав Асєєв, який два роки пробув у російському полоні.",
+                            Duration = (ushort)126,
+                            EndRentalDate = new DateTime(2024, 6, 8, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4789),
+                            GraduationYear = (ushort)2021,
+                            ImagePath = "/movies/reflection-vend.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 13, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4789),
+                            Title = "Відблиск",
+                            TrailerUrl = "https://www.youtube.com/embed/voDDciroV1A?si=6tx7HhMJM0hbKrMb"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Desc = "Беккет (Мо Гілліган) був маленьким беззахисним кошеням, коли мало не загинув. Його врятувала Роуз (Сімон Ешлі) та забрала жити до себе. Відтоді Беккет став геть іншим – сміливішим, впевненішим у собі та, звісно, огряднішим. Незмінними лишилися лише його впізнавані різнокольорові очі. Кіт був впевнений у тому, що вся увага та любов Роуз налижить лише йому. Тож коли дівчина почала дбати не лише про нього, Беккет втнув дещо необачне. Як результат він витратив відведені йому 9 життів. Аби повернутися до улюбленої хазяйки він знову потрапить на землю, але це буде зовсім не те життя, до якого він звик.\r\n\r\nКомедійний сімейний мультфільм «10 життя» створено спільно Великою Британією та Канадою на монреальській студії L'Atelier Animation. Режисер та сценарист проекту – Крістофер Дженкінс, кар’єра якого починалася у Walt Disney Pictures. У якості аніматора ефектів він працював над багатьма мультфільмами студії, серед яких «Русалонька» та «Король Лев».",
+                            Duration = (ushort)88,
+                            EndRentalDate = new DateTime(2024, 6, 12, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4791),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/10Lives-vend.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 7, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4791),
+                            Title = "10 життя",
+                            TrailerUrl = "https://www.youtube.com/embed/wIQE7rBdr1c?si=XDXbqcIQFyXus8Nk"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Desc = "1927 року у Харкові за наказом Сталіна збудовано особливий будинок. Тут оселилися кращі українські митці – поети, письменники, художники та режисери. Сама лише можливість жити тут вже була для тогочасних творців визнанням. Якось у будинку з’являється новенький. Він працює коректором преси та понад усе мріє влитися в когорту провідних письменників. Аби оселитися тут йому дійсно знадобився талант – талант підслуховувати та переповідати все почуте агенту НКВС.\r\n\r\nІсторична драма «Будинок «Слово». Нескінчений роман» знята Тарасом Томенком за сценарієм, написаним ним спільно з Любов’ю Якимчук. У 2017 році він зняв документальний фільм «Будинок «Слово»», робота над яким надихнула на подальше дослідження епохи та персоналій. Проект художнього фільму став одним з переможців конкурсу від Держкіно та отримав державне фінансування, що покрило половину витрат на виробництво.",
+                            Duration = (ushort)120,
+                            EndRentalDate = new DateTime(2024, 6, 6, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4833),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/BSNR-vend.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 7, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4832),
+                            Title = "Будинок «Слово». Нескінчений роман",
+                            TrailerUrl = "https://www.youtube.com/embed/EdwK7LCzw1k?si=7Ms_0kyh7mJKAgLg"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Desc = "Компанія друзів збирається разом. Замість звичних посиденьок вони влаштовують ворожіння на картах Таро, які одна з дівчат випадково знайшла на захаращеному горищі. Головна помилка, якої вони припустились – порушення незмінного правила про те, що не можна брати до рук чужі карти. Вечір довгий, тож поворожити встигли усім присутнім. Такі їхні дії вивільнили древні зли сили, які не прощають тим, хто порушив їхній спокій. Колода карт була проклятою і тепер смерть чекає на кожного, хто насмілився дізнатися свою подальшу долю з їх допомогою. Для кожного, кому ворожили, починаються перегони зі лихою силою, яка не знає ані втоми, ані жалю.\r\n\r\nФільм жахів «Таро» зняли Спенсер Коен та Анна Ройс. Вони спільно написали сценарій, використавши за основу книгу «Жахи», написану Ніколасом Адамсом у 1992 році. Режисурою зайнялися також удвох і для обох цей фільм став дебютним на великому екрані, тоді як у сценарній справі досвід мали обоє.",
+                            Duration = (ushort)92,
+                            EndRentalDate = new DateTime(2024, 6, 10, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4836),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/TAROT-vend.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4835),
+                            Title = "Таро",
+                            TrailerUrl = "https://www.youtube.com/embed/j3wUuh8GJto?si=OrZerBeec68n6Yrv"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Desc = "Чемпіон Турніру Великого шлему Арт Дональдсон (Майк Файст) зазнає серію поразок. Колись він був посереднім гравцем. Чемпіона з нього зробила його дружина Таші (Зендея). Тенісистка у минулому, нині вона присвятила себе тренуванню чоловіка. Аби він повернув собі жагу до перемог, Таші записує його до участі у турнірі Challenger. Зазвичай у ньому беруть участь початківці або гравці другого дивізіону. Однак для ситуації, що склалася у Арта, це буде доречно. Незадовго до змагань чоловік дізнається, що у турнірній сітці його суперником буде Патрік Цвейг (Джош О'Коннор), колишній коханець його дружини та його кращий друг.\r\n\r\nСпортивну мелодраму «Суперники» зняв режисер Лука Ґуаданьїно, чотириразовий володар премій Венеціанського кінофестивалю. Для зйомок у фільмі Зендая впродовж трьох місяців займалася з професійним тенісним тренером. Зйомки розпочалися у травні 2022 року у Бостоні. Цьому передували кастинги, під час яких серед місцевих жителів шукали акторів масовки.",
+                            Duration = (ushort)132,
+                            EndRentalDate = new DateTime(2024, 6, 11, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4839),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/CHLNGRS-vend2.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 2, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4838),
+                            Title = "Суперники",
+                            TrailerUrl = "https://www.youtube.com/embed/ckcxzebS5hk?si=ERSDSJqtNnVuBH1n"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Desc = "Дівчина з бідної родини виходить заміж та оселяється у віддаленому будинку її обранця посеред густого лісу. Світ чоловіка для неї геть чужий, а мрії про дитину стають нездійсненним тягарем. З кожним днем важкої рутини та марних сподівань, вона все більше закривається в собі. Допоки не опиняється на темному шляху, що веде до злих думок. Можливо, не лише думок…",
+                            Duration = (ushort)121,
+                            EndRentalDate = new DateTime(2024, 5, 18, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4841),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/vend.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 18, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4841),
+                            Title = "Лазня диявола (в рамках фестивалю)",
+                            TrailerUrl = "https://www.youtube.com/embed/vtmo7fplVWo?si=DKOyUUar-Z5cFUwj"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Desc = "Війна, що триває з 2014 року, вплинула на життя багатьох українців. Якось посеред ночі на телефон батька (В'ячеслав Довженко) замість сина з його номера зателефонував невідомий. Так стало відомо, що хлопець, який виконував бойове завдання, потрапив у полон. Аби визволити його батько повинен сам поїхати на лінію розмежування та привезти зазначену суму. Однак на обмін замість сина привезли іншого хлопця. У таких самих або подібних обставинах не лише ці син і батько. З кожним днем число родин, чиє життя докорінно змінила війна, щоразу більшає. Тож чи можна домовитися з ворогом, для якого не існує ніяких правил та етичних норм?\r\n\r\nВоєнна драма «Обмін» створена за підтримки Державного агентства з питань кіно. Режисер проекту Володимир Харченко-Куликовський має великий досвід у виробництві серіалів для українського телебачення. Зйомки велися на території Київської області, у Броварському районі, який на початку повномасштабного вторгнення був частково окупований.",
+                            Duration = (ushort)90,
+                            EndRentalDate = new DateTime(2024, 5, 24, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4843),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/obmin-vend-18.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 15, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4843),
+                            Title = "Обмін",
+                            TrailerUrl = "https://www.youtube.com/embed/obiN4-XK7_4?si=Tv8aIjC6LNcY96Nt"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Desc = "Зимова Олімпіада 1976 року. Гірськолижнику Францу Кламмеру тільки 22 роки, а його вже називають майбутньою зіркою. За плечима юнака чимало перемог, тож преса й публіка сподіваються на його нові здобутки. Але тиск очікувань тисяч австрійців — не єдиний виклик у цьому змаганні. Незадовго до перегонів спонсор вирішує змінити звичні форму та спорядження, погодні умови чимдалі гіршають, а траса здається неприступною. Єдине, що не дає герою зламатися — кохання його життя.",
+                            Duration = (ushort)100,
+                            EndRentalDate = new DateTime(2024, 5, 18, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4846),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/vend1.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 18, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4845),
+                            Title = "Виходячи за межі (в рамках фестивалю)",
+                            TrailerUrl = "https://www.youtube.com/embed/ecp1xSqaA5c?si=OvYH_CGwjXdqGGNw"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Desc = "1988 року Ніколаса Вінтона (Ентоні Гопкінс) запрошують на телевізійне шоу. Ведуча розповідає про унікальну місію порятунку сотень дітей. Напередодні Другої світової війни з Праги до Великої Британії перевезли спеціальними поїздами дітей, переважно єврейських. Усі вони змушені були шукати новий дім з остраху перед діями нацистів. Координував операцію 29-річний Ніколас Вінтон (Джонні Флінн). Кожному перевезеному потрібно було знайти нове місце проживання та чималу суму грошей. Близько 50 років деталі перевезення не оприлюднювалися і ось, нарешті, настав час оцінити масштаби зробленого.\r\n\r\nБіографічна драма «Одне життя» заснована на книзі Барбари Вінтон, яку жінка написала про свого батька, Ніколаса Вінтона. На початку 1939 року він організував маршрут, яким було перевезено 669 дітей. На зйомках фільму були задіяні нащадки врятованих дітей. Барбара Вінтон особисто попросила Ентоні Хопкінса виконати роль її батька. Знімали фільм у Празі та Лондоні наприкінці 2022 року.",
+                            Duration = (ushort)108,
+                            EndRentalDate = new DateTime(2024, 5, 29, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4848),
+                            GraduationYear = (ushort)2023,
+                            ImagePath = "/movies/ol-vend3.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 23, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4848),
+                            Title = "Одне життя",
+                            TrailerUrl = "https://www.youtube.com/embed/R0qZJggKri0?si=Iu5Rg7eDTJeoF6-q"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Desc = "Закохана пара Майа (Меделін Петш) та Райан (Фрой Гутьєррез) на честь своєї п’ятої річниці подорожують крізь усю країну до Тихоокеанського узбережжя. Дорогою через штат Орегон в них ламається машина. Заночувати доведеться у єдиному доступному місці – старенькому будиночку десь у хащах на околиці маленького непривітного міста. Що люди, що краєвиди не викликали жодної симпатії, але Майа звикла знаходити хороше у всьому, що їх оточує. З настанням ночі всього оптимізму світу не вистачить, аби розгледіти бодай щось хороше у тому, що почало відбуватись. До хатини вдерлося троє незнайомців у масках.\r\n\r\nЖахи «Незнайомці: Частина перша» є продовженням франшизи «Незнайомці», перший фільм якої вийшов на екрани у 2008 році. Продовження презентували 2018 року. Новий фільм стане першим у трилогії, яку знімали одночасно. Передбачається, що сюжет розкриє історію появи людей у масках та покаже що стається з їхніми жертвами. Знімали у столиці Словаччини Братиславі наприкінці 2022 року.",
+                            Duration = (ushort)91,
+                            EndRentalDate = new DateTime(2024, 6, 6, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4851),
+                            GraduationYear = (ushort)2024,
+                            ImagePath = "/movies/STRNGR1-vend.jpg",
+                            StartRentalDate = new DateTime(2024, 5, 30, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4850),
+                            Title = "Незнайомці: Частина перша",
+                            TrailerUrl = "https://www.youtube.com/embed/dUe_Ac4V-R4?si=fxBrFFENDZKs2iPA"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Desc = "Життя милої дівчинки Зузі (Ліліана Зайберт) докорінно змінюється, коли тато (Матеуш Дамецький) приводить з залізничної станції, де він працює, собаку. Песику дали ім’я Лампо та оточили турботою. Цей пес – справжній мандрівник і довго сидіти на місці він не любить. Куди б він не їхав, він зачаровує пасажирів та стає улюбленцем. Само тому мережею шириться безліч світлин з Лампо. Нажаль, є й ті, кому слава милого песика не до вподоби. Заздрісники хочуть назавжди позбавити Лампо дому та можливості подорожувати, а дівчинку Зузі розлучити з кращим другом.\r\n\r\nСімейний фільм «Лампо: Вірний пес» знято польською режисеркою Магдалиною Ніц. У основі сюжету – популярна у Польщі дитяча книга, яка входить до місцевої шкільної програми. Історію написав у 1967 році Роман Писарський, польський письменник, який народився у Івано-Франківську. Пес, про якого йдеться у дитячій історії, справді жив у 1950-х роках та без супроводу людей подорожував Європою на поїздах.",
+                            Duration = (ushort)120,
+                            EndRentalDate = new DateTime(2024, 6, 9, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4853),
+                            GraduationYear = (ushort)2023,
+                            ImagePath = "/movies/lampo-vend.jpg",
+                            StartRentalDate = new DateTime(2024, 6, 2, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4853),
+                            Title = "Лампо: Вірний пес",
+                            TrailerUrl = "https://www.youtube.com/embed/iynOv10VcNU?si=YG_3DrY0TLYM4_Qv"
                         });
                 });
 
@@ -435,162 +1788,162 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            BasicPrice = 142m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 6, 3, 19, 25, 56, 735, DateTimeKind.Utc).AddTicks(8934),
-                            VipPrice = 373m
+                            BasicPrice = 188m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 23, 7, 53, 27, 168, DateTimeKind.Utc).AddTicks(5554),
+                            VipPrice = 368m
                         },
                         new
                         {
                             Id = 2,
-                            BasicPrice = 185m,
+                            BasicPrice = 165m,
                             MovieId = 2,
-                            StartDate = new DateTime(2024, 6, 2, 9, 26, 56, 735, DateTimeKind.Utc).AddTicks(9039),
-                            VipPrice = 377m
+                            StartDate = new DateTime(2024, 5, 18, 16, 8, 27, 168, DateTimeKind.Utc).AddTicks(5593),
+                            VipPrice = 366m
                         },
                         new
                         {
                             Id = 3,
-                            BasicPrice = 193m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 28, 21, 16, 56, 735, DateTimeKind.Utc).AddTicks(9109),
-                            VipPrice = 353m
+                            BasicPrice = 176m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 28, 2, 8, 27, 168, DateTimeKind.Utc).AddTicks(5619),
+                            VipPrice = 318m
                         },
                         new
                         {
                             Id = 4,
-                            BasicPrice = 102m,
+                            BasicPrice = 107m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 21, 7, 23, 56, 735, DateTimeKind.Utc).AddTicks(9169),
-                            VipPrice = 278m
+                            StartDate = new DateTime(2024, 5, 30, 4, 57, 27, 168, DateTimeKind.Utc).AddTicks(5643),
+                            VipPrice = 346m
                         },
                         new
                         {
                             Id = 5,
-                            BasicPrice = 119m,
+                            BasicPrice = 114m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 6, 2, 5, 56, 56, 735, DateTimeKind.Utc).AddTicks(9234),
-                            VipPrice = 351m
+                            StartDate = new DateTime(2024, 5, 22, 23, 37, 27, 168, DateTimeKind.Utc).AddTicks(5668),
+                            VipPrice = 398m
                         },
                         new
                         {
                             Id = 6,
-                            BasicPrice = 170m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 6, 4, 1, 17, 56, 735, DateTimeKind.Utc).AddTicks(9300),
-                            VipPrice = 298m
+                            BasicPrice = 144m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 19, 21, 42, 27, 168, DateTimeKind.Utc).AddTicks(5692),
+                            VipPrice = 306m
                         },
                         new
                         {
                             Id = 7,
-                            BasicPrice = 123m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 30, 5, 6, 56, 735, DateTimeKind.Utc).AddTicks(9356),
-                            VipPrice = 254m
+                            BasicPrice = 131m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 22, 23, 35, 27, 168, DateTimeKind.Utc).AddTicks(5718),
+                            VipPrice = 290m
                         },
                         new
                         {
                             Id = 8,
-                            BasicPrice = 137m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 6, 2, 11, 9, 56, 735, DateTimeKind.Utc).AddTicks(9405),
-                            VipPrice = 342m
+                            BasicPrice = 107m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 20, 7, 36, 27, 168, DateTimeKind.Utc).AddTicks(5765),
+                            VipPrice = 290m
                         },
                         new
                         {
                             Id = 9,
-                            BasicPrice = 186m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 27, 4, 17, 56, 735, DateTimeKind.Utc).AddTicks(9459),
-                            VipPrice = 300m
+                            BasicPrice = 173m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 6, 1, 9, 27, 27, 168, DateTimeKind.Utc).AddTicks(5790),
+                            VipPrice = 287m
                         },
                         new
                         {
                             Id = 10,
-                            BasicPrice = 112m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 31, 10, 50, 56, 735, DateTimeKind.Utc).AddTicks(9517),
-                            VipPrice = 342m
+                            BasicPrice = 181m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 25, 1, 39, 27, 168, DateTimeKind.Utc).AddTicks(5813),
+                            VipPrice = 349m
                         },
                         new
                         {
                             Id = 11,
-                            BasicPrice = 131m,
+                            BasicPrice = 161m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 26, 14, 12, 56, 735, DateTimeKind.Utc).AddTicks(9596),
-                            VipPrice = 313m
-                        },
-                        new
-                        {
-                            Id = 12,
-                            BasicPrice = 175m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 6, 5, 12, 23, 56, 735, DateTimeKind.Utc).AddTicks(9657),
-                            VipPrice = 260m
-                        },
-                        new
-                        {
-                            Id = 13,
-                            BasicPrice = 151m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 18, 11, 44, 56, 735, DateTimeKind.Utc).AddTicks(9727),
-                            VipPrice = 317m
-                        },
-                        new
-                        {
-                            Id = 14,
-                            BasicPrice = 179m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 6, 2, 16, 20, 56, 735, DateTimeKind.Utc).AddTicks(9789),
-                            VipPrice = 363m
-                        },
-                        new
-                        {
-                            Id = 15,
-                            BasicPrice = 193m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 6, 2, 15, 19, 56, 735, DateTimeKind.Utc).AddTicks(9850),
-                            VipPrice = 262m
-                        },
-                        new
-                        {
-                            Id = 16,
-                            BasicPrice = 173m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 29, 8, 58, 56, 735, DateTimeKind.Utc).AddTicks(9904),
-                            VipPrice = 351m
-                        },
-                        new
-                        {
-                            Id = 17,
-                            BasicPrice = 107m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 20, 17, 44, 56, 735, DateTimeKind.Utc).AddTicks(9964),
+                            StartDate = new DateTime(2024, 5, 28, 9, 24, 27, 168, DateTimeKind.Utc).AddTicks(5838),
                             VipPrice = 252m
                         },
                         new
                         {
-                            Id = 18,
-                            BasicPrice = 176m,
+                            Id = 12,
+                            BasicPrice = 137m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 6, 5, 3, 11, 56, 736, DateTimeKind.Utc).AddTicks(5),
-                            VipPrice = 275m
+                            StartDate = new DateTime(2024, 5, 26, 13, 59, 27, 168, DateTimeKind.Utc).AddTicks(5860),
+                            VipPrice = 258m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BasicPrice = 122m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 27, 7, 52, 27, 168, DateTimeKind.Utc).AddTicks(5884),
+                            VipPrice = 396m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BasicPrice = 192m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 6, 4, 9, 17, 27, 168, DateTimeKind.Utc).AddTicks(5907),
+                            VipPrice = 334m
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BasicPrice = 184m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 30, 15, 32, 27, 168, DateTimeKind.Utc).AddTicks(5931),
+                            VipPrice = 337m
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BasicPrice = 113m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 25, 13, 40, 27, 168, DateTimeKind.Utc).AddTicks(5953),
+                            VipPrice = 287m
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BasicPrice = 134m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 23, 14, 7, 27, 168, DateTimeKind.Utc).AddTicks(5977),
+                            VipPrice = 354m
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BasicPrice = 118m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 6, 5, 19, 5, 27, 168, DateTimeKind.Utc).AddTicks(6016),
+                            VipPrice = 258m
                         },
                         new
                         {
                             Id = 19,
-                            BasicPrice = 120m,
+                            BasicPrice = 161m,
                             MovieId = 2,
-                            StartDate = new DateTime(2024, 6, 5, 17, 57, 56, 736, DateTimeKind.Utc).AddTicks(43),
-                            VipPrice = 282m
+                            StartDate = new DateTime(2024, 6, 5, 9, 12, 27, 168, DateTimeKind.Utc).AddTicks(6040),
+                            VipPrice = 309m
                         },
                         new
                         {
                             Id = 20,
-                            BasicPrice = 103m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 19, 2, 39, 56, 736, DateTimeKind.Utc).AddTicks(79),
-                            VipPrice = 369m
+                            BasicPrice = 136m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 20, 17, 44, 27, 168, DateTimeKind.Utc).AddTicks(6062),
+                            VipPrice = 335m
                         });
                 });
 
@@ -620,31 +1973,41 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            Name = "12+"
+                            Name = "16+"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "VR"
+                            Name = "12+"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Дивитись разом"
+                            Name = "0+"
                         },
                         new
                         {
                             Id = 5,
-                            Name = "У темряві"
+                            Name = "VR"
                         },
                         new
                         {
                             Id = 6,
-                            Name = "Для підлітків"
+                            Name = "Дивитись разом"
                         },
                         new
                         {
                             Id = 7,
+                            Name = "У темряві"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Для підлітків"
+                        },
+                        new
+                        {
+                            Id = 9,
                             Name = "Фінансовий"
                         });
                 });
