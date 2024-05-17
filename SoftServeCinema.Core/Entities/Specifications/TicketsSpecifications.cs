@@ -23,5 +23,29 @@ namespace SoftServeCinema.Core.Entities.Specifications
                     .AsNoTracking();
             }
         }
+        public class GetReservedByUserId: Specification<TicketEntity>
+        {
+            public GetReservedByUserId(string userId)
+            {
+                Query
+                    .Where(t => t.Status == "Reservation")
+                    .Where(t => t.UserId == Guid.Parse(userId))
+                    .Include(t => t.Session)
+                    .ThenInclude(s => s.Movie)
+                    .AsNoTracking();
+            }
+        }
+        public class GetBoughtByUserId : Specification<TicketEntity>
+        {
+            public GetBoughtByUserId(string userId)
+            {
+                Query
+                    .Where(t => t.Status == "Bought")
+                    .Where(t => t.UserId == Guid.Parse(userId))
+                     .Include(t => t.Session)
+                    .ThenInclude(s => s.Movie)
+                    .AsNoTracking();
+            }
+        }
     }
 }

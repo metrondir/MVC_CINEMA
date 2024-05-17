@@ -1,7 +1,9 @@
 ﻿
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SoftServeCinema.Core.DTOs.Users;
 using SoftServeCinema.MVC.Helpers;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
@@ -22,7 +24,7 @@ namespace SoftServeCinema.MVC.CustomMiddlware
             var token = handler.ReadJwtToken(accessToken);
             var expDate = token.ValidTo;
 
-            if (expDate <= DateTime.Now)
+            if (expDate >= DateTime.UtcNow)
             {
                 await next(context);
                 return;
@@ -36,17 +38,24 @@ namespace SoftServeCinema.MVC.CustomMiddlware
             }
             var refreshTokenUrl = WebConstants.ngrok + "/api/User/refresh";
             using var httpClient = new HttpClient();
-            var refreshContent = new StringContent(refreshToken, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync(refreshTokenUrl, refreshContent);
-
-            if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                var tokenResponse = JsonConvert.DeserializeObject<TokenResponseDTO>(result);
-                context.Session.Clear();
-                context.Session.SetString("accessToken", tokenResponse.AccessToken);
-                context.Session.SetString("refreshToken", tokenResponse.RefreshToken);
+                var tokens = new { AccessToken = accessToken, RefreshToken = refreshToken };
+                var json = JsonConvert.SerializeObject(tokens);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(refreshTokenUrl, data);
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    var tokenResponse = JsonConvert.DeserializeObject<TokenResponseDTO>(result);
+                    context.Session.Clear();
+                    context.Session.SetString("accessToken", tokenResponse.AccessToken);
+                    context.Session.SetString("refreshToken", tokenResponse.RefreshToken);
+                }
             }
+
+
+          
             await next(context);
         }
     }

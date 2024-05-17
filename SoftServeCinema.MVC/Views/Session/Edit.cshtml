@@ -1,6 +1,7 @@
 ﻿@model SoftServeCinema.Core.DTOs.Sessions.SessionDTO
 
 @{
+
     ViewData["Title"] = "Додати сеанс";
     Layout = "_StockLayout";
 }
@@ -18,8 +19,9 @@
         </div>
     <div class="row mt-3">
     <div class="col-3">
+
         <label asp-for="MovieId" class="control-label">Фільм</label>
-        <select asp-for="MovieId" asp-items="@(ViewBag.Movies)" multiple class="form-control"></select>
+        <select asp-for="MovieId" asp-items="@(ViewBag.Movies)"  class="form-control"></select>
         <span asp-validation-for="MovieId" class="text-danger"></span>
     </div>
         </div>

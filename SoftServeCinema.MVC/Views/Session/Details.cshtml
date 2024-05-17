@@ -80,8 +80,8 @@
                 <p id="sum">0 UAH</p>
             </div>
             <div class="summary__button">
-                 <form action="/Tag/CreateNatalochka" method="get" class="row g-3 text-center">
-                    <input type="hidden" name="tickets" value="5" id="ticketsJSON" />
+                 <form action="/Reservation/ReservationTickets" method="post" class="row g-3 text-center">
+                    <input type="hidden" name="ticketIdsJson"  id="ticketsJSON" />
                     <input type="submit" value="Reserve" />
                 </form>
             </div>

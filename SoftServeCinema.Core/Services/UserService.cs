@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using SoftServeCinema.Core.DTOs.Tags;
 using SoftServeCinema.Core.DTOs.Users;
 using SoftServeCinema.Core.Entities;

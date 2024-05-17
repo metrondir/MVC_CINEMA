@@ -32,11 +32,10 @@ namespace SoftServeCinema.Core.Validators
             RuleSet("Edit", () =>
             {
                 RuleFor(s => s.StartDate)
-                    .NotEmpty().WithMessage("Start date is required")
-                    .Must(IsValidDate).WithMessage("Invalid start date");
+                    .NotEmpty().WithMessage("Start date is required");
 
                 RuleFor(s => s)
-                    .Must(s => Task.Run(async () => await _sessionService.IsSessionUniqueAsync(s.StartDate)).Result)
+                    .Must(s => Task.Run(async () => await _sessionService.IsSessionUniqueWithoutIdAsync(s.Id,s.StartDate)).Result)
                     .WithMessage("This session time already exists")
                     .WithName("StartDate");
 
@@ -46,8 +45,7 @@ namespace SoftServeCinema.Core.Validators
                 RuleFor(s => s.VipPrice)
                     .GreaterThanOrEqualTo(0).WithMessage("VIP price must be non-negative");
 
-                RuleFor(s => s.Tickets)
-                    .NotEmpty().WithMessage("Tickets list must not be empty");
+             
             });
         }
 
