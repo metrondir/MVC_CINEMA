@@ -25,6 +25,9 @@ header, footer {
 html, body {
     height: 100%;
 }
+html::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
 .content {
     flex-grow: 1;
 }
@@ -215,15 +218,15 @@ main.main {
         #mySelectOptions label:hover {
             background-color: #1e90ff;
         }
-.ticket__seat {
-    padding:20px;
-}
+
 .ticket__seat-available {
     border-color:blue;
 }
 .ticket__seat-unavailable {
-    position: relative; 
-    background-color: #ccc; 
+
+    position: relative;
+    background-color: #ccc;
+
 }
 
     .ticket__seat-unavailable::before,
@@ -231,24 +234,201 @@ main.main {
         content: '';
         position: absolute;
         width: 100%;
-        height: 2px; 
-        background-color: red; 
+
+        height: 2px;
+        background-color: red;
     }
 
     .ticket__seat-unavailable::before {
-        transform: rotate(45deg); 
-        top: 50%; 
+        transform: rotate(45deg);
+        top: 50%;
         left: 0;
     }
 
     .ticket__seat-unavailable::after {
-        transform: rotate(-45deg); 
-        top: 50%; 
+
+        transform: rotate(-45deg);
+        top: 50%;
+
         left: 0;
     }
 .ticket__seat-basic {
-    border-color:blue;
+    border-color:skyblue;
 }
 .ticket__seat-vip {
     border-color: red;
+}
+.info__container {
+    color:white;
+}
+.left-col {
+    background-color: black;
+    padding: 20px 50px;
+}
+.info__image {
+    border-radius:40px;
+}
+.info__daytime {
+    margin-top:40px;
+} 
+.info__daytime i {
+   font-size:70px;
+}
+.daytime__container {
+    background-color: #B41616;
+    text-align: center;
+    padding:0px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    width:100%;
+    font-size:20px;
+    font-family: "Inter", sans-serif;
+}
+.info__daytime > div > .col, .col-4 {
+    display:flex;
+    align-items:center;
+}
+.info__daytime > div > .col div p:last-child {
+    margin-bottom:0px;
+}
+.info__price {
+    margin-top:130px;
+}
+.info__price div p {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0px;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    line-height: 22px;
+}
+.price__container-basic, .price__container-vip {
+    position: relative;
+}
+.info__price div:before {
+    content: "";
+    position: absolute;
+    top: 5%;
+    left: -1%;
+    height: 40px;
+    width: 25px;
+    color: blue;
+    border-radius:5px;
+    background-color: blue;
+}
+.info__price .price__container-vip:before {
+    background-color: red;
+}
+.info__price div p:first-child {
+    font-size:18px;
+}
+    .info__price div p:last-child {
+        font-size: 24px;
+    }
+.ticket__seat {
+    padding: 25px 15px;
+    margin:2px;
+    border-radius:5px;
+}
+.ticket__container {
+    margin:20px 0px 0px 5%;
+    width:250px;
+
+}
+.summary__container {
+    background-color: #B41616;
+    display:flex;
+    flex-direction:column;
+    padding:0px;
+}
+.summary__container > .summary__info {
+    flex-grow:1;
+}
+
+.summary__tickets_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    padding:20px;
+}
+.summary__title {
+    color: white;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-family: "Inter", sans-serif;
+}
+.summary__title p {
+    margin-bottom:0px;
+}
+.tickets__info {
+    color: #A9A9A9;
+    font-size:20px;
+}
+.tickets__container {
+    margin-top:10px !important;
+    margin-right:1px !important;
+    padding:0px 20px;
+    display:flex;
+    justify-content:space-between;
+
+}
+.tickets__container img {
+    transform: scale(80%);
+}
+.ticket__info {
+    display: flex;
+    width: 48%;
+    justify-content: space-between;
+    font-size: 20px;
+    background: white;
+    border: 1px solid blue;
+    padding: 20px;
+    font-family: "Inter", sans-serif;
+    align-items: center;
+    margin-top: 5px;
+    margin-left:10px;
+    border-radius: 10px;
+}
+.ticket__info button {
+    border:none;
+    background:none;
+    font-size:30px;
+    z-index:10000;
+}
+.ticket__row_seat, .ticket__price_cancel-button {
+    display: flex;
+    flex-direction: column;
+}
+    .ticket__row_seat span:nth-child(2) span, .ticket__price_cancel-button {
+        font-weight: 700;
+    }
+    .ticket__row_seat, .ticket__price_cancel-button {
+        height:100%;
+    }
+.summary__submit {
+    background-color: maroon;
+    margin: 0px !important;
+    text-align: center;
+}
+    .summary__submit form {
+        display:flex;
+        justify-content:center;
+    }
+    .summary__submit input[type="submit"] {
+        border: none;
+        margin-bottom: 10px;
+        background-color: #B41616;
+        padding: 20px 80px;
+        display: inline-block !important;
+        max-width: 300px;
+        color: white;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size:30px;
+        border-radius: 30px;
+    }
+.summary__title {
+    display:flex;
+    justify-content:space-between;
 }

@@ -181,7 +181,10 @@ namespace SoftServeCinema.MVC.Controllers
                 return NotFound();
             }
         }
-
+        public async Task<IActionResult> Admin()
+        {
+            return RedirectToAction("Index", "Admin");
+        }
         private async Task FillViewBagMovies()
         {
             ViewBag.Movies = (await _movieService.GetAllMoviesAsync())

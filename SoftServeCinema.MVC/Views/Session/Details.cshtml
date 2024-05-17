@@ -3,30 +3,88 @@
 @{
     ViewData["Title"] = "Сеанс";
 }
+@* w-25 m-auto *@
+<div class="row">
+    <div class="col left-col">
+        <div class="row info__container">
+            <div class="col">
+                <img class="info__image" src="@Url.Content("~/images/" + Model.MovieImagePath)" alt="@Model.MovieTitle">
+            </div>
+            <div class="col">
+                <div class="row info__title">
+                    <h1>@Model.MovieTitle</h1>
+                </div>
+                <div class="row info__daytime">
+                    <div class="row">
+                        <div class="col-4">
+                            <i class="fa-regular fa-calendar-days"></i>
+                        </div>
+                        <div class="col">
+                            <div class="daytime__container">
+                                <p>Day</p>
+                                <p>@Model.StartDate.ToString("dd MMMM, dddd")</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <div class="col">
+                            <div class="daytime__container">
+                                <p>Time</p>
+                                <p>@Model.StartDate.ToString("HH:mm")</p>
+                            </div>
+                        </div>
 
-<div>
-    <h3 class="text-center my-4">Сеанс</h3>
-
-    <div class="list-group my-4">
-        <div class="col-2 justify-content-between">
-            <h2>@Model.MovieTitle</h2>
-            <img class="w-25 m-auto" src="@Url.Content("~/images/" + Model.MovieImagePath)" alt="@Model.MovieTitle">
-            <p>Дата сеансу: @Model.StartDate.ToString("d MMMM yyyy 'р.' HH:mm")</p><br>
-            <p>Звичайний квиток: @Model.BasicPrice грн.</p><br>
-            
-            <p>VIP квиток: @Model.VipPrice грн.</p><br>
-            <div class="ticket__container">
-                @foreach(var ticket in Model.Tickets)
-                {
-                    <button data-price="@(ticket.RowNumber == 6 ? @Model.VipPrice : @Model.BasicPrice)" data-id="@ticket.Id" data-row="@ticket.RowNumber" data-seat="@ticket.SeatNumber" value=" " class="ticket__seat @(ticket.RowNumber == 6 ? "ticket__seat-vip" : "ticket__seat-basic") @(ticket.Status =="Available" ? "ticket__seat-available" : "ticket__seat-unavailable")"></button>
-                }
+                    </div>
+                </div>
+                <div class="row info__price">
+                    <div class="col price__container-basic">
+                        <p>standart</p>
+                        <p> @Model.BasicPrice грн.</p>
+                    </div>
+                    <div class="col price__container-vip text-end">
+                        <p>super lux</p>
+                        <p>@Model.VipPrice грн.</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="ticket__order"></div>
-        <form action="/Reservation/ReservationTickets" method="post" class="row g-3 text-center">
-            <input type="hidden" name="ticketIdsJson" id="ticketsJSON" />
-                <input type="submit" value="buy"/>
-            </form>
-
+        <div class="ticket__container">
+            @foreach (var ticket in Model.Tickets)
+            {
+                <button data-price="@(ticket.RowNumber == 6 ? @Model.VipPrice : @Model.BasicPrice)" data-id="@ticket.Id" data-row="@ticket.RowNumber" data-seat="@ticket.SeatNumber" value=" " class="ticket__seat @(ticket.RowNumber == 6 ? "ticket__seat-vip" : "ticket__seat-basic") @(ticket.Status =="Available" ? "ticket__seat-available" : "ticket__seat-unavailable")"></button>
+            }
+        </div>
+    </div>
+    <div class="col summary__container">
+        <div class="summary__info">
+            <div class="summary__tickets_info">
+                <div class="summary__title">
+                    <p>Tickets</p>
+                </div>
+                <div class="tickets__info">
+                    <span id="ticketsNum">0 ticket, </span>
+                    <span id="ticketsSum">0 UAH</span>
+                </div>
+            </div>
+            <div class="row tickets__container">
+                <img src="/images/ticket1.png" alt="Alternate Text" />
+            </div>
+        </div>
+        <div class="row summary__submit">
+            <div class="summary__title">
+                <p>Total to pay</p>
+                <p id="sum">0 UAH</p>
+            </div>
+            <div class="summary__button">
+                 <form action="/Reservation/ReservationTickets" method="post" class="row g-3 text-center">
+                    <input type="hidden" name="ticketIdsJson"  id="ticketsJSON" />
+                    <input type="submit" value="Reserve" />
+                </form>
+            </div>
+        </div>
     </div>
 </div>
