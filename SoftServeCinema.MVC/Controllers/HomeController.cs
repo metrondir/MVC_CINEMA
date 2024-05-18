@@ -17,7 +17,8 @@ namespace SoftServeCinema.MVC.Controllers
             _movieService = movieService;
         }
 
-        public IActionResult Index()
+
+        public  IActionResult Index()
         {
             return View();
         }
