@@ -231,3 +231,130 @@ main.main {
 .ticket__seat-vip {
     border-color: red;
 }
+
+
+/**/
+.movie-container {
+    margin: 0;
+    padding: 0;
+    background-image: url('/images/background/chear.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.card {
+    background-color: black; /* Чорний фон */
+    border: none;
+    color: white; /* Білий текст */
+    margin-bottom: 20px; /* Відступ між картками */
+    position: relative; /* Потрібно для розміщення дочірнього елементу .card-overlay */
+    padding: 1.20rem; /* Відступ всередині картки */
+}
+
+.card-title,
+.card-text {
+    color: white; /* Білий текст для заголовку та текстового блоку */
+}
+
+.card-img-top {
+    width: 100%; /* Ширина зображення на всю ширину картки */
+    height: auto; /* Автоматична висота зображення */
+}
+
+.card-overlay {
+    position: absolute; /* Позиціонуємо абсолютно в межах батьківського .card */
+    top: 0; /* Розміщуємо вгорі */
+    left: 0; /* Розміщуємо зліва */
+    width: 100%; /* Повна ширина */
+    height: 100%; /* Повна висота */
+    background-color: rgba(0, 0, 0, 0.7); /* Півпрозорий чорний фон */
+    opacity: 0; /* Початково ховаємо текст */
+    transition: opacity 0.3s ease-in-out; /* Анімація з'явлення/зникнення */
+    display: flex; /* Розміщуємо вміст у форматі flex */
+    justify-content: center; /* Вирівнюємо по центру горизонтально */
+    align-items: center; /* Вирівнюємо по центру вертикально */
+    text-align: center; /* Вирівнюємо текст по центру */
+    padding: 20px; /* Додатковий внутрішній відступ */
+    box-sizing: border-box; /* Розраховуємо padding у визначенні ширини елемента */
+}
+
+    .card-overlay p {
+        margin-bottom: 10px;
+    }
+
+    .card-overlay a {
+        margin-top: 15px;
+        text-decoration: none; /* Видаляємо підкреслення у посилання */
+        color: white;
+    }
+
+
+
+.card:hover .card-overlay {
+    opacity: 1; /* При наведенні курсору миші на картку показуємо текст */
+}
+
+.text {
+    color: #FF0000;
+}
+
+.movie-cover {
+    max-width: 300px;
+    width: 100%;
+}
+
+.fa-star.checked {
+    color: #FF0000;
+}
+
+.fa-star {
+    color: #F8F9FA;
+}
+
+.movie-trailer {
+    border-radius: 10px;
+}
+
+
+.schedule-block {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.weekdays {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+    .weekdays span {
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .weekdays span.date-selected,
+        .session-hours a.date-selected {
+            color: #FF0000;
+        }
+
+.session-hours {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .session-hours a {
+        text-decoration: none;
+        color: inherit;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+        .session-hours a:hover {
+            color: #FF0000;
+        }
