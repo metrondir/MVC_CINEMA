@@ -3,6 +3,6 @@
     public static class WebConstants
     {
         public const string alertSuccessKey = "success";
-        public const string ngrok = "https://acdb-178-255-168-80.ngrok-free.app";
+        public const string ngrok = "https://3dc2-178-255-168-80.ngrok-free.app";
     }
 }

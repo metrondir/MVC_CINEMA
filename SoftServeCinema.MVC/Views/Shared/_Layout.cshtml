@@ -4,6 +4,7 @@
 
 @{
     var auth = HttpContextAccessor.HttpContext.Session.GetString("accessToken") != null ? "Logout" : "Login";
+
 }
 
 <!DOCTYPE html>
@@ -36,14 +37,52 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Movie" asp-action="Actuals">Actual</a>
                             </li>
+                           @*  @if (User.Identity.IsAuthenticated)
+                            { *@
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Tickets
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Ticket" asp-action="Reserved"> Reserved </a></li>
+                                    <li>
+                                        <a class="nav-link text-dark  dropdown-item" asp-area="" asp-controller="Ticket" asp-action="Bought"> Bought </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            @* } *@
                         </ul>
+
                         <ul class="navbar-nav d-flex flex-row-reverse">
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Reserved">My Reserved Tickets</a>
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Actions
+                                </a>
+                                <ul class="dropdown-menu">
+                                   
+                                    <li>
+                                        <a class="nav-link dropdown-item  text-dark" asp-area="" asp-controller="Genre" asp-action="Index">Genres</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link dropdown-item  text-dark" asp-area="" asp-controller="Tag" asp-action="Index">Tags</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link dropdown-item  text-dark" asp-area="" asp-controller="Actor" asp-action="Index">Actors</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link dropdown-item  text-dark" asp-area="" asp-controller="Director" asp-action="Index">Directors</a>
+
+                                    </li>
+
+                                </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Bought">My Bought Tickets</a>
-                            </li>
+
+                            <form action="/Movie/Search" method="get" class="d-flex" role="search">
+                                <input class="form-control me-2" name="search" value="@ViewContext.HttpContext.Request.Query["search"]" type="search" placeholder="Movie Title" aria-label="Search">
+                                <button class="btn btn-outline-light" type="submit">Search</button>
+                            </form>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="User" asp-action="@auth">@auth</a>
                             </li>

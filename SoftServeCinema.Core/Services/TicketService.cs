@@ -39,7 +39,12 @@ namespace SoftServeCinema.Core.Services
             var result = await _ticketRepository.GetListBySpecAsync(new TicketsSpecifications.GetBoughtByUserId(userId));
             return _mapper.Map<List<TicketDetailDTO>>(result);
         }
-
+        public async Task<List<TicketDetailDTO>> GetTicketsDetailAsync(int[] ticketsIds)
+        {
+            await this.UpdateReservation();
+            var result = await _ticketRepository.GetListBySpecAsync(new TicketsSpecifications.GetTicketsWithDetails(ticketsIds));
+            return _mapper.Map<List<TicketDetailDTO>>(result);
+        }
         public async Task<List<TicketDTO>> GetAllTicketsAsync()
         {
             var result = await _ticketRepository.GetAllAsync();
@@ -51,7 +56,11 @@ namespace SoftServeCinema.Core.Services
             var result = await _ticketRepository.GetListBySpecAsync(new TicketsSpecifications.GetByIds(ticketIds));
             return _mapper.Map<List<TicketDTO>>(result);
         }
-
+        public async Task<List<TicketDetailDTO>> GetTicketsDetailByIdsAsync(ICollection<int> ticketIds)
+        {
+            var result = await _ticketRepository.GetListBySpecAsync(new TicketsSpecifications.GetByIds(ticketIds));
+            return _mapper.Map<List<TicketDetailDTO>>(result);
+        }
         public async Task<TicketDTO> GetTicketByIdAsync(int ticketId)
         {
             var ticket = (await _ticketRepository.GetByIdAsync(ticketId)) ?? throw new EntityNotFoundException();
@@ -144,6 +153,10 @@ namespace SoftServeCinema.Core.Services
             await _ticketRepository.SaveAsync();
         }
 
-      
+        public async Task<List<TicketDetailWithUserDTO>> GetTicketsDetailWithUserAsync(int[] ticketsIds)
+        {
+            var result = await _ticketRepository.GetListBySpecAsync(new TicketsSpecifications.GetTicketsWithUser(ticketsIds));
+            return _mapper.Map<List<TicketDetailWithUserDTO>>(result);
+        }
     }
 }

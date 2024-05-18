@@ -11,6 +11,7 @@ namespace SoftServeCinema.Core.Interfaces.Services
         Task<MovieFullDTO> GetFullMovieByIdAsync(int movieId);
         Task<MovieFormDTO> GetMovieFormByIdAsync(int movieId);
         Task<bool> IsTitleUniqueAsync(string title);
+        Task<List<MovieDTO>> SearchMoviesAsync(string title);
         Task<bool> IsTitleUniqueWithoutIdAsync(int movieId, string title);
         Task CreateMovieAsync(MovieFormDTO movieFormDTO, string imagePath);
         Task UpdateMovieAsync(MovieFormDTO movieFormDTO, string? imagePath);

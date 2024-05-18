@@ -37,7 +37,13 @@ namespace SoftServeCinema.Infrastructure.Configurations
                .WithOne(t => t.User)
                .HasForeignKey(t => t.UserId)
                 ;
-             
+            builder
+                .HasMany(s => s.Payments)
+                .WithOne(t => t.User)
+                .HasForeignKey(t => t.UserId)
+                ;
+
+
         }
     }
 }

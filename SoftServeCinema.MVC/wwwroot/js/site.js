@@ -23,7 +23,7 @@ ticketOrder.addEventListener('click', (e) => {
 
 ticket_container.addEventListener('click', e => {
     e.preventDefault();
-    if (e.target.dataset.id !== null && !e.target.classList.contains("ticket__seat-unavailable")) {
+    if (e.target.dataset.id != null && !e.target.classList.contains("ticket__seat-unavailable")) {
         if (ticket_array.filter(item => {return item.id == e.target.dataset.id;}).length == 0
         ) {
             ticket_array.push({

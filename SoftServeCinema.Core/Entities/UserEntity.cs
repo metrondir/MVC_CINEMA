@@ -16,7 +16,7 @@ namespace SoftServeCinema.Core.Entities
         public string LastName { get; set; }
         public string Email { get; set; }
         public string RoleName { get; set; }
-
+        public ICollection<PaymentEntity> Payments { get; set; }
         public ICollection<TicketEntity> Tickets { get; set; } = [];
 
     }

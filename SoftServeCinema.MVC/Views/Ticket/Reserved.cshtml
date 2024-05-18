@@ -10,15 +10,13 @@
 
     @await Html.PartialAsync("_Paginator", Model)
     <div class="list-group my-4">
-        @if (Model.Count() == 0){
+        @if (!Model.Any()){
             <h3 class="text-center">Немає зарезервованих квитків</h3>
 
         }
         else
         {
-            <form action="/Ticket/Buy" method="post" class="row g-3 text-center">
-
-
+            <form action="/Checkout/CheckoutOrder" method="post" class="row g-3 text-center">
                 @foreach (var ticket in Model)
                 {
 
@@ -36,10 +34,10 @@
                             <i class="bi bi-trash-fill"></i> Відхилити резервацію
                         </a>
 
-                    </div>
+                    </div> 
 
                 }
-                <input type="submit" value="buy" />
+                <input type="submit" value="buy" class="btn btn-primary mt-3" />
             </form>
         }
 
@@ -47,5 +45,6 @@
         
     </div>
 </div>
-
+<script src="https://js.stripe.com/v3/"></script>
+<script src="js/checkout.js"></script>
 @await Html.PartialAsync("_Paginator", Model)
