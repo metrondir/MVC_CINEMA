@@ -259,6 +259,134 @@ main.main {
     border-color: red;
 }
 
+
+
+
+.movie-container {
+    margin: 0;
+    padding: 0;
+    background-image: url('/images/background/chear.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.card {
+    background-color: black; 
+    border: none;
+    color: white; 
+    margin-bottom: 20px; 
+    position: relative; 
+    padding: 1.20rem; 
+}
+
+.card-title,
+.card-text {
+    color: white; 
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto; 
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    text-align: center; 
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+
+    .card-overlay p {
+        margin-bottom: 10px;
+    }
+
+    .card-overlay a {
+        margin-top: 15px;
+        text-decoration: none; 
+        color: white;
+    }
+
+
+
+.card:hover .card-overlay {
+    opacity: 1; 
+}
+
+.text {
+    color: #FF0000;
+}
+
+.movie-cover {
+    max-width: 300px;
+    width: 100%;
+}
+
+.fa-star.checked {
+    color: #FF0000;
+}
+
+.fa-star {
+    color: #F8F9FA;
+}
+
+.movie-trailer {
+    border-radius: 10px;
+}
+
+
+.schedule-block {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.weekdays {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+    .weekdays span {
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .weekdays span.date-selected,
+        .session-hours a.date-selected {
+            color: #FF0000;
+        }
+
+.session-hours {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .session-hours a {
+        text-decoration: none;
+        color: inherit;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+        .session-hours a:hover {
+            color: #FF0000;
+        }
+
 .info__container {
     color:white;
 }
@@ -597,3 +725,4 @@ main.main {
     box-shadow: 0 2px #444;
     transform: translateY(2px);
 }
+
