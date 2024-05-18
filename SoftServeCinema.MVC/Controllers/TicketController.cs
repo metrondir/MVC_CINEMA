@@ -141,13 +141,7 @@ namespace SoftServeCinema.MVC.Controllers
             TempData[WebConstants.alertSuccessKey] = "Ticket canceled successfully";
             return RedirectToAction(nameof(Reserved));
         }
-        public async Task<IActionResult> Buy(int[] ticketIds)
-        {
-            await _ticketService.BuyTicketsByIdsAsync(ticketIds);
 
-            TempData[WebConstants.alertSuccessKey] = "Tickets bought successfully";
-            return RedirectToAction(nameof(Bought));
-        }
         //[Authorize]
         public async Task<IActionResult> Bought(int page = 1, int pageSize = 10)
         {

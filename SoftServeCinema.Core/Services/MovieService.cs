@@ -184,5 +184,11 @@ namespace SoftServeCinema.Core.Services
             _movieRepository.Delete(movieId);
             await _movieRepository.SaveAsync();
         }
+
+        public async Task<List<MovieDTO>> SearchMoviesAsync(string title)
+        {
+            var result =  await _movieRepository.GetListBySpecAsync(new MoviesSpecifications.GetAllByTitle(title));
+            return _mapper.Map<List<MovieDTO>>(result);
+        }
     }
 }

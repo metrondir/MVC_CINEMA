@@ -14,7 +14,9 @@ using System.IdentityModel.Tokens.Jwt;
 using Newtonsoft.Json;
 using SoftServeCinema.Core.DTOs.Users;
 using SoftServeCinema.MVC.CustomMiddlware;
-
+using Stripe;
+using DinkToPdf;
+using DinkToPdf.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("CinemaDbContext");
@@ -27,6 +29,8 @@ builder.Services.AddDbContext(connectionString);
 // repository 
 builder.Services.AddRepository();
 
+builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+
 // services
 builder.Services.AddScoped<IGenreService, GenreService>();
 builder.Services.AddScoped<ITagService, TagService>();
@@ -37,6 +41,9 @@ builder.Services.AddScoped<ISessionService, SessionService>();
 builder.Services.AddScoped<ITicketService, TicketService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ISuperAdminService, SuperAdminService>();
+builder.Services.AddScoped<IPdfService, PdfService>();
+builder.Services.AddScoped<IQRCodeService, QRCodeService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddTransient<AddTokenToHeader>();
 builder.Services.AddTransient<Interceptor>();
 //session
@@ -55,6 +62,7 @@ builder.Services.AddValidators();
 // file upload helper
 builder.Services.AddSingleton<FileUpload>();
 
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "AllowMyOrigins", policy =>

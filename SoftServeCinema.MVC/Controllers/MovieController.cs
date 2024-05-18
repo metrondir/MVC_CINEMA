@@ -49,13 +49,11 @@ namespace SoftServeCinema.MVC.Controllers
             if (page <= 0) page = 1;
 
             var actualMovies = await _movieService.GetActualsAsync();
-            ViewBag.ActualMovies = actualMovies;
 
-            var expectedMovies = await _movieService.GetExpectedAsync();
 
-            if (expectedMovies.Count() != 0 && expectedMovies.Count() <= (page - 1) * pageSize) return BadRequest();
+            if (actualMovies.Count() != 0 && actualMovies.Count() <= (page - 1) * pageSize) return BadRequest();
 
-            return View(await expectedMovies.ToPagedListAsync(page, pageSize));
+            return View(await actualMovies.ToPagedListAsync(page, pageSize));
         }
         public async Task<IActionResult> New(int page = 1, int pageSize = 10)
         {
@@ -199,7 +197,16 @@ namespace SoftServeCinema.MVC.Controllers
                 return NotFound();
             }
         }
+        public async Task<IActionResult> Search (string search, int page = 1, int pageSize = 10)
+        {
+            if (page <= 0) page = 1;
 
+            var movies = await _movieService.SearchMoviesAsync(search);
+
+            if (movies.Count() <= (page - 1) * pageSize && movies.Count()!=0) return BadRequest();
+
+            return View(await movies.ToPagedListAsync(page, pageSize));
+        }
         private async Task FillViewBagGenres()
         {
             ViewBag.Genres = (await _genreService.GetAllGenresAsync())

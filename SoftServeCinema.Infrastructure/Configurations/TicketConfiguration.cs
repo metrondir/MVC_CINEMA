@@ -48,6 +48,8 @@ namespace SoftServeCinema.Infrastructure.Configurations
                .HasForeignKey(t => t.UserId)
                .IsRequired(false)
            ;
+            
+
         }
     }
 }

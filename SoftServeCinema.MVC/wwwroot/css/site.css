@@ -163,7 +163,7 @@ main.main {
     margin:25px;
 }
 .manage__container table {
-    display:inline;
+/*    display:inline;*/
 }
 .manage__container form label{
     font-size:24px;
@@ -258,6 +258,7 @@ main.main {
 .ticket__seat-vip {
     border-color: red;
 }
+
 .info__container {
     color:white;
 }
@@ -432,3 +433,4 @@ main.main {
     display:flex;
     justify-content:space-between;
 }
+
