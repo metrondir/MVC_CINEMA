@@ -3,105 +3,230 @@
 @{
     ViewData["Title"] = "Фільм: " + Model.Title;
 }
-
-<div>
-    <h3 class="text-center my-4">Фільм</h3>
-
-    <div class="list-group my-4">
-        <div class="row justify-content-between">
-            <h2>@Model.Title</h2>
-            <img class="w-25 m-auto" src="@Url.Content("~/images/" + Model.ImagePath)" alt="@Model.Title">
-            <p>Жанр: @(string.Join(", ", Model.Genres.Select(g => g.Name)))</p>
-            <p>Тег: @(string.Join(", ", Model.Tags.Select(t => t.Name)))</p>
-            <p>Режисер: @(string.Join(", ", Model.Directors.Select(d => d.Name)))</p>
-            <p>Актори: @(string.Join(", ", Model.Actors.Select(a => a.Name)))</p>
-            <p>Прокат: З @Model.StartRentalDate.ToShortDateString() до @Model.EndRentalDate.ToShortDateString()</p>
-            <p>Тривалість: @Model.Duration хв.</p>
-            <p>Рік: @Model.GraduationYear</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                           Сьогодні
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div id="todaySession">
-                                @foreach (var session in Model.Sessions.Where(s => s.StartDate.Day == DateTime.UtcNow.Day))
-                                {
-                                    
-                                    <p>
-                                        <a class="nav-link text-dark @(session.Tickets.Count() == 0 ? "disabled" : "")" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">@session.StartDate.ToShortTimeString() </a>
-                                    </p>
+<style>
 
-                                }
-                            </div>
-                        </div>
-                    </div>
+    body {
+        margin-bottom: 60px;
+        background-color: #050505;
+        color: #F8F9FA;
+    }
+</style>
+
+
+
+<div class="container mt-5 black-bmw">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="@Url.Content("~/images/" + Model.ImagePath)" alt="@Model.Title" class="img-fluid rounded movie-cover">
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Завтра 
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div id="tomorrowSession">
-
-                                @foreach (var session in Model.Sessions.Where(s => s.StartDate.Day == DateTime.UtcNow.AddDays(1).Day))
-                                {
-
-                                    <p>
-                                        <a class="nav-link text-dark @(session.Tickets.Count() == 0 ? "disabled" : "")" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">@session.StartDate.ToShortTimeString() </a>
-                                    </p>
-
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Протягом тижня
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div id="weekSessions">
-                                @for (int i = 3; i <= 7; i++)
-                                {
-                                    if (Model.Sessions.Where(s => s.StartDate.Day <= DateTime.UtcNow.AddDays(i).Day && s.StartDate.Day > DateTime.UtcNow.AddDays(i - 1).Day).Count() != 0)
-                                    {
-
-                                        <div>
-                                            <p>@DateTime.UtcNow.AddDays(i).ToShortDateString()</p>
-                                            @foreach (var session in Model.Sessions.Where(s => s.StartDate.Day <= DateTime.UtcNow.AddDays(i).Day && s.StartDate.Day > DateTime.UtcNow.AddDays(i - 1).Day))
-                                            {
-                                                <p>
-                                                    <a class="nav-link text-dark @(session.Tickets.Count() == 0 ? "disabled" : "")" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">@session.StartDate.ToShortTimeString() </a>
-                                                </p>
-
-                                            }
-                                        </div>
-                                    }
-                                }
-
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text">@Model.Title</h4>
                 </div>
             </div>
 
-            
-          
-            <iframe width="560" height="315" src="@Model.TrailerUrl" frameborder="0" allowfullscreen></iframe>
-            <h3>Опис</h3>
-            <p>@Model.Desc</p>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <p>
+                        <span style="color: #A9A9A9;">Рік </span><br />@Model.GraduationYear<br />
+                        
+                        <span style="color: #A9A9A9;">Жанр </span><br />
+                        @foreach (var genre in Model.Genres)
+                        {
+                            <a href="@Url.Action("Details", "Genre", new { id = genre.Id })" style="color: #FF0000;">@genre.Name</a>
+                        }
+                        <br/>
+
+                        <span style="color: #A9A9A9;">Актори </span><br />
+                        <span style="color: #F8F9FA;">@(string.Join(", ", Model.Actors.Select(a => a.Name)))</span><br />
+                        <span style="color: #A9A9A9;">Режисер </span><br />
+                        <span style="color: #F8F9FA;">@(string.Join(", ", Model.Directors.Select(d => d.Name)))</span><br />
+                        <span style="color: #A9A9A9;">Прокат </span><br /> з @Model.StartRentalDate.ToShortDateString() до @Model.EndRentalDate.ToShortDateString()<br />
+                        <span style="color: #A9A9A9;">Тривалість </span><br /> @Model.Duration хв.<br />
+                        <span style="color: #A9A9A9;">Тег</span><br />
+                        <span style="color: #F8F9FA;">@(string.Join(", ", Model.Tags.Select(t => t.Name)))</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12 p-md-4">
+
+                    <h4 class="text">FILM DESCRIPTION</h4>
+                    <p>@Model.Desc</p>
+
+
+                    @if (string.Join(", ", Model.Tags.Select(t => t.Name)) == "18+")
+                    {
+                        <h4 class="text">AGE RESTRICTION</h4>
+                        <p>
+                            Якщо вам менше 18 років, ви не зможете подивитися цей фільм у кінотеатрі навіть з батьками. 
+                            При вході в зал працівник кінотеатру перевірить документ, що посвідчує вашу особу.
+                        </p>
+                    }
+                    <h4 class="text">SELECT SESSION</h4>
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Сьогодні
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div id="todaySession">
+                                        @foreach (var session in Model.Sessions.Where(s => s.StartDate.Day == DateTime.UtcNow.Day))
+                                        {
+
+                                            <p>
+                                                <a class="nav-link text-dark @(session.Tickets.Count() == 0 ? "disabled" : "")" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">@session.StartDate.ToShortTimeString() </a>
+                                            </p>
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Завтра
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div id="tomorrowSession">
+
+                                        @foreach (var session in Model.Sessions.Where(s => s.StartDate.Day == DateTime.UtcNow.AddDays(1).Day))
+                                        {
+
+                                            <p>
+                                                <a class="nav-link text-dark @(session.Tickets.Count() == 0 ? "disabled" : "")" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">@session.StartDate.ToShortTimeString() </a>
+                                            </p>
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Протягом тижня
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div id="weekSessions">
+                                        @for (int i = 3; i <= 7; i++)
+                                        {
+                                            if (Model.Sessions.Where(s => s.StartDate.Day <= DateTime.UtcNow.AddDays(i).Day && s.StartDate.Day > DateTime.UtcNow.AddDays(i - 1).Day).Count() != 0)
+                                            {
+
+                                                <div>
+                                                    <p>@DateTime.UtcNow.AddDays(i).ToShortDateString()</p>
+                                                    @foreach (var session in Model.Sessions.Where(s => s.StartDate.Day <= DateTime.UtcNow.AddDays(i).Day && s.StartDate.Day > DateTime.UtcNow.AddDays(i - 1).Day))
+                                                    {
+                                                        <p>
+                                                            <a class="nav-link text-dark @(session.Tickets.Count() == 0 ? "disabled" : "")" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">@session.StartDate.ToShortTimeString() </a>
+                                                        </p>
+
+                                                    }
+                                                </div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @* <div class="schedule-block">
+                        <div class="weekdays">
+                            @{
+                                var uniqueDates = Model.Sessions
+                                .Where(s => s.MovieId == Model.Id)
+                                .Select(s => s.StartDate.Date)
+                                .Distinct()
+                                .OrderBy(date => date);
+
+                                foreach (var date in uniqueDates)
+                                {
+                                    <span class="date" onclick="showSessionsForDate('@date.ToString("yyyy-MM-dd")')">@date.ToString("MM-dd")</span>
+                                }
+                            }
+                        </div>
+                        <hr>
+                        <div class="session-hours">
+                            @{
+                                foreach (var date in uniqueDates)
+                                {
+                                    var sessionsForDate = Model.Sessions
+                                    .Where(s => s.MovieId == Model.Id && s.StartDate.Date == date)
+                                    .OrderBy(s => s.StartDate);
+
+                                    foreach (var session in sessionsForDate)
+                                    {
+                                        <a class="nav-link session" data-date="@date.ToString("yyyy-MM-dd")" asp-area="" asp-controller="Session" asp-action="Details" asp-route-id="@session.Id">
+                                            @session.StartDate.ToString("HH:mm")
+                                        </a>
+                                    }
+                                }
+                            }
+                        </div>
+                 
+                </div> *@
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-12 pt-4 p-md-4">
+                    <h4 class="text">TRAILER</h4>
+                    <iframe class="movie-trailer" width="100%" height="500" src="@Model.TrailerUrl" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
+<script>
+
+        const weekdays = document.querySelectorAll('.weekdays span');
+
+
+        weekdays.forEach(day => {
+            day.addEventListener('click', function () {
+           
+                weekdays.forEach(d => d.classList.remove('date-selected'));
+
+                this.classList.add('date-selected');
+            });
+        });
+
+
+    function showSessionsForDate(date) {
+        var sessions = document.querySelectorAll('.session-hours .session');
+        sessions.forEach(function (session) {
+            if (session.dataset.date === date) {
+                session.style.display = 'block';
+            } else {
+                session.style.display = 'none';
+            }
+        });
+
+
+    }
+
+</script>
