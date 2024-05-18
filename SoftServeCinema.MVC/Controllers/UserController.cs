@@ -56,7 +56,6 @@ namespace SoftServeCinema.MVC.Controllers
                         HttpContext.Session.SetString("accessToken", userWithToken.AccessToken);
                         HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
                         return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role")?.Value is "Admin" or "SuperAdmin" ? RedirectToAction("Index", "Admin") : RedirectToAction("Index", "Home");
-
                     }
                     var user = new UserRegisterDTO()
                     {
@@ -72,8 +71,6 @@ namespace SoftServeCinema.MVC.Controllers
                     HttpContext.Session.SetString("refreshToken", userWithToken.RefreshToken);
 
                     return new JwtSecurityTokenHandler().ReadJwtToken(userWithToken.AccessToken).Claims.FirstOrDefault(c => c.Type == "role")?.Value is "Admin" or "SuperAdmin" ? RedirectToAction("Index", "Admin") : RedirectToAction("Index", "Home");
-
-
                 }
                 var errorMessage = await response.Content.ReadAsStringAsync();
                 dynamic errorObject = JsonConvert.DeserializeObject<dynamic>(errorMessage);

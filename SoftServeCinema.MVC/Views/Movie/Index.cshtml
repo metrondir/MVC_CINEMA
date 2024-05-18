@@ -3,27 +3,13 @@
 @{
     ViewData["Title"] = "Актуальні фільми";
     ViewData["PaginatorAction"] = "Index";
-    IEnumerable<SoftServeCinema.Core.DTOs.Movies.MovieDTO> actualMovies = ViewBag.ActualMovies;
 }
 
 <div>
     <h3 class="text-center my-4">Актуальні фільми</h3>
 
-    <div class="list-group my-4">
-        <div class="row justify-content-between">
-            @if (actualMovies.Count() == 0)
-            {
-                <h5>Не знайдено</h5>
-            }
-            @foreach (var movie in actualMovies)
-            {
-                @await Html.PartialAsync("Movies/_MovieCard", movie)
-            }
-        </div>
-    </div>
 
-    <h3 class="text-center my-4">Очікувані фільми</h3>
-
+    
     <div class="list-group my-4">
         @await Html.PartialAsync("_Paginator", Model)
         <div class="row justify-content-between">

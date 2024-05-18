@@ -115,7 +115,6 @@ namespace SoftServeCinema.Core.Services
         }
 
         public async Task<bool> IsSessionUniqueWithoutIdAsync(int sessionId , DateTime startDateTime)
-
         {
             try
             {

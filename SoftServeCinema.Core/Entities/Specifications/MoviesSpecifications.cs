@@ -13,7 +13,18 @@ namespace SoftServeCinema.Core.Entities.Specifications
                     .AsNoTracking();
             }
         }
-
+        public class GetAllByTitle : Specification<MovieEntity>
+        {
+            public GetAllByTitle(string title)
+            {
+                Query
+                    .Where(m => m.Title.Contains(title))
+                     .Include(m => m.Genres)
+                    .Include(m => m.Tags)
+                    .Include(m => m.Directors)
+                    .AsNoTracking();
+            }
+        }
         public class GetByTitleWithoutId : Specification<MovieEntity>
         {
             public GetByTitleWithoutId(int movieId, string title)
@@ -72,7 +83,7 @@ namespace SoftServeCinema.Core.Entities.Specifications
             {
                 Query
                     .Where(m => m.Id == movieId)
-                    .Include(m => m.Sessions.Where(s => s.StartDate > DateTime.UtcNow))
+                    .Include(m => m.Sessions.Where(s => s.StartDate > DateTime.UtcNow).OrderBy(s => s.StartDate))
                     .ThenInclude(s => s.Tickets)
                     .Include(m => m.Genres)
                     .Include(m => m.Tags)

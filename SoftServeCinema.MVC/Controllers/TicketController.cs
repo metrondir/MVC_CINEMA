@@ -4,6 +4,7 @@ using SoftServeCinema.Core.DTOs.Tickets;
 using SoftServeCinema.Core.Exceptions;
 using SoftServeCinema.Core.Interfaces.Services;
 using SoftServeCinema.MVC.Helpers;
+using System.IdentityModel.Tokens.Jwt;
 using X.PagedList;
 
 namespace SoftServeCinema.MVC.Controllers
@@ -118,7 +119,43 @@ namespace SoftServeCinema.MVC.Controllers
                 return NotFound();
             }
         }
+        //[Authorize]
+        public async Task<IActionResult> Reserved(int page = 1, int pageSize = 10)
+        {
 
+            if (page <= 0) page = 1;
+            var userId = new JwtSecurityTokenHandler().ReadJwtToken(HttpContext.Session.GetString("accessToken")).Claims.FirstOrDefault(c => c.Type == "nameid").Value;
+
+            var tickets = await _ticketService.GetReservationByUserIdAsync(userId);
+            if (tickets.Count() <= (page - 1) * pageSize && tickets.Count() != 0) return BadRequest();
+
+            return View(await tickets.ToPagedListAsync(page, pageSize));
+
+        }
+        //[Authorize]
+
+        public async Task <IActionResult>Cancel (int id)
+        {
+            if (id <= 0) return BadRequest();
+           await _ticketService.CancelReservationById(id);
+            TempData[WebConstants.alertSuccessKey] = "Ticket canceled successfully";
+            return RedirectToAction(nameof(Reserved));
+        }
+
+        //[Authorize]
+        public async Task<IActionResult> Bought(int page = 1, int pageSize = 10)
+        {
+
+            if (page <= 0) page = 1;
+            var userId = new JwtSecurityTokenHandler().ReadJwtToken(HttpContext.Session.GetString("accessToken")).Claims.FirstOrDefault(c => c.Type == "nameid").Value;
+
+            var tickets = await _ticketService.GetBoughtByUserIdAsync(userId);
+
+            if (tickets.Count() <= (page - 1) * pageSize && tickets.Count() != 0) return BadRequest();
+
+            return View(await tickets.ToPagedListAsync(page, pageSize));
+
+        }
         private async Task FillViewBagSessions()
         {
             ViewBag.Sessions = (await _sessionService.GetAllSessionsAsync())
