@@ -4,6 +4,18 @@
 //window.addEventListener('load', function () {
 //    document.body.classList.add('loaded');
 //});
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 5,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
 let ticket_array = [];
 const ticket_container = document.querySelector('.ticket__container');
 const ticketOrder = document.querySelector('.tickets__container');
@@ -114,4 +126,3 @@ const fromUnavailableToAvailable = (button) => {
     button.classList.add("ticket__seat-available");
 
 }
-

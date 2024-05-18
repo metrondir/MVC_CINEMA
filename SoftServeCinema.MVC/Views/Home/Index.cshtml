@@ -1,7 +1,34 @@
-﻿@{
+﻿@model IEnumerable<SoftServeCinema.Core.DTOs.Movies.MovieDTO>
+
+@{
     ViewData["Title"] = "Головна сторінка";
+
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<div class="home-content">
+    <form action="/Movie/Search" method="get" class="search-bar" role="search">
+        <input name="search" value="@ViewContext.HttpContext.Request.Query["search"]" type="search" placeholder="Movie Title" aria-label="Search">
+        <button type="submit">Search</button>
+    </form>
+
+    <section class="cinema-intro">
+        <h1>Cinema</h1>
+        <p>Everyone talks a lot about the process, but the most interesting thing about the film itself.</p>
+    </section>
+    <div class="swiper mySwiper pb-4">
+        <div class="swiper-wrapper">
+            @foreach (var movie in Model)
+            {
+                <div class="swiper-slide">
+                    <div class="movie">
+                        <a asp-route-id="@movie.Id" asp-controller="Movie" asp-action="Details">
+							<img src="@Url.Content("~/images/" + movie.ImagePath)" alt="@movie.Title">
+						</a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
 </div>
