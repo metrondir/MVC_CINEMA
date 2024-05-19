@@ -23,12 +23,14 @@ namespace SoftServeCinema.MVC.Controllers
         public async Task<IActionResult> Index(int page = 1, int pageSize = 10)
         {
             if (page <= 0) page = 1;
+            var userId = new JwtSecurityTokenHandler().ReadJwtToken(HttpContext.Session.GetString("accessToken")).Claims.FirstOrDefault(c => c.Type == "nameid").Value;
 
-            var ticket = await _ticketService.GetAllTicketsAsync();
+            var ticketsReserved = await _ticketService.GetReservationByUserIdAsync(userId);
+            var ticketBought = await _ticketService.GetBoughtByUserIdAsync(userId);
+            var tickets = ticketsReserved.Concat(ticketBought);
+            if (tickets.Count() <= (page - 1) * pageSize && tickets.Count() != 0) return BadRequest();
 
-            if (ticket.Count() <= (page - 1) * pageSize) return BadRequest();
-
-            return View(await ticket.ToPagedListAsync(page, pageSize));
+            return View(await tickets.ToPagedListAsync(page, pageSize));
         }
 
         public async Task<IActionResult> Details(int id)
@@ -126,7 +128,9 @@ namespace SoftServeCinema.MVC.Controllers
             if (page <= 0) page = 1;
             var userId = new JwtSecurityTokenHandler().ReadJwtToken(HttpContext.Session.GetString("accessToken")).Claims.FirstOrDefault(c => c.Type == "nameid").Value;
 
-            var tickets = await _ticketService.GetReservationByUserIdAsync(userId);
+            var ticketsReserved = await _ticketService.GetReservationByUserIdAsync(userId);
+            var ticketBought = await _ticketService.GetBoughtByUserIdAsync(userId);
+            var tickets = ticketsReserved.Concat(ticketBought);
             if (tickets.Count() <= (page - 1) * pageSize && tickets.Count() != 0) return BadRequest();
 
             return View(await tickets.ToPagedListAsync(page, pageSize));
@@ -139,7 +143,7 @@ namespace SoftServeCinema.MVC.Controllers
             if (id <= 0) return BadRequest();
            await _ticketService.CancelReservationById(id);
             TempData[WebConstants.alertSuccessKey] = "Ticket canceled successfully";
-            return RedirectToAction(nameof(Reserved));
+            return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> Buy(int[] ticketIds)
         {

@@ -79,12 +79,18 @@
                 <p>Total to pay</p>
                 <p id="sum">0 UAH</p>
             </div>
-            <div class="summary__button">
-                 <form action="/Reservation/ReservationTickets" method="post" class="row g-3 text-center">
+            <div class="summary__button d-flex justify-content-between px-5">
+                <form action ="/Checkout/CheckoutOrder" method="post" class="row g-3 text-center">
                     <input type="hidden" name="ticketIdsJson"  id="ticketsJSON" />
+                    <input type="submit" value="Buy" />
+                </form>
+                <form action="/Reservation/ReservationTickets" method="post" class="row g-3 text-center">
+                    <input type="hidden" name="ticketIdsJson" id="ticketsJSON" />
                     <input type="submit" value="Reserve" />
                 </form>
             </div>
         </div>
     </div>
 </div>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="js/checkout.js"></script>

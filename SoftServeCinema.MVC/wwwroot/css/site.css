@@ -31,15 +31,18 @@ html::-webkit-scrollbar {
 .content {
     flex-grow: 1;
 }
-.wrapper {
-    /*display: flex;
+    .content *{
+        z-index:0 !important;
+    }
+    .wrapper {
+        /*display: flex;
     flex-direction: column;*/
-    display:grid;
-    grid-template-rows:70px 1fr 70px;
-    grid-template-columns:1fr;
-    min-height: 100%;
-    overflow: clip;
-}
+        display: grid;
+        grid-template-rows: 70px 1fr 70px;
+        grid-template-columns: 1fr;
+        min-height: 100%;
+        overflow: clip;
+    }
 .admin__wrapper {
     min-height:100%;
     overflow:clip;
@@ -369,6 +372,7 @@ main.main {
     margin-top:10px !important;
     margin-right:1px !important;
     padding:0px 20px;
+    z-index:0;
     display:flex;
     justify-content:space-between;
 
@@ -415,7 +419,7 @@ main.main {
         display:flex;
         justify-content:center;
     }
-    .summary__submit input[type="submit"] {
+    .summary__submit input[type="submit"], .ticket__reserved input[type="submit"] {
         border: none;
         margin-bottom: 10px;
         background-color: #B41616;
@@ -425,10 +429,17 @@ main.main {
         color: white;
         font-family: "Inter", sans-serif;
         font-weight: 700;
-        font-size:30px;
+        font-size: 30px;
         border-radius: 30px;
     }
 .summary__title {
     display:flex;
     justify-content:space-between;
+}
+.dropdown-menu *, .dropdown-item * {
+    z-index: 1050 !important;
+    position:sticky !important;
+}
+.card__container, .card__container * {
+    z-index: 0 !important;
 }

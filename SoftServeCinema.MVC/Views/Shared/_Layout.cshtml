@@ -4,6 +4,7 @@
 
 @{
     var auth = HttpContextAccessor.HttpContext.Session.GetString("accessToken") != null ? "Logout" : "Login";
+
 }
 
 <!DOCTYPE html>
@@ -16,9 +17,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SoftServeCinema.MVC.styles.css" asp-append-version="true" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -39,31 +37,28 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Movie" asp-action="Actuals">Actual</a>
                             </li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Index">
+                                    Tickets
+                                </a>
+                            </li>
+                            }
                         </ul>
+
                         <ul class="navbar-nav d-flex flex-row-reverse">
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Reserved">My Reserved Tickets</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Bought">My Bought Tickets</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="User" asp-action="@auth">@auth</a>
                             </li>
-                            @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">
-                                    Admins
-                                </a>
-                                </li>
-                            }
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-        <div class="content p-0 m-0">
+        <div class="content p-0 m-0 z-n1 bg-black">
             <main class="main">
                 @if (TempData[WebConstants.alertSuccessKey] != null)
                 {
@@ -85,7 +80,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

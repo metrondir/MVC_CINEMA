@@ -12,7 +12,7 @@ using SoftServeCinema.Infrastructure.Data;
 namespace SoftServeCinema.Infrastructure.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20240517114927_initial")]
+    [Migration("20240517192129_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -1572,10 +1572,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 1,
                             Desc = "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.",
                             Duration = (ushort)108,
-                            EndRentalDate = new DateTime(2024, 6, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4775),
+                            EndRentalDate = new DateTime(2024, 6, 16, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1695),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/sw-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4769),
+                            StartRentalDate = new DateTime(2024, 5, 16, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1689),
                             Title = "Повстання Штатів",
                             TrailerUrl = "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq"
                         },
@@ -1584,10 +1584,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 2,
                             Desc = "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.",
                             Duration = (ushort)126,
-                            EndRentalDate = new DateTime(2024, 6, 1, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4778),
+                            EndRentalDate = new DateTime(2024, 6, 1, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1702),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/fall_guy-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 4, 27, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4778),
+                            StartRentalDate = new DateTime(2024, 4, 27, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1701),
                             Title = "Каскадер",
                             TrailerUrl = "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY"
                         },
@@ -1596,10 +1596,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 3,
                             Desc = "Минуло кілька поколінь з часів правління Цезаря. Молодий шимпанзе Ноа (Овен Тіґ) уважно слухає усе, що розповідають йому про минуле і про те, як відбувався розвиток тих чи інших технологій. Він починає помічати дедалі більше невідповідностей. Аби пересвідчитись чи правильні його здогадки, він бере з собою людську дівчину на ім’я Мей (Фрея Алан). Люди давно здичавіли, тож не варто очікувати від неї багато. Разом Ноа та Мей вирушають у виснажливу подорож, результати якої визначать подальший розвиток як мавп, так і людей.\r\n\r\nФантастичний бойовик «Королівство планети мавп» є прямим продовженням фільму «Війна за планету мавп», що вийшов у 2017 році та четвертим фільмом перезапуску франшизи «Планета мавп». Про ідею цього фільму говорили ще у 2016 році. У 2019 році компанія Walt Disney оголосила, що у розробці знаходяться нові фільми та їх події розгортатимуться у тому ж всесвіті, що й фільм «Повстання планети мавп» 2011 року . Передбачається, що на екрани вийде ще щонайменше 2 фільми.",
                             Duration = (ushort)145,
-                            EndRentalDate = new DateTime(2024, 6, 6, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4781),
+                            EndRentalDate = new DateTime(2024, 6, 6, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1705),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/kotpota_vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 10, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4781),
+                            StartRentalDate = new DateTime(2024, 5, 10, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1704),
                             Title = "Королівство планети мавп",
                             TrailerUrl = "https://www.youtube.com/embed/Ed-rbhWhzTU?si=mIuERJ2K7Q-exaYq"
                         },
@@ -1608,10 +1608,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 4,
                             Desc = "Дівчинка на ім’я Бі (Кейлі Флемінг) раптом починає бачити уявних друзів. Звісно, деякі діти фантазують про таку компанію. Однак Бі нічого не вигадувала. Дівчинка бачить безліч дивних персонажів, яких вигадав хтось інший. Виявляється, що такою самою силою наділений і її сусід (Раян Рейнольдс). Тепер вони удвох даватимуть раду чималій когорті чудернацьких створінь. Справа в тім, що діти, які вигадали цих персонажів, давно виросли та забули про своїх кращих друзів. Було б добре їм знову зустрітися.\r\n\r\nФентезійна комедійна драма «Уявні Друзі (УД)» – це дітище Джона Красінскі, відомого передовсім за роллю у серіалі «Офіс». Він має досвід створення повнометражного кіно («Тихе місце»), однак цього разу вдався до нового для себе жанру, сам займався сценарієм та режисурою. Проект для сімейного перегляду задумав у співпраці з батьком чотирьох дітей Раяном Рейнольдсом. Вони удвох продюсували фільм та знімалися у ньому.",
                             Duration = (ushort)104,
-                            EndRentalDate = new DateTime(2024, 6, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4784),
+                            EndRentalDate = new DateTime(2024, 6, 16, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1708),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/if-vend2.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4784),
+                            StartRentalDate = new DateTime(2024, 5, 16, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1708),
                             Title = "Уявні Друзі",
                             TrailerUrl = "https://www.youtube.com/embed/EFrEPzxmQjM?si=d-0RtIH00F7L0dg6"
                         },
@@ -1620,10 +1620,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 5,
                             Desc = "У 2001 році молоді київські розробники на чолі з Сергієм Григоровичем вирішують зробити найскладнішу гру в світі з реалістичною графікою, відкритим світом і нетиповим сюжетом довкола Чорнобильської зони.\r\n\r\nЗ початку промокампанії S.T.A.L.K.E.R. чекали сотні тисяч людей по всьому світу, але розробники стали заручниками своїх амбіцій. Вони безкінечно покращували гру та з року в рік переносили дату виходу. Але в один момент американському видавцю увірвався терпець.\r\n\r\nЦе історія про індустрію відеоігор, любов до своєї роботи та проєкт, який перейшов межі екранів і став попкультурним феноменом.\r\n\r\n«ЕПІЗОДИ» — це історії незалежної України. Вони здаються такими різними, але водночас дуже схожі: наївні, сумні, амбітні. Це визначні події, на яких виросли цілі покоління. Розповіді від перших осіб із використанням унікальних архівних матеріалів.",
                             Duration = (ushort)77,
-                            EndRentalDate = new DateTime(2024, 6, 8, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4787),
+                            EndRentalDate = new DateTime(2024, 6, 8, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1711),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/stalker-vend2.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 13, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4786),
+                            StartRentalDate = new DateTime(2024, 5, 13, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1711),
                             Title = "ЕПІЗОДИ: Тінь Чорнобиля",
                             TrailerUrl = "https://www.youtube.com/embed/wkSS8XmDSGc?si=l-lyfNL7pmUzB-ia"
                         },
@@ -1632,10 +1632,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 6,
                             Desc = "Восени 2014 року хірург Сергій (Роман Луцький), який останнім часом оперує багато поранених на російсько-українській війні, вирішує стати військовим лікарем. Майже одразу Сергій потрапляє в полон. Він пережив нелюдські тортури та приниження. Від смерті його врятувало тільки те, що ФСБшникам, які катували полонених, потрібно було радитись з лікарем. Повернувшись додому після обміну Сергій намагається налагодити мирне життя та відновити спілкування з колишньою дружиною та донькою Поліною (Ніка Мислицька).\r\n\r\nВоєнна драма «Відблиск», знята режисером та сценаристом Валентином Васяновичем, є першою українською стрічкою, що брала участь у основній програмі Венеціанського кінофестивалю. Сценарій був готовий у 2019 році, а основні зйомки проходили з літа 2020 року по січень 2021 у Києві та його околицях Серед тих, хто знімався у фільмі – справжній хірург Олександр Данилюк, який зробив в польових умовах понад 70 операцій та журналіст Станіслав Асєєв, який два роки пробув у російському полоні.",
                             Duration = (ushort)126,
-                            EndRentalDate = new DateTime(2024, 6, 8, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4789),
+                            EndRentalDate = new DateTime(2024, 6, 8, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1715),
                             GraduationYear = (ushort)2021,
                             ImagePath = "/movies/reflection-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 13, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4789),
+                            StartRentalDate = new DateTime(2024, 5, 13, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1714),
                             Title = "Відблиск",
                             TrailerUrl = "https://www.youtube.com/embed/voDDciroV1A?si=6tx7HhMJM0hbKrMb"
                         },
@@ -1644,10 +1644,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 7,
                             Desc = "Беккет (Мо Гілліган) був маленьким беззахисним кошеням, коли мало не загинув. Його врятувала Роуз (Сімон Ешлі) та забрала жити до себе. Відтоді Беккет став геть іншим – сміливішим, впевненішим у собі та, звісно, огряднішим. Незмінними лишилися лише його впізнавані різнокольорові очі. Кіт був впевнений у тому, що вся увага та любов Роуз налижить лише йому. Тож коли дівчина почала дбати не лише про нього, Беккет втнув дещо необачне. Як результат він витратив відведені йому 9 життів. Аби повернутися до улюбленої хазяйки він знову потрапить на землю, але це буде зовсім не те життя, до якого він звик.\r\n\r\nКомедійний сімейний мультфільм «10 життя» створено спільно Великою Британією та Канадою на монреальській студії L'Atelier Animation. Режисер та сценарист проекту – Крістофер Дженкінс, кар’єра якого починалася у Walt Disney Pictures. У якості аніматора ефектів він працював над багатьма мультфільмами студії, серед яких «Русалонька» та «Король Лев».",
                             Duration = (ushort)88,
-                            EndRentalDate = new DateTime(2024, 6, 12, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4791),
+                            EndRentalDate = new DateTime(2024, 6, 12, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1718),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/10Lives-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 7, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4791),
+                            StartRentalDate = new DateTime(2024, 5, 7, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1717),
                             Title = "10 життя",
                             TrailerUrl = "https://www.youtube.com/embed/wIQE7rBdr1c?si=XDXbqcIQFyXus8Nk"
                         },
@@ -1656,10 +1656,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 8,
                             Desc = "1927 року у Харкові за наказом Сталіна збудовано особливий будинок. Тут оселилися кращі українські митці – поети, письменники, художники та режисери. Сама лише можливість жити тут вже була для тогочасних творців визнанням. Якось у будинку з’являється новенький. Він працює коректором преси та понад усе мріє влитися в когорту провідних письменників. Аби оселитися тут йому дійсно знадобився талант – талант підслуховувати та переповідати все почуте агенту НКВС.\r\n\r\nІсторична драма «Будинок «Слово». Нескінчений роман» знята Тарасом Томенком за сценарієм, написаним ним спільно з Любов’ю Якимчук. У 2017 році він зняв документальний фільм «Будинок «Слово»», робота над яким надихнула на подальше дослідження епохи та персоналій. Проект художнього фільму став одним з переможців конкурсу від Держкіно та отримав державне фінансування, що покрило половину витрат на виробництво.",
                             Duration = (ushort)120,
-                            EndRentalDate = new DateTime(2024, 6, 6, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4833),
+                            EndRentalDate = new DateTime(2024, 6, 6, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1721),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/BSNR-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 7, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4832),
+                            StartRentalDate = new DateTime(2024, 5, 7, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1720),
                             Title = "Будинок «Слово». Нескінчений роман",
                             TrailerUrl = "https://www.youtube.com/embed/EdwK7LCzw1k?si=7Ms_0kyh7mJKAgLg"
                         },
@@ -1668,10 +1668,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 9,
                             Desc = "Компанія друзів збирається разом. Замість звичних посиденьок вони влаштовують ворожіння на картах Таро, які одна з дівчат випадково знайшла на захаращеному горищі. Головна помилка, якої вони припустились – порушення незмінного правила про те, що не можна брати до рук чужі карти. Вечір довгий, тож поворожити встигли усім присутнім. Такі їхні дії вивільнили древні зли сили, які не прощають тим, хто порушив їхній спокій. Колода карт була проклятою і тепер смерть чекає на кожного, хто насмілився дізнатися свою подальшу долю з їх допомогою. Для кожного, кому ворожили, починаються перегони зі лихою силою, яка не знає ані втоми, ані жалю.\r\n\r\nФільм жахів «Таро» зняли Спенсер Коен та Анна Ройс. Вони спільно написали сценарій, використавши за основу книгу «Жахи», написану Ніколасом Адамсом у 1992 році. Режисурою зайнялися також удвох і для обох цей фільм став дебютним на великому екрані, тоді як у сценарній справі досвід мали обоє.",
                             Duration = (ushort)92,
-                            EndRentalDate = new DateTime(2024, 6, 10, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4836),
+                            EndRentalDate = new DateTime(2024, 6, 10, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1724),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/TAROT-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 16, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4835),
+                            StartRentalDate = new DateTime(2024, 5, 16, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1723),
                             Title = "Таро",
                             TrailerUrl = "https://www.youtube.com/embed/j3wUuh8GJto?si=OrZerBeec68n6Yrv"
                         },
@@ -1680,10 +1680,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 10,
                             Desc = "Чемпіон Турніру Великого шлему Арт Дональдсон (Майк Файст) зазнає серію поразок. Колись він був посереднім гравцем. Чемпіона з нього зробила його дружина Таші (Зендея). Тенісистка у минулому, нині вона присвятила себе тренуванню чоловіка. Аби він повернув собі жагу до перемог, Таші записує його до участі у турнірі Challenger. Зазвичай у ньому беруть участь початківці або гравці другого дивізіону. Однак для ситуації, що склалася у Арта, це буде доречно. Незадовго до змагань чоловік дізнається, що у турнірній сітці його суперником буде Патрік Цвейг (Джош О'Коннор), колишній коханець його дружини та його кращий друг.\r\n\r\nСпортивну мелодраму «Суперники» зняв режисер Лука Ґуаданьїно, чотириразовий володар премій Венеціанського кінофестивалю. Для зйомок у фільмі Зендая впродовж трьох місяців займалася з професійним тенісним тренером. Зйомки розпочалися у травні 2022 року у Бостоні. Цьому передували кастинги, під час яких серед місцевих жителів шукали акторів масовки.",
                             Duration = (ushort)132,
-                            EndRentalDate = new DateTime(2024, 6, 11, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4839),
+                            EndRentalDate = new DateTime(2024, 6, 11, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1727),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/CHLNGRS-vend2.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 2, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4838),
+                            StartRentalDate = new DateTime(2024, 5, 2, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1727),
                             Title = "Суперники",
                             TrailerUrl = "https://www.youtube.com/embed/ckcxzebS5hk?si=ERSDSJqtNnVuBH1n"
                         },
@@ -1692,10 +1692,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 11,
                             Desc = "Дівчина з бідної родини виходить заміж та оселяється у віддаленому будинку її обранця посеред густого лісу. Світ чоловіка для неї геть чужий, а мрії про дитину стають нездійсненним тягарем. З кожним днем важкої рутини та марних сподівань, вона все більше закривається в собі. Допоки не опиняється на темному шляху, що веде до злих думок. Можливо, не лише думок…",
                             Duration = (ushort)121,
-                            EndRentalDate = new DateTime(2024, 5, 18, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4841),
+                            EndRentalDate = new DateTime(2024, 5, 18, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1730),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 18, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4841),
+                            StartRentalDate = new DateTime(2024, 5, 18, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1730),
                             Title = "Лазня диявола (в рамках фестивалю)",
                             TrailerUrl = "https://www.youtube.com/embed/vtmo7fplVWo?si=DKOyUUar-Z5cFUwj"
                         },
@@ -1704,10 +1704,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 12,
                             Desc = "Війна, що триває з 2014 року, вплинула на життя багатьох українців. Якось посеред ночі на телефон батька (В'ячеслав Довженко) замість сина з його номера зателефонував невідомий. Так стало відомо, що хлопець, який виконував бойове завдання, потрапив у полон. Аби визволити його батько повинен сам поїхати на лінію розмежування та привезти зазначену суму. Однак на обмін замість сина привезли іншого хлопця. У таких самих або подібних обставинах не лише ці син і батько. З кожним днем число родин, чиє життя докорінно змінила війна, щоразу більшає. Тож чи можна домовитися з ворогом, для якого не існує ніяких правил та етичних норм?\r\n\r\nВоєнна драма «Обмін» створена за підтримки Державного агентства з питань кіно. Режисер проекту Володимир Харченко-Куликовський має великий досвід у виробництві серіалів для українського телебачення. Зйомки велися на території Київської області, у Броварському районі, який на початку повномасштабного вторгнення був частково окупований.",
                             Duration = (ushort)90,
-                            EndRentalDate = new DateTime(2024, 5, 24, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4843),
+                            EndRentalDate = new DateTime(2024, 5, 24, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1733),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/obmin-vend-18.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 15, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4843),
+                            StartRentalDate = new DateTime(2024, 5, 15, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1733),
                             Title = "Обмін",
                             TrailerUrl = "https://www.youtube.com/embed/obiN4-XK7_4?si=Tv8aIjC6LNcY96Nt"
                         },
@@ -1716,10 +1716,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 13,
                             Desc = "Зимова Олімпіада 1976 року. Гірськолижнику Францу Кламмеру тільки 22 роки, а його вже називають майбутньою зіркою. За плечима юнака чимало перемог, тож преса й публіка сподіваються на його нові здобутки. Але тиск очікувань тисяч австрійців — не єдиний виклик у цьому змаганні. Незадовго до перегонів спонсор вирішує змінити звичні форму та спорядження, погодні умови чимдалі гіршають, а траса здається неприступною. Єдине, що не дає герою зламатися — кохання його життя.",
                             Duration = (ushort)100,
-                            EndRentalDate = new DateTime(2024, 5, 18, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4846),
+                            EndRentalDate = new DateTime(2024, 5, 18, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1736),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/vend1.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 18, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4845),
+                            StartRentalDate = new DateTime(2024, 5, 18, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1736),
                             Title = "Виходячи за межі (в рамках фестивалю)",
                             TrailerUrl = "https://www.youtube.com/embed/ecp1xSqaA5c?si=OvYH_CGwjXdqGGNw"
                         },
@@ -1728,10 +1728,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 14,
                             Desc = "1988 року Ніколаса Вінтона (Ентоні Гопкінс) запрошують на телевізійне шоу. Ведуча розповідає про унікальну місію порятунку сотень дітей. Напередодні Другої світової війни з Праги до Великої Британії перевезли спеціальними поїздами дітей, переважно єврейських. Усі вони змушені були шукати новий дім з остраху перед діями нацистів. Координував операцію 29-річний Ніколас Вінтон (Джонні Флінн). Кожному перевезеному потрібно було знайти нове місце проживання та чималу суму грошей. Близько 50 років деталі перевезення не оприлюднювалися і ось, нарешті, настав час оцінити масштаби зробленого.\r\n\r\nБіографічна драма «Одне життя» заснована на книзі Барбари Вінтон, яку жінка написала про свого батька, Ніколаса Вінтона. На початку 1939 року він організував маршрут, яким було перевезено 669 дітей. На зйомках фільму були задіяні нащадки врятованих дітей. Барбара Вінтон особисто попросила Ентоні Хопкінса виконати роль її батька. Знімали фільм у Празі та Лондоні наприкінці 2022 року.",
                             Duration = (ushort)108,
-                            EndRentalDate = new DateTime(2024, 5, 29, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4848),
+                            EndRentalDate = new DateTime(2024, 5, 29, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1739),
                             GraduationYear = (ushort)2023,
                             ImagePath = "/movies/ol-vend3.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 23, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4848),
+                            StartRentalDate = new DateTime(2024, 5, 23, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1739),
                             Title = "Одне життя",
                             TrailerUrl = "https://www.youtube.com/embed/R0qZJggKri0?si=Iu5Rg7eDTJeoF6-q"
                         },
@@ -1740,10 +1740,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 15,
                             Desc = "Закохана пара Майа (Меделін Петш) та Райан (Фрой Гутьєррез) на честь своєї п’ятої річниці подорожують крізь усю країну до Тихоокеанського узбережжя. Дорогою через штат Орегон в них ламається машина. Заночувати доведеться у єдиному доступному місці – старенькому будиночку десь у хащах на околиці маленького непривітного міста. Що люди, що краєвиди не викликали жодної симпатії, але Майа звикла знаходити хороше у всьому, що їх оточує. З настанням ночі всього оптимізму світу не вистачить, аби розгледіти бодай щось хороше у тому, що почало відбуватись. До хатини вдерлося троє незнайомців у масках.\r\n\r\nЖахи «Незнайомці: Частина перша» є продовженням франшизи «Незнайомці», перший фільм якої вийшов на екрани у 2008 році. Продовження презентували 2018 року. Новий фільм стане першим у трилогії, яку знімали одночасно. Передбачається, що сюжет розкриє історію появи людей у масках та покаже що стається з їхніми жертвами. Знімали у столиці Словаччини Братиславі наприкінці 2022 року.",
                             Duration = (ushort)91,
-                            EndRentalDate = new DateTime(2024, 6, 6, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4851),
+                            EndRentalDate = new DateTime(2024, 6, 6, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1742),
                             GraduationYear = (ushort)2024,
                             ImagePath = "/movies/STRNGR1-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 30, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4850),
+                            StartRentalDate = new DateTime(2024, 5, 30, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1742),
                             Title = "Незнайомці: Частина перша",
                             TrailerUrl = "https://www.youtube.com/embed/dUe_Ac4V-R4?si=fxBrFFENDZKs2iPA"
                         },
@@ -1752,10 +1752,10 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             Id = 16,
                             Desc = "Життя милої дівчинки Зузі (Ліліана Зайберт) докорінно змінюється, коли тато (Матеуш Дамецький) приводить з залізничної станції, де він працює, собаку. Песику дали ім’я Лампо та оточили турботою. Цей пес – справжній мандрівник і довго сидіти на місці він не любить. Куди б він не їхав, він зачаровує пасажирів та стає улюбленцем. Само тому мережею шириться безліч світлин з Лампо. Нажаль, є й ті, кому слава милого песика не до вподоби. Заздрісники хочуть назавжди позбавити Лампо дому та можливості подорожувати, а дівчинку Зузі розлучити з кращим другом.\r\n\r\nСімейний фільм «Лампо: Вірний пес» знято польською режисеркою Магдалиною Ніц. У основі сюжету – популярна у Польщі дитяча книга, яка входить до місцевої шкільної програми. Історію написав у 1967 році Роман Писарський, польський письменник, який народився у Івано-Франківську. Пес, про якого йдеться у дитячій історії, справді жив у 1950-х роках та без супроводу людей подорожував Європою на поїздах.",
                             Duration = (ushort)120,
-                            EndRentalDate = new DateTime(2024, 6, 9, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4853),
+                            EndRentalDate = new DateTime(2024, 6, 9, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1745),
                             GraduationYear = (ushort)2023,
                             ImagePath = "/movies/lampo-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 6, 2, 11, 49, 27, 168, DateTimeKind.Utc).AddTicks(4853),
+                            StartRentalDate = new DateTime(2024, 6, 2, 19, 21, 28, 798, DateTimeKind.Utc).AddTicks(1745),
                             Title = "Лампо: Вірний пес",
                             TrailerUrl = "https://www.youtube.com/embed/iynOv10VcNU?si=YG_3DrY0TLYM4_Qv"
                         });
@@ -1791,162 +1791,162 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            BasicPrice = 188m,
+                            BasicPrice = 162m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 23, 7, 53, 27, 168, DateTimeKind.Utc).AddTicks(5554),
-                            VipPrice = 368m
+                            StartDate = new DateTime(2024, 5, 20, 18, 55, 28, 798, DateTimeKind.Utc).AddTicks(3047),
+                            VipPrice = 358m
                         },
                         new
                         {
                             Id = 2,
-                            BasicPrice = 165m,
+                            BasicPrice = 123m,
                             MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 18, 16, 8, 27, 168, DateTimeKind.Utc).AddTicks(5593),
-                            VipPrice = 366m
+                            StartDate = new DateTime(2024, 5, 28, 17, 50, 28, 798, DateTimeKind.Utc).AddTicks(3090),
+                            VipPrice = 364m
                         },
                         new
                         {
                             Id = 3,
-                            BasicPrice = 176m,
+                            BasicPrice = 170m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 28, 2, 8, 27, 168, DateTimeKind.Utc).AddTicks(5619),
-                            VipPrice = 318m
+                            StartDate = new DateTime(2024, 5, 21, 17, 44, 28, 798, DateTimeKind.Utc).AddTicks(3149),
+                            VipPrice = 389m
                         },
                         new
                         {
                             Id = 4,
-                            BasicPrice = 107m,
+                            BasicPrice = 142m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 30, 4, 57, 27, 168, DateTimeKind.Utc).AddTicks(5643),
-                            VipPrice = 346m
+                            StartDate = new DateTime(2024, 5, 19, 3, 5, 28, 798, DateTimeKind.Utc).AddTicks(3177),
+                            VipPrice = 320m
                         },
                         new
                         {
                             Id = 5,
-                            BasicPrice = 114m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 22, 23, 37, 27, 168, DateTimeKind.Utc).AddTicks(5668),
-                            VipPrice = 398m
+                            BasicPrice = 167m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 6, 3, 20, 50, 28, 798, DateTimeKind.Utc).AddTicks(3206),
+                            VipPrice = 366m
                         },
                         new
                         {
                             Id = 6,
-                            BasicPrice = 144m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 19, 21, 42, 27, 168, DateTimeKind.Utc).AddTicks(5692),
-                            VipPrice = 306m
+                            BasicPrice = 185m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 21, 10, 34, 28, 798, DateTimeKind.Utc).AddTicks(3235),
+                            VipPrice = 318m
                         },
                         new
                         {
                             Id = 7,
-                            BasicPrice = 131m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 22, 23, 35, 27, 168, DateTimeKind.Utc).AddTicks(5718),
-                            VipPrice = 290m
+                            BasicPrice = 195m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 31, 16, 6, 28, 798, DateTimeKind.Utc).AddTicks(3265),
+                            VipPrice = 271m
                         },
                         new
                         {
                             Id = 8,
-                            BasicPrice = 107m,
+                            BasicPrice = 178m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 20, 7, 36, 27, 168, DateTimeKind.Utc).AddTicks(5765),
-                            VipPrice = 290m
+                            StartDate = new DateTime(2024, 5, 29, 6, 7, 28, 798, DateTimeKind.Utc).AddTicks(3293),
+                            VipPrice = 328m
                         },
                         new
                         {
                             Id = 9,
-                            BasicPrice = 173m,
+                            BasicPrice = 167m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 6, 1, 9, 27, 27, 168, DateTimeKind.Utc).AddTicks(5790),
-                            VipPrice = 287m
-                        },
-                        new
-                        {
-                            Id = 10,
-                            BasicPrice = 181m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 25, 1, 39, 27, 168, DateTimeKind.Utc).AddTicks(5813),
-                            VipPrice = 349m
-                        },
-                        new
-                        {
-                            Id = 11,
-                            BasicPrice = 161m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 28, 9, 24, 27, 168, DateTimeKind.Utc).AddTicks(5838),
+                            StartDate = new DateTime(2024, 5, 28, 3, 25, 28, 798, DateTimeKind.Utc).AddTicks(3323),
                             VipPrice = 252m
                         },
                         new
                         {
+                            Id = 10,
+                            BasicPrice = 170m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 20, 3, 34, 28, 798, DateTimeKind.Utc).AddTicks(3352),
+                            VipPrice = 271m
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BasicPrice = 149m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 24, 4, 3, 28, 798, DateTimeKind.Utc).AddTicks(3381),
+                            VipPrice = 345m
+                        },
+                        new
+                        {
                             Id = 12,
-                            BasicPrice = 137m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 26, 13, 59, 27, 168, DateTimeKind.Utc).AddTicks(5860),
-                            VipPrice = 258m
+                            BasicPrice = 145m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 21, 2, 44, 28, 798, DateTimeKind.Utc).AddTicks(3408),
+                            VipPrice = 300m
                         },
                         new
                         {
                             Id = 13,
-                            BasicPrice = 122m,
+                            BasicPrice = 133m,
                             MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 27, 7, 52, 27, 168, DateTimeKind.Utc).AddTicks(5884),
-                            VipPrice = 396m
+                            StartDate = new DateTime(2024, 5, 22, 14, 57, 28, 798, DateTimeKind.Utc).AddTicks(3463),
+                            VipPrice = 350m
                         },
                         new
                         {
                             Id = 14,
-                            BasicPrice = 192m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 6, 4, 9, 17, 27, 168, DateTimeKind.Utc).AddTicks(5907),
-                            VipPrice = 334m
+                            BasicPrice = 113m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 31, 15, 46, 28, 798, DateTimeKind.Utc).AddTicks(3491),
+                            VipPrice = 276m
                         },
                         new
                         {
                             Id = 15,
-                            BasicPrice = 184m,
+                            BasicPrice = 161m,
                             MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 30, 15, 32, 27, 168, DateTimeKind.Utc).AddTicks(5931),
-                            VipPrice = 337m
+                            StartDate = new DateTime(2024, 5, 25, 19, 5, 28, 798, DateTimeKind.Utc).AddTicks(3520),
+                            VipPrice = 384m
                         },
                         new
                         {
                             Id = 16,
-                            BasicPrice = 113m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 5, 25, 13, 40, 27, 168, DateTimeKind.Utc).AddTicks(5953),
-                            VipPrice = 287m
+                            BasicPrice = 117m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 30, 11, 39, 28, 798, DateTimeKind.Utc).AddTicks(3547),
+                            VipPrice = 387m
                         },
                         new
                         {
                             Id = 17,
-                            BasicPrice = 134m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 23, 14, 7, 27, 168, DateTimeKind.Utc).AddTicks(5977),
-                            VipPrice = 354m
+                            BasicPrice = 126m,
+                            MovieId = 2,
+                            StartDate = new DateTime(2024, 5, 19, 14, 30, 28, 798, DateTimeKind.Utc).AddTicks(3576),
+                            VipPrice = 251m
                         },
                         new
                         {
                             Id = 18,
-                            BasicPrice = 118m,
-                            MovieId = 2,
-                            StartDate = new DateTime(2024, 6, 5, 19, 5, 27, 168, DateTimeKind.Utc).AddTicks(6016),
-                            VipPrice = 258m
+                            BasicPrice = 164m,
+                            MovieId = 1,
+                            StartDate = new DateTime(2024, 5, 30, 0, 48, 28, 798, DateTimeKind.Utc).AddTicks(3604),
+                            VipPrice = 379m
                         },
                         new
                         {
                             Id = 19,
-                            BasicPrice = 161m,
+                            BasicPrice = 114m,
                             MovieId = 2,
-                            StartDate = new DateTime(2024, 6, 5, 9, 12, 27, 168, DateTimeKind.Utc).AddTicks(6040),
-                            VipPrice = 309m
+                            StartDate = new DateTime(2024, 6, 2, 18, 53, 28, 798, DateTimeKind.Utc).AddTicks(3633),
+                            VipPrice = 277m
                         },
                         new
                         {
                             Id = 20,
-                            BasicPrice = 136m,
+                            BasicPrice = 155m,
                             MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 20, 17, 44, 27, 168, DateTimeKind.Utc).AddTicks(6062),
-                            VipPrice = 335m
+                            StartDate = new DateTime(2024, 6, 5, 21, 48, 28, 798, DateTimeKind.Utc).AddTicks(3660),
+                            VipPrice = 275m
                         });
                 });
 
