@@ -1,0 +1,15 @@
+﻿@model SoftServeCinema.Core.DTOs.Tickets.TicketDetailDTO
+@{
+}
+<div class="ticket__info">
+    <div class="ticket__row_seat">
+        <span>@Model.RowNumber</span>
+        <span>@Model.SeatNumber seat<span>@Model.RowNumber == 6 ? super lux : good)</span></span>
+    </div>
+    <div class="ticket__price_cancel-button">
+        <span>@Model.RowNumber == 6 ? ticket.Session.VipPrice : ticket.Session.BasicPrice)</span>
+        <button>
+            <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+    </div>
+</div>
