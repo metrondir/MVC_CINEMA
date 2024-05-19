@@ -26,11 +26,14 @@ namespace SoftServeCinema.MVC.Controllers
         {
             if (page <= 0) page = 1;
 
-            var tags = await _superAdminService.GetAllUsers();
+            var allUsers = await _superAdminService.GetAllUsers();
+            var userId = new JwtSecurityTokenHandler().ReadJwtToken(HttpContext.Session.GetString("accessToken")).Claims.FirstOrDefault(c => c.Type == "nameid").Value;
 
-            if (tags.Count() <= (page - 1) * pageSize) return BadRequest();
+            var users = allUsers.Where(s => s.Id.ToString() != userId.ToString());
 
-            return View(await tags.ToPagedListAsync(page, pageSize));
+            if (users.Count() <= (page - 1) * pageSize) return BadRequest();
+
+            return View(await users.ToPagedListAsync(page, pageSize));
         }
 
         public IActionResult Error()

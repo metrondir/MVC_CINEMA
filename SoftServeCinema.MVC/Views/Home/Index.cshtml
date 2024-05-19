@@ -18,15 +18,28 @@
     <div class="swiper mySwiper pb-4">
         <div class="swiper-wrapper">
             @foreach (var movie in Model)
-            {
+            {                
+
                 <div class="swiper-slide">
-                    <div class="movie">
+                    <div class="card">
+                            <img class="card-img-top"  src="@Url.Content("~/images/" + movie.ImagePath)" alt="@movie.Title">
                         <a asp-route-id="@movie.Id" asp-controller="Movie" asp-action="Details">
-							<img src="@Url.Content("~/images/" + movie.ImagePath)" alt="@movie.Title">
-						</a>
+                            <div class="card-overlay">
+                                <p class="card-text">
+                                    <span>Жанр: @(string.Join(", ", movie.Genres.Select(g => g.Name)))</span><br />
+                                    <span>Тег: @(string.Join(", ", movie.Tags.Select(t => t.Name)))</span><br />
+                                    <span>Режисер: @(string.Join(", ", movie.Directors.Select(d => d.Name)))</span><br />
+                                    <span>Прокат: З @movie.StartRentalDate.ToShortDateString() до @movie.EndRentalDate.ToShortDateString()</span>
+                                    <br />
+                                </p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             }
+
+
+
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>

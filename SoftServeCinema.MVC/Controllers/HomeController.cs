@@ -17,7 +17,9 @@ namespace SoftServeCinema.MVC.Controllers
             _movieService = movieService;
         }
 
+
         public async Task<IActionResult> Index()
+
         {
             var actualMovies = await _movieService.GetActualsAsync();
             return View(actualMovies);

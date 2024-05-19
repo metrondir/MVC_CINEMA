@@ -3,15 +3,18 @@
 @{
     ViewData["Title"] = "Користувачі";
     ViewData["PaginatorAction"] = "Index";
+    Layout = "_StockLayout";
+    var roles = Enum.GetValues(typeof(SoftServeCinema.Core.Enums.Roles));
+
 }
 <div class="manage__container">
 
 
 <div>
-    <h3 class="text-center my-4">Теги</h3>
+        <h3 class="text-center my-4">Користувачі</h3>
 
     @await Html.PartialAsync("_Paginator", Model)
-    <div class="list-group my-4">
+    <div class="list-group my-4 ">
         @foreach (var user in Model)
         {
             <div class="d-flex w-100 justify-content-between">
@@ -20,11 +23,18 @@
             <div>
                 <form asp-controller="SuperAdmin" asp-action="ChangeRole" method="post">
                     <input type="hidden" name="email" value="@user.Email" />
-                    <select name="roleName">
-                        @foreach (var role in Enum.GetValues(typeof(SoftServeCinema.Core.Enums.Roles)))
-                        {
-                            <option value="@role">@role</option>
-                        }
+                    <select class="form-control" name="roleName">
+                        @foreach (var role in roles)
+                            {
+                                @if(role.ToString() == user.RoleName)
+                                {
+                                    <option selected value="@role">@role</option>
+                                }
+                                else
+                                {
+                                    <option value="@role">@role</option>
+                                }
+                            }
                     </select>
                     <button type="submit" class="btn btn-warning ml-3">
                         Редагувати

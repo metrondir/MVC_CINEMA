@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.IdentityModel.Tokens.Jwt;
 using Stripe;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SoftServeCinema.MVC.Controllers
 {
@@ -44,12 +45,15 @@ namespace SoftServeCinema.MVC.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> CheckoutOrder(int[] ticketIds, [FromServices] IServiceProvider sp)
+        public async Task<ActionResult> CheckoutOrder([FromForm] string ticketIdsJsonBuy, [FromServices] IServiceProvider sp)
         {
             var referer = Request.Headers.Referer;
             s_wasmClientURL = referer[0];
+            var ticketIds = JsonConvert.DeserializeObject<int[]>(ticketIdsJsonBuy);
             var userId = new JwtSecurityTokenHandler().ReadJwtToken(HttpContext.Session.GetString("accessToken")).Claims.FirstOrDefault(c => c.Type == "nameid").Value;
-            //await _ticketService.ReserveTicketsByIds(ticketIds,userId);
+            var userEmail = new JwtSecurityTokenHandler().ReadJwtToken(HttpContext.Session.GetString("accessToken")).Claims.FirstOrDefault(c => c.Type == "unique_name").Value;
+
+            await _ticketService.ReserveTicketsByIds(ticketIds, userId);
             var tickets = await _ticketService.GetReservationByUserIdAsync(userId);
             var server = sp.GetRequiredService<IServer>();
 
@@ -64,7 +68,7 @@ namespace SoftServeCinema.MVC.Controllers
 
             if (thisApiUrl is not null)
             {
-                var Url = await CheckOut(tickets, thisApiUrl);
+                var Url = await CheckOut(tickets, thisApiUrl, userEmail);
 
                 return Redirect(Url);
             }
@@ -75,7 +79,7 @@ namespace SoftServeCinema.MVC.Controllers
         }
 
         [NonAction]
-        public async Task<string> CheckOut(List<TicketDetailDTO> tickets, string thisApiUrl)
+        public async Task<string> CheckOut(List<TicketDetailDTO> tickets, string thisApiUrl,string userEmail)
         {
             if (tickets == null || tickets.Count == 0)
             {
@@ -111,6 +115,7 @@ namespace SoftServeCinema.MVC.Controllers
                 PaymentMethodTypes = new List<string> { "card" },
                 LineItems = lineItems,
                 Mode = "payment",
+                CustomerEmail = userEmail,
                 Metadata = new Dictionary <string, string>
             {
                 { "ticketIds", ticketIds }

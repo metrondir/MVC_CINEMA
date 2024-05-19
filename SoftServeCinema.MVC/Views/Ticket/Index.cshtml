@@ -1,17 +1,17 @@
-﻿@model IEnumerable<SoftServeCinema.Core.DTOs.Tickets.TicketDetailDTO>
-
+﻿@using Newtonsoft.Json
+@model IEnumerable<SoftServeCinema.Core.DTOs.Tickets.TicketDetailDTO>
 @{
     ViewData["Title"] = "Квитки";
-    ViewData["PaginatorActionReserved"] = "Reserved";
-    ViewData["PaginatorActionBought"] = "Bought";
+    ViewData["PaginatorAction"] = "Index";
+
+   IEnumerable<SoftServeCinema.Core.DTOs.Tickets.TicketDetailDTO> ReservedTickets = ViewBag.ReservedTickets;
 }
 
 <div>
     <h3 class="text-left my-4 text-white">Зарезервовані Квитки</h3>
 
-    @await Html.PartialAsync("_Paginator", Model)
     <div class="list-group my-4 px-3">
-        @if (!Model.Where(t => t.Status == "Reservation").Any())
+        @if (!ReservedTickets.Any())
         {
             <h3 class="text-center text-white">Немає зарезервованих квитків</h3>
 
@@ -21,25 +21,66 @@
             <form action="/Checkout/CheckoutOrder" method="post" class="g-3 ticket__reserved text-center ml-3">
                 <div class="row">
 
-                @foreach (var ticket in Model)
+                    @foreach (var ticket in ReservedTickets)
                 {
-                    @if (ticket.Status == "Reservation")
-                    {
-                        @* <div class="d-flex w-100 justify-content-between">
-                            <input type="hidden" name="ticketIds[]" value="@ticket.Id" />
-                            <h5 class="mb-1">Час бронювання квитка @((int)(15 - ((DateTime.UtcNow) - ticket.ReservationDate).TotalMinutes)) хвилин</h5>
-                            <h5 class="mb-1">Ряд @ticket.RowNumber</h5>
-                            <h5 class="mb-1">Місце @ticket.SeatNumber</h5>
-                            <img class="w-25 m-auto" src="@Url.Content("~/images/" + ticket.Session.MovieImagePath)" alt="@ticket.Session.MovieTitle">
-                            <h5>@ticket.Session.MovieTitle</h5>
-                            <h5>@ticket.Session.StartDate.ToShortDateString()</h5>
-                            <h5>@ticket.Session.StartDate.ToShortTimeString()</h5>
-                            <h5>@(ticket.RowNumber == 6 ? ticket.Session.VipPrice : ticket.Session.BasicPrice)</h5>
-                            <a asp-action="Cancel" asp-route-id="@ticket.Id" class="btn btn-danger">
-                                <i class="bi bi-trash-fill"></i> Відхилити резервацію
-                            </a>
 
-                        </div> *@
+                       
+                        <div class="ticket__info">
+
+                            <div class="text-start">
+                                <p class="mb-1">Час бронювання квитка @((int)(15 - ((DateTime.UtcNow) - ticket.ReservationDate).TotalMinutes)) хвилин</p>
+
+                                <img class="w-25" src="@Url.Content("~/images/" + ticket.Session.MovieImagePath)" alt="@ticket.Session.MovieTitle">
+
+                                <span>@ticket.RowNumber row </span>
+                                <span>@ticket.SeatNumber seat</span>
+                            </div>
+                            <div>
+                                <span>
+                                    <span class="fw-bold"> @(ticket.RowNumber == 6 ? "SUPER LUX" : "GOOD")</span>
+                                </span>
+                            </div>
+                            <div class="ticket__price_cancel-button d-flex align-items-center flex-row">
+                                <span>
+                                    @(ticket.RowNumber == 6 ? ticket.Session.VipPrice : ticket.Session.BasicPrice) ГРН
+                                </span>
+
+                                <button asp-action="Cancel" asp-route-id="@ticket.Id">
+                                    <i class="fa-regular fa-circle-xmark"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                }
+                </div>
+                <input type="hidden" name="ticketIdsJsonBuy" id="ticketsJSONBuy" value="@ViewBag.ReservedTicketsJsonIds" />
+                <input type="submit" value="Buy" class="mt-3"/>
+            </form>
+        }
+
+
+
+    </div>
+</div>
+
+<div>
+    <h3 class="text-left my-4 text-white">Придбані Квитки</h3>
+
+    <div class="list-group my-4 px-3">
+        @if (!Model.Any())
+        {
+            <h3 class="text-center text-white">Немає придбаних квитків</h3>
+
+        }
+        else
+        {
+                <div class="row">
+
+                    @foreach (var ticket in Model)
+                    {
+
                         <div class="ticket__info">
                             <div class="text-start">
                                 <img class="w-25" src="@Url.Content("~/images/" + ticket.Session.MovieImagePath)" alt="@ticket.Session.MovieTitle">
@@ -55,71 +96,17 @@
                                 <span>
                                     @(ticket.RowNumber == 6 ? ticket.Session.VipPrice : ticket.Session.BasicPrice) ГРН
                                 </span>
-                                <button asp-action="Cancel" asp-route-id="@ticket.Id">
-                                    <i class="fa-regular fa-circle-xmark"></i>
-                                </button>
+
                             </div>
                         </div>
 
                     }
-                   
-
-                }
                 </div>
-                <input type="submit" value="Buy" class="mt-3"/>
-            </form>
         }
-
-
 
     </div>
 </div>
 
-@await Html.PartialAsync("_Paginator", Model)
-<div>
-    <h3 class="text-left my-4 text-white">Придбані Квитки</h3>
 
-    @await Html.PartialAsync("_Paginator", Model)
-    <div class="list-group my-4 px-3">
-        @if (!Model.Where(t => t.Status == "Bought").Any())
-        {
-            <h3 class="text-center text-white">Немає куплених квитків</h3>
-        }
-        @foreach (var ticket in Model)
-        {
-            @*  <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Дата @ticket.ReservationDate</h5>
-                <h5 class="mb-1">Ряд @ticket.RowNumber</h5>
-                <h5 class="mb-1">Місце @ticket.SeatNumber</h5>
-                <img class="w-25 m-auto" src="@Url.Content("~/images/" + ticket.Session.MovieImagePath)" alt="@ticket.Session.MovieTitle">
-                <h5>@ticket.Session.MovieTitle</h5>
-                <h5>@ticket.Session.StartDate.ToShortDateString()</h5>
-                <h5>@ticket.Session.StartDate.ToShortTimeString()</h5>
-                <h5>@(ticket.RowNumber == 6 ? ticket.Session.VipPrice : ticket.Session.BasicPrice)</h5>
-            </div> *@
-            @if (ticket.Status == "Bought")
-            {
-                <div class="ticket__info">
-                    <div>
-                    <img class="w-25" src="@Url.Content("~/images/" + ticket.Session.MovieImagePath)" alt="@ticket.Session.MovieTitle">
-                    <span>@ticket.RowNumber row </span>
-                        <span>@ticket.SeatNumber seat</span>
-                </div>
-                <div>
-                        <span>
-                            <span class="fw-bold"> @(ticket.RowNumber == 6 ? "SUPER LUX" : "GOOD")</span>
-                        </span>
-                </div>
-                    <div class="ticket__price_cancel-button d-flex align-items-center flex-row">
-                    <span>
-                        @(ticket.RowNumber == 6 ? ticket.Session.VipPrice : ticket.Session.BasicPrice) ГРН
-                    </span>
-
-                </div>
-            </div>
-            }
-        }
-    </div>
-</div>
 
 @await Html.PartialAsync("_Paginator", Model)
