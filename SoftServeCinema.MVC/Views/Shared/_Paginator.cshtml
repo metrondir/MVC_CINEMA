@@ -3,14 +3,19 @@
 
 @model IPagedList
 @{
+   
+    var searchQuery = ViewContext.HttpContext.Request.Query["search"].ToString();
+
     if (Model.PageCount > 1)
     {
-        @Html.PagedListPager(Model, page => Url.Action(ViewData["PaginatorAction"].ToString(), new { page, pageSize = Model.PageSize }),
+         <div class="d-flex justify-content-center">
+            @Html.PagedListPager(Model, page => Url.Action(ViewData["PaginatorAction"].ToString(), string.IsNullOrEmpty(searchQuery) ? new { page, pageSize = Model.PageSize } : new {search = searchQuery, page, pageSize = Model.PageSize }),
             new PagedListRenderOptions
             {
                 UlElementClasses = new string[] { "pagination" },
                 LiElementClasses = new string[] { "page-item" },
                 PageClasses = new string[] { "page-link" }
             })
+            </div>
     }
 }

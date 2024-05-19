@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,6 +15,7 @@ using X.PagedList;
 
 namespace SoftServeCinema.MVC.Controllers
 {
+
     public class SessionController : Controller
     {
         private readonly ISessionService _sessionService;
@@ -77,7 +79,7 @@ namespace SoftServeCinema.MVC.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Manage(int page = 1, int pageSize = 10)
         {
             if (page <= 0) page = 1;
@@ -98,14 +100,14 @@ namespace SoftServeCinema.MVC.Controllers
             return View(await sessionViewModels.ToPagedListAsync(page, pageSize));
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Create()
         {
             await FillViewBagSessionCreateUpdate();
             return View();
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> Create(SessionDTO sessionFormDTO)
         {
@@ -127,7 +129,7 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Edit(int id)
         {
             if (id <= 0) return BadRequest();
@@ -144,7 +146,7 @@ namespace SoftServeCinema.MVC.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> Edit(SessionDTO sessionFormDTO)
         {
@@ -164,7 +166,7 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();

@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 using SoftServeCinema.Core.DTOs.Tickets;
 using SoftServeCinema.Core.Exceptions;
 using SoftServeCinema.Core.Interfaces.Services;
@@ -27,117 +29,14 @@ namespace SoftServeCinema.MVC.Controllers
 
             var ticketsReserved = await _ticketService.GetReservationByUserIdAsync(userId);
             var ticketBought = await _ticketService.GetBoughtByUserIdAsync(userId);
-            var tickets = ticketsReserved.Concat(ticketBought);
-            if (tickets.Count() <= (page - 1) * pageSize && tickets.Count() != 0) return BadRequest();
+            ViewBag.ReservedTickets = ticketsReserved;
+            ViewBag.ReservedTicketsJsonIds =JsonConvert.SerializeObject(ticketsReserved.Select(s => s.Id));
+            if (ticketBought.Count() <= (page - 1) * pageSize && ticketBought.Count() != 0) return BadRequest();
 
-            return View(await tickets.ToPagedListAsync(page, pageSize));
+            return View(await ticketBought.ToPagedListAsync(page, pageSize));
         }
 
-        public async Task<IActionResult> Details(int id)
-        {
-            if (id <= 0) return BadRequest();
-
-            try
-            {
-                var ticket = await _ticketService.GetTicketByIdAsync(id);
-                return View(ticket);
-            }
-            catch (EntityNotFoundException)
-            {
-                return NotFound();
-            }
-        }
-
-        //[Authorize(Roles = "Admin, SuperAdmin")]
-        public async Task<IActionResult> Manage(int page = 1, int pageSize = 10)
-        {
-            if (page <= 0) page = 1;
-
-            var ticket = await _ticketService.GetAllTicketsAsync();
-
-            if (ticket.Count() <= (page - 1) * pageSize) return BadRequest();
-
-            return View(await ticket.ToPagedListAsync(page, pageSize));
-        }
-
-        //[Authorize(Roles = "Admin, SuperAdmin")]
-        public async Task<IActionResult> Create()
-        {
-            await FillViewBagTicketCreateUpdate();
-            return View();
-        }
-
-        //[Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpPost]
-        public async Task<IActionResult> Create(TicketDTO ticketDTO)
-        {
-            await FillViewBagTicketCreateUpdate();
-            await _ticketService.CreateTicketAsync(ticketDTO);
-            TempData[WebConstants.alertSuccessKey] = "Ticket created successfully";
-            return RedirectToAction(nameof(Manage));
-        }
-
-        //[Authorize(Roles = "Admin, SuperAdmin")]
-        public async Task<IActionResult> Edit(int id)
-        {
-            if (id <= 0) return BadRequest();
-
-            try
-            {
-                var ticket = await _ticketService.GetTicketByIdAsync(id);
-                await FillViewBagTicketCreateUpdate();
-                return View(ticket);
-            }
-            catch (EntityNotFoundException)
-            {
-                return NotFound();
-            }
-        }
-
-        //[Authorize(Roles = "Admin, SuperAdmin")]
-        [HttpPost]
-        public async Task<IActionResult> Edit(TicketDTO ticketDTO)
-        {
-            await FillViewBagTicketCreateUpdate();
-            await _ticketService.UpdateTicketAsync(ticketDTO);
-            TempData[WebConstants.alertSuccessKey] = "Ticket updated successfully";
-            return RedirectToAction(nameof(Manage));
-        }
-
-        //[Authorize(Roles = "Admin, SuperAdmin")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            if (id <= 0) return BadRequest();
-
-            try
-            {
-                await _ticketService.GetTicketByIdAsync(id);
-                await _ticketService.DeleteTicketAsync(id);
-                TempData[WebConstants.alertSuccessKey] = "Ticket deleted successfully";
-                return RedirectToAction(nameof(Manage));
-            }
-            catch (EntityNotFoundException)
-            {
-                return NotFound();
-            }
-        }
-        //[Authorize]
-        public async Task<IActionResult> Reserved(int page = 1, int pageSize = 10)
-        {
-
-            if (page <= 0) page = 1;
-            var userId = new JwtSecurityTokenHandler().ReadJwtToken(HttpContext.Session.GetString("accessToken")).Claims.FirstOrDefault(c => c.Type == "nameid").Value;
-
-            var ticketsReserved = await _ticketService.GetReservationByUserIdAsync(userId);
-            var ticketBought = await _ticketService.GetBoughtByUserIdAsync(userId);
-            var tickets = ticketsReserved.Concat(ticketBought);
-            if (tickets.Count() <= (page - 1) * pageSize && tickets.Count() != 0) return BadRequest();
-
-            return View(await tickets.ToPagedListAsync(page, pageSize));
-
-        }
-        //[Authorize]
-
+        [Authorize]
         public async Task <IActionResult>Cancel (int id)
         {
             if (id <= 0) return BadRequest();
@@ -146,35 +45,6 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //[Authorize]
-        public async Task<IActionResult> Bought(int page = 1, int pageSize = 10)
-        {
 
-            if (page <= 0) page = 1;
-            var userId = new JwtSecurityTokenHandler().ReadJwtToken(HttpContext.Session.GetString("accessToken")).Claims.FirstOrDefault(c => c.Type == "nameid").Value;
-
-            var tickets = await _ticketService.GetBoughtByUserIdAsync(userId);
-
-            if (tickets.Count() <= (page - 1) * pageSize && tickets.Count() != 0) return BadRequest();
-
-            return View(await tickets.ToPagedListAsync(page, pageSize));
-
-        }
-        private async Task FillViewBagSessions()
-        {
-            ViewBag.Sessions = (await _sessionService.GetAllSessionsAsync())
-                .Select(s => new SelectListItem
-                {
-                    Value = s.Id.ToString(),
-                    Text = "MovieId: " + s.MovieId.ToString()
-                })
-                .ToList()
-            ;
-        }
-
-        private async Task FillViewBagTicketCreateUpdate()
-        {
-            await FillViewBagSessions();
-        }
     }
 }

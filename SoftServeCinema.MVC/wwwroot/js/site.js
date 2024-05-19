@@ -62,16 +62,20 @@ const orderUpdate = () => {
     ticketOrder.innerHTML = ' ';
     ticket_array.forEach((ticket) => {
         console.log(ticket.price);
-        ticketOrder.appendChild(createTicketInfo(ticket.row, ticket.seat, parseFloat(ticket.price), parseFloat(ticket.price) == 350 ? "SUPER LUX" : "STANDART", ticket.id));
+        ticketOrder.appendChild(createTicketInfo(ticket.row, ticket.seat, parseFloat(ticket.price), parseFloat(ticket.row) == 6 ? "SUPER LUX" : "STANDART", ticket.id));
         sum += parseFloat(ticket.price);
     })
     ticketSum.innerHTML = sum + ' ГРН';
     sumText.innerHTML = ticketSum.innerHTML;
     console.log(sumText);
     ticketNum.innerHTML = ticket_array.length + (ticket_array.length > 1 ? ' tickets' : ' ticket') + ',';
-    document.querySelector('#ticketsJSON').value = JSON.stringify(ticket_array.map((item) => {
+    let value = JSON.stringify(ticket_array.map((item) => {
         return item.id;
     }))
+    document.querySelectorAll('#ticketsJSON, #ticketsJSONBuy').forEach((item) => {
+        item.value = value;
+    })
+
     if (ticket_array.length == 0) {
         const img = document.createElement('img');
         img.src = "/images/ticket1.png";

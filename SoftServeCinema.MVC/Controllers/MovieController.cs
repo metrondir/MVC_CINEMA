@@ -55,7 +55,7 @@ namespace SoftServeCinema.MVC.Controllers
 
             return View(await actualMovies.ToPagedListAsync(page, pageSize));
         }
-        public async Task<IActionResult> New(int page = 1, int pageSize = 10)
+        public async Task<IActionResult> New(int page = 1, int pageSize = 9)
         {
             if (page <= 0) page = 1;
 
@@ -65,7 +65,7 @@ namespace SoftServeCinema.MVC.Controllers
 
             return View(await newMovies.ToPagedListAsync(page, pageSize));
         }
-        public async Task<IActionResult> Actuals(int page = 1, int pageSize = 10)
+        public async Task<IActionResult> Actuals(int page = 1, int pageSize = 9)
         {
             if (page <= 0) page = 1;
 
@@ -93,7 +93,7 @@ namespace SoftServeCinema.MVC.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Manage(int page = 1, int pageSize = 10)
         {
             if (page <= 0) page = 1;
@@ -105,14 +105,14 @@ namespace SoftServeCinema.MVC.Controllers
             return View(await movies.ToPagedListAsync(page, pageSize));
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Create()
         {
             await FillViewBagMovieCreateUpdate();
             return View();
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> Create(MovieFormDTO movieFormDTO)
         {
@@ -135,7 +135,7 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Edit(int id)
         {
             if (id <= 0) return BadRequest();
@@ -152,7 +152,7 @@ namespace SoftServeCinema.MVC.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
         public async Task<IActionResult> Edit(MovieFormDTO movieFormDTO)
         {
@@ -180,7 +180,7 @@ namespace SoftServeCinema.MVC.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
-        //[Authorize(Roles = "Admin, SuperAdmin")]
+        [Authorize(Roles = "Admin, SuperAdmin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();

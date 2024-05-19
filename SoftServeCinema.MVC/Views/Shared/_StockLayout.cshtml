@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SoftServeCinema.MVC.Helpers
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,7 +20,13 @@
     <div class="admin__wrapper">
         @* <div class="content-admin p-0 m-0"> *@
             <main class="main">
-                @RenderBody()
+            @if (TempData[WebConstants.alertSuccessKey] != null)
+            {
+                <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> @TempData[WebConstants.alertSuccessKey]
+                </div>
+            }
+            @RenderBody()
             </main>
         @* </div> *@
     </div>

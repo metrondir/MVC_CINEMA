@@ -1106,6 +1106,7 @@ namespace SoftServeCinema.Infrastructure.Data
             
             for(int i=1; i<= 64; i++)
             {
+
                 modelBuilder.Entity<SessionEntity>().HasData(new SessionEntity()
                 {
                     Id = i,
@@ -1133,7 +1134,7 @@ namespace SoftServeCinema.Infrastructure.Data
                     FirstName="Roman",
                     LastName="Medvedev",
                     Email="r.medvedev@nltu.lviv.ua",
-                    RoleName = "SuperAdmin" //passsword= SumailLol222""
+                    RoleName = "Admin" //passsword= SumailLol222""
                 },
                 new UserEntity()
                 {

@@ -33,7 +33,7 @@ namespace SoftServeCinema.MVC.Controllers
             if (!result)
                 return BadRequest();
             await _ticketService.ReserveTicketsByIds(ticketIds, userId);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Ticket");
 
 
 
