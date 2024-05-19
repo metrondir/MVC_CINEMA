@@ -18,9 +18,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SoftServeCinema.MVC.styles.css" asp-append-version="true" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -28,7 +25,7 @@
         <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light w-100">
                 <div class="container-fluid">
-                    @* <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Saturn Cinema</a> *@
+                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Saturn Cinema</a> 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -41,65 +38,38 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Movie" asp-action="Actuals">Actual</a>
                             </li>
-                           @*  @if (User.Identity.IsAuthenticated)
-                            { *@
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                
+                            
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link" asp-area="" asp-controller="Ticket" asp-action="Index">
                                     Tickets
                                 </a>
-                                <ul class="dropdown-menu">
-
-                                    <li><a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Ticket" asp-action="Reserved"> Reserved </a></li>
-                                    <li>
-                                        <a class="nav-link text-dark  dropdown-item" asp-area="" asp-controller="Ticket" asp-action="Bought"> Bought </a>
-                                    </li>
-
-                                </ul>
                             </li>
-                            @* } *@
+                            }
                         </ul>
 
                         <ul class="navbar-nav d-flex flex-row-reverse">
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Actions
-                                </a>
-                                <ul class="dropdown-menu">
-                                   
-                                    <li>
-                                        <a class="nav-link dropdown-item  text-dark" asp-area="" asp-controller="Genre" asp-action="Index">Genres</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link dropdown-item  text-dark" asp-area="" asp-controller="Tag" asp-action="Index">Tags</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link dropdown-item  text-dark" asp-area="" asp-controller="Actor" asp-action="Index">Actors</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link dropdown-item  text-dark" asp-area="" asp-controller="Director" asp-action="Index">Directors</a>
-
-                                    </li>
-
-                                </ul>
-                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="User" asp-action="@auth">@auth</a>
                             </li>
-                            @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">
-                                    Admins
-                                </a>
-                                </li>
+                          @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                          {
+                              <li class="nav-item">
+                                  <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">
+                                  Admins
+                              </a>
+                              </li>
                             }
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-        <div class="content p-0 m-0">
+        <div class="content p-0 m-0 z-n1 bg-black">
             <main class="main">
                 @if (TempData[WebConstants.alertSuccessKey] != null)
                 {
@@ -122,7 +92,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

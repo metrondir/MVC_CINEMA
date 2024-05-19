@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SoftServeCinema.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using SoftServeCinema.Infrastructure.Data;
 namespace SoftServeCinema.Infrastructure.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    partial class CinemaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240517192129_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,17 +63,407 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         new
                         {
                             ActorsId = 5,
-                            MoviesId = 2
+                            MoviesId = 1
                         },
                         new
                         {
                             ActorsId = 6,
-                            MoviesId = 2
+                            MoviesId = 1
                         },
                         new
                         {
                             ActorsId = 7,
                             MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 8,
+                            MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 9,
+                            MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 10,
+                            MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 11,
+                            MoviesId = 2
+                        },
+                        new
+                        {
+                            ActorsId = 12,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 13,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 14,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 15,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 16,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            ActorsId = 17,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 8,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 18,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 19,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 20,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            ActorsId = 21,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 22,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 23,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 24,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 25,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 26,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 27,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 28,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 29,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            ActorsId = 30,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 31,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 32,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 33,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 34,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 35,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 36,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            ActorsId = 37,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 38,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 39,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 40,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 41,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            ActorsId = 42,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 43,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 44,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 45,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 46,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 47,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 48,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 49,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            ActorsId = 50,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            ActorsId = 51,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            ActorsId = 52,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            ActorsId = 53,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            ActorsId = 54,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            ActorsId = 55,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            ActorsId = 56,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            ActorsId = 57,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            ActorsId = 58,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            ActorsId = 43,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 59,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 60,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 61,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 62,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 63,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            ActorsId = 64,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            ActorsId = 65,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            ActorsId = 66,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            ActorsId = 67,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            ActorsId = 68,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 69,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 70,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 71,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 72,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 73,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            ActorsId = 74,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 75,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 76,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 77,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 78,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            ActorsId = 79,
+                            MoviesId = 16
+                        },
+                        new
+                        {
+                            ActorsId = 80,
+                            MoviesId = 16
+                        },
+                        new
+                        {
+                            ActorsId = 81,
+                            MoviesId = 16
+                        },
+                        new
+                        {
+                            ActorsId = 82,
+                            MoviesId = 16
+                        },
+                        new
+                        {
+                            ActorsId = 83,
+                            MoviesId = 16
                         });
                 });
 
@@ -98,243 +491,88 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         {
                             DirectorsId = 2,
                             MoviesId = 2
+                        },
+                        new
+                        {
+                            DirectorsId = 3,
+                            MoviesId = 3
+                        },
+                        new
+                        {
+                            DirectorsId = 4,
+                            MoviesId = 4
+                        },
+                        new
+                        {
+                            DirectorsId = 5,
+                            MoviesId = 5
+                        },
+                        new
+                        {
+                            DirectorsId = 6,
+                            MoviesId = 6
+                        },
+                        new
+                        {
+                            DirectorsId = 7,
+                            MoviesId = 7
+                        },
+                        new
+                        {
+                            DirectorsId = 8,
+                            MoviesId = 8
+                        },
+                        new
+                        {
+                            DirectorsId = 9,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            DirectorsId = 10,
+                            MoviesId = 9
+                        },
+                        new
+                        {
+                            DirectorsId = 11,
+                            MoviesId = 10
+                        },
+                        new
+                        {
+                            DirectorsId = 12,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            DirectorsId = 13,
+                            MoviesId = 11
+                        },
+                        new
+                        {
+                            DirectorsId = 14,
+                            MoviesId = 12
+                        },
+                        new
+                        {
+                            DirectorsId = 15,
+                            MoviesId = 13
+                        },
+                        new
+                        {
+                            DirectorsId = 16,
+                            MoviesId = 14
+                        },
+                        new
+                        {
+                            DirectorsId = 17,
+                            MoviesId = 15
+                        },
+                        new
+                        {
+                            DirectorsId = 18,
+                            MoviesId = 16
                         });
                 });
-
-            modelBuilder.Entity("GenreEntityMovieEntity", b =>
-                {
-                    b.Property<int>("GenresId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("GenresId", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("GenreEntityMovieEntity");
-
-                    b.HasData(
-                        new
-                        {
-                            GenresId = 1,
-                            MoviesId = 1
-                        },
-                        new
-                        {
-                            GenresId = 2,
-                            MoviesId = 1
-                        },
-                        new
-                        {
-                            GenresId = 3,
-                            MoviesId = 1
-                        },
-                        new
-                        {
-                            GenresId = 2,
-                            MoviesId = 2
-                        },
-                        new
-                        {
-                            GenresId = 4,
-                            MoviesId = 2
-                        });
-                });
-
-            modelBuilder.Entity("MovieEntityTagEntity", b =>
-                {
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MoviesId", "TagsId");
-
-                    b.HasIndex("TagsId");
-
-                    b.ToTable("MovieEntityTagEntity");
-
-                    b.HasData(
-                        new
-                        {
-                            MoviesId = 1,
-                            TagsId = 1
-                        },
-                        new
-                        {
-                            MoviesId = 2,
-                            TagsId = 2
-                        });
-                });
-
-            modelBuilder.Entity("SoftServeCinema.Core.Entities.ActorEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Actors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Кірстен Данст"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Джессі Племенс"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Кейлі Спені"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Соноя Мідзуно"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Раян Ґослінґ"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Емілі Блант"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Аарон Тейлор-Джонсон"
-                        });
-                });
-
-            modelBuilder.Entity("SoftServeCinema.Core.Entities.DirectorEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Directors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Алекс Ґарленд"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Девід Літч"
-                        });
-                });
-
-            modelBuilder.Entity("SoftServeCinema.Core.Entities.GenreEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genres");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "епічний"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "екшн"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "антиутопія"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "комедія"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "трилер"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "жахи"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "пригоди"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "аніме"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "сімейний"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "драма"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "спорт"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Name = "документальний"
-                        });
-                });
-
 
             modelBuilder.Entity("GenreEntityMovieEntity", b =>
                 {
@@ -1285,7 +1523,6 @@ namespace SoftServeCinema.Infrastructure.Migrations
                         });
                 });
 
-
             modelBuilder.Entity("SoftServeCinema.Core.Entities.MovieEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -1330,7 +1567,6 @@ namespace SoftServeCinema.Infrastructure.Migrations
                     b.ToTable("Movies");
 
                     b.HasData(
-
                         new
                         {
                             Id = 1,
@@ -7927,459 +8163,373 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             SessionId = 19,
                             Status = "Available"
                         },
-
                         new
                         {
-                            Id = 1,
-                            Desc = "Події розгортаються у найближчому майбутньому. Сполученими штатами котиться нищівна та всеохоплююча громадянська війна. Почалося із бажання кількох південних штатів відділитися і тепер уся країна охоплена бойовими діями. Група журналістів, серед яких відома репортерка (Кірстен Данст), яка і раніше часто знімала збройні конфлікти, рухаються у напрямку Вашингтона. Стає очевидним, що керівництво країни перетворилося на диктатуру, а повстанські угрупування повсюдно чинять воєнні злочини.",
-                            Duration = (ushort)108,
-                            EndRentalDate = new DateTime(2024, 6, 15, 18, 41, 57, 274, DateTimeKind.Utc).AddTicks(7158),
-                            GraduationYear = (ushort)2024,
-                            ImagePath = "/movies/sw-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 15, 18, 41, 57, 274, DateTimeKind.Utc).AddTicks(7151),
-                            Title = "Повстання Штатів",
-                            TrailerUrl = "https://www.youtube.com/embed/my8iHV3dpNI?si=88h7TyNtTLoGIupq"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Desc = "Джоді Морено (Емілі Блант) знімає свій перший фільм у якості режисера. Вона дуже старається та хвилюється. Добре, що на знімальному майданчику завжди є кому її підбадьорити. Кольт (Раян Ґослінґ) – каскадер. Колись вони зустрічалися з Джоді, а нині просто працюють разом та підтримують одне одного. Кольт дублює актора, який грає головну роль. Якось цей актор безслідно зникає. Ніхто не може знайти його, а це означає, що Джоді не зможе дознімати свій дебютний проект і це зруйнує її кар’єру. Кольт дуже не хоче, щоб так сталося, тож погоджується стати на деякий час детективом та розшукати актора, який невідомо куди подівся.",
-                            Duration = (ushort)126,
-                            EndRentalDate = new DateTime(2024, 7, 5, 18, 41, 57, 274, DateTimeKind.Utc).AddTicks(7392),
-                            GraduationYear = (ushort)2024,
-                            ImagePath = "/movies/fall_guy-vend.jpg",
-                            StartRentalDate = new DateTime(2024, 5, 21, 18, 41, 57, 274, DateTimeKind.Utc).AddTicks(7391),
-                            Title = "Каскадер",
-                            TrailerUrl = "https://www.youtube.com/embed/Xmi7ZsHL6Jg?si=v2CGyMa6CcT2KUUY"
-                        });
-                });
-
-            modelBuilder.Entity("SoftServeCinema.Core.Entities.SessionEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<decimal>("BasicPrice")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<int>("MovieId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<decimal>("VipPrice")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("Sessions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BasicPrice = 200m,
-                            MovieId = 1,
-                            StartDate = new DateTime(2024, 5, 17, 18, 41, 57, 274, DateTimeKind.Utc).AddTicks(7986),
-                            VipPrice = 350m
-                        });
-                });
-
-            modelBuilder.Entity("SoftServeCinema.Core.Entities.TagEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tags");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "18+"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "12+"
-                        });
-                });
-
-            modelBuilder.Entity("SoftServeCinema.Core.Entities.TicketEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("ReservationDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<short>("RowNumber")
-                        .HasColumnType("smallint");
-
-                    b.Property<short>("SeatNumber")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("SessionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("char(36)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SessionId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Tickets");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)1,
-                            SeatNumber = (short)1,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)1,
-                            SeatNumber = (short)2,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)1,
-                            SeatNumber = (short)3,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)1,
-                            SeatNumber = (short)4,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)1,
-                            SeatNumber = (short)5,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)1,
-                            SeatNumber = (short)6,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)2,
-                            SeatNumber = (short)1,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)2,
-                            SeatNumber = (short)2,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)2,
-                            SeatNumber = (short)3,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)2,
-                            SeatNumber = (short)4,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)2,
-                            SeatNumber = (short)5,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)2,
-                            SeatNumber = (short)6,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)3,
-                            SeatNumber = (short)1,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)3,
-                            SeatNumber = (short)2,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)3,
-                            SeatNumber = (short)3,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)3,
-                            SeatNumber = (short)4,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)3,
-                            SeatNumber = (short)5,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)3,
-                            SeatNumber = (short)6,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)4,
-                            SeatNumber = (short)1,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)4,
-                            SeatNumber = (short)2,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 21,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)4,
-                            SeatNumber = (short)3,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 22,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)4,
-                            SeatNumber = (short)4,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 23,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)4,
-                            SeatNumber = (short)5,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 24,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)4,
-                            SeatNumber = (short)6,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 25,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)5,
-                            SeatNumber = (short)1,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 26,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)5,
-                            SeatNumber = (short)2,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 27,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)5,
-                            SeatNumber = (short)3,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)5,
-                            SeatNumber = (short)4,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)5,
-                            SeatNumber = (short)5,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)5,
-                            SeatNumber = (short)6,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 31,
-                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RowNumber = (short)6,
-                            SeatNumber = (short)1,
-                            SessionId = 1,
-                            Status = "Available"
-                        },
-                        new
-                        {
-                            Id = 32,
+                            Id = 680,
                             ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             RowNumber = (short)6,
                             SeatNumber = (short)2,
-                            SessionId = 1,
+                            SessionId = 19,
                             Status = "Available"
                         },
                         new
                         {
-                            Id = 33,
+                            Id = 681,
                             ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             RowNumber = (short)6,
                             SeatNumber = (short)3,
-                            SessionId = 1,
+                            SessionId = 19,
                             Status = "Available"
                         },
                         new
                         {
-                            Id = 34,
+                            Id = 682,
                             ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             RowNumber = (short)6,
                             SeatNumber = (short)4,
-                            SessionId = 1,
+                            SessionId = 19,
                             Status = "Available"
                         },
                         new
                         {
-                            Id = 35,
+                            Id = 683,
                             ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             RowNumber = (short)6,
                             SeatNumber = (short)5,
-                            SessionId = 1,
+                            SessionId = 19,
                             Status = "Available"
                         },
                         new
                         {
-                            Id = 36,
+                            Id = 684,
                             ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             RowNumber = (short)6,
                             SeatNumber = (short)6,
-                            SessionId = 1,
+                            SessionId = 19,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 685,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)1,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 686,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)2,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 687,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)3,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 688,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)4,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 689,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)5,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 690,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)1,
+                            SeatNumber = (short)6,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 691,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)1,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 692,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)2,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 693,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)3,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 694,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)4,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 695,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)5,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 696,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)2,
+                            SeatNumber = (short)6,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 697,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)1,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 698,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)2,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 699,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)3,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 700,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)4,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 701,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)5,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 702,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)3,
+                            SeatNumber = (short)6,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 703,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)1,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 704,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)2,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 705,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)3,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 706,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)4,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 707,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)5,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 708,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)4,
+                            SeatNumber = (short)6,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 709,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)1,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 710,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)2,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 711,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)3,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 712,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)4,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 713,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)5,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 714,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)5,
+                            SeatNumber = (short)6,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 715,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)1,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 716,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)2,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 717,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)3,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 718,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)4,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 719,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)5,
+                            SessionId = 20,
+                            Status = "Available"
+                        },
+                        new
+                        {
+                            Id = 720,
+                            ReservationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            RowNumber = (short)6,
+                            SeatNumber = (short)6,
+                            SessionId = 20,
                             Status = "Available"
                         });
                 });
@@ -8422,6 +8572,14 @@ namespace SoftServeCinema.Infrastructure.Migrations
                             FirstName = "Roman",
                             LastName = "Koval",
                             RoleName = "User"
+                        },
+                        new
+                        {
+                            Id = new Guid("a4612de6-84ef-454c-bca5-579bea951d02"),
+                            Email = "r.medvedev@nltu.lviv.ua",
+                            FirstName = "Roman",
+                            LastName = "Medvedev",
+                            RoleName = "SuperAdmin"
                         });
                 });
 
