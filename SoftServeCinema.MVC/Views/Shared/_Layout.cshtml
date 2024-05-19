@@ -15,16 +15,17 @@
     <title>@ViewData["Title"] - SoftServeCinema.MVC</title>
     <link rel="preload" as="image" href="../images/bg-chairs.jpg">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SoftServeCinema.MVC.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="wrapper">
+    <div class="my-wrapper">
         <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light w-100">
                 <div class="container-fluid">
-                    @* <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Saturn Cinema</a> *@
+                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Saturn Cinema</a> 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -37,6 +38,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Movie" asp-action="Actuals">Actual</a>
                             </li>
+
                             @if (User.Identity.IsAuthenticated)
                             {
                                 
@@ -50,9 +52,18 @@
                         </ul>
 
                         <ul class="navbar-nav d-flex flex-row-reverse">
+
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="User" asp-action="@auth">@auth</a>
                             </li>
+                          @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                          {
+                              <li class="nav-item">
+                                  <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">
+                                  Admins
+                              </a>
+                              </li>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -79,6 +90,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)

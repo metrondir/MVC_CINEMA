@@ -3,6 +3,7 @@ using SoftServeCinema.Core.DTOs.Actors;
 using SoftServeCinema.Core.DTOs.Directors;
 using SoftServeCinema.Core.DTOs.Genres;
 using SoftServeCinema.Core.DTOs.Movies;
+using SoftServeCinema.Core.DTOs.Payment;
 using SoftServeCinema.Core.DTOs.Sessions;
 using SoftServeCinema.Core.DTOs.Tags;
 using SoftServeCinema.Core.DTOs.Tickets;
@@ -117,7 +118,11 @@ namespace SoftServeCinema.Core.Helpers
             CreateMap<TicketEntity, TicketDTO>().ReverseMap();
             CreateMap<TicketDTO, TicketEntity>();
             CreateMap<TicketEntity, TicketDetailDTO>();
-               
+            CreateMap<TicketEntity, TicketDetailWithUserDTO>().ReverseMap();
+
+
+            CreateMap<PaymentEntity, PaymentDTO>().ReverseMap();
+            CreateMap<PaymentEntity, PaymentDTO>();
 
             CreateMap<UserEntity, UserDTO>().ReverseMap();
             CreateMap<UserEntity, UserLoginDTO>().ReverseMap();

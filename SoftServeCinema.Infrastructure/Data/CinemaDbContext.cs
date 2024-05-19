@@ -20,6 +20,7 @@ namespace SoftServeCinema.Infrastructure.Data
             modelBuilder.ApplyConfiguration(new SessionConfiguration());
             modelBuilder.ApplyConfiguration(new TicketConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new PaymentConfiguration());
             modelBuilder.SeedMoviesWithRelations();
         }
 
@@ -31,5 +32,6 @@ namespace SoftServeCinema.Infrastructure.Data
         public DbSet<SessionEntity> Sessions { get; set; }
         public DbSet<TicketEntity> Tickets { get; set; }
         public DbSet<UserEntity> Users { get; set; }
+        public DbSet<PaymentEntity> Payments { get; set; }
     }
 }

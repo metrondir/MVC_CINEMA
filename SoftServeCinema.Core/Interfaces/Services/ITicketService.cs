@@ -7,11 +7,11 @@ namespace SoftServeCinema.Core.Interfaces.Services
         Task<List<TicketDTO>> GetAvailableAsync();
         Task<List<TicketDTO>> GetAllTicketsAsync();
         Task<List<TicketDTO>> GetTicketsByIdsAsync(ICollection<int> ticketIds);
-
+        Task<List<TicketDetailDTO>> GetTicketsDetailAsync(int[] ticketsIds);
         Task<bool> CheckTickets(int[] ticketIds);
         Task CancelReservationById(int ticketId);
         Task BuyTicketsByIdsAsync(int[] ticketIds);
-
+        Task <List<TicketDetailWithUserDTO>> GetTicketsDetailWithUserAsync(int[] ticketsIds);
         Task<List<TicketDetailDTO>> GetReservationByUserIdAsync(string userId);
 
         Task<List<TicketDetailDTO>> GetBoughtByUserIdAsync(string userId);

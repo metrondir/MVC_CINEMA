@@ -1,27 +1,34 @@
-﻿@{
+﻿@model IEnumerable<SoftServeCinema.Core.DTOs.Movies.MovieDTO>
+
+@{
     ViewData["Title"] = "Головна сторінка";
+
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Users</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Index">Main page</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Manage">Movies Manage</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Genre" asp-action="Index">Genres</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Genre" asp-action="Manage">Genres Manage</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Tag" asp-action="Index">Tags</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Tag" asp-action="Manage">Tags Manage</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Actor" asp-action="Index">Actors</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Actor" asp-action="Manage">Actors Manage</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Director" asp-action="Index">Directors</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Director" asp-action="Manage">Directors Manage</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="Index">Sessions</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="Manage">Sessions Manage</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Ticket" asp-action="Index">Tickets</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Ticket" asp-action="Manage">Tickets Manage</a>
-    @* @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
-    {
-        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Tickets Manage</a>
-    } *@
+<div class="home-content">
+    <form action="/Movie/Search" method="get" class="search-bar" role="search">
+        <input name="search" value="@ViewContext.HttpContext.Request.Query["search"]" type="search" placeholder="Movie Title" aria-label="Search">
+        <button type="submit">Search</button>
+    </form>
+
+    <section class="cinema-intro">
+        <h1>Cinema</h1>
+        <p>Everyone talks a lot about the process, but the most interesting thing about the film itself.</p>
+    </section>
+    <div class="swiper mySwiper pb-4">
+        <div class="swiper-wrapper">
+            @foreach (var movie in Model)
+            {
+                <div class="swiper-slide">
+                    <div class="movie">
+                        <a asp-route-id="@movie.Id" asp-controller="Movie" asp-action="Details">
+							<img src="@Url.Content("~/images/" + movie.ImagePath)" alt="@movie.Title">
+						</a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
 </div>

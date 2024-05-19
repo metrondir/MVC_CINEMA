@@ -1104,12 +1104,12 @@ namespace SoftServeCinema.Infrastructure.Data
                 new { MoviesId = 16, TagsId = 3 }
             );
             
-            for(int i=1; i<=20; i++)
+            for(int i=1; i<= 64; i++)
             {
                 modelBuilder.Entity<SessionEntity>().HasData(new SessionEntity()
                 {
                     Id = i,
-                    MovieId = (new Random()).Next(1,3),
+                    MovieId = (new Random()).Next(1,17),
                     StartDate = DateTime.UtcNow.AddDays((new Random()).Next(1, 20)).AddHours((new Random()).Next(1, 24)).AddMinutes((new Random().Next(1,60))),
                     BasicPrice = (new Random()).Next(100, 200),
                     VipPrice = (new Random()).Next(250, 400),
@@ -1135,10 +1135,26 @@ namespace SoftServeCinema.Infrastructure.Data
                     Email="r.medvedev@nltu.lviv.ua",
                     RoleName = "SuperAdmin" //passsword= SumailLol222""
                 },
+                new UserEntity()
+                {
+                    Id = Guid.Parse("b074a30f-bb93-496a-abfd-b9c32cec8517") ,
+                    FirstName="Marko",
+                    LastName="Xomulak",
+                    Email="loddammounafe-3185@yopmail.com",
+                    RoleName = "SuperAdmin" //passsword= markobatko@"haIneke2n...#@@
+                },
+                new UserEntity()
+                {
+                    Id = Guid.Parse("9f96373a-cf33-4616-b6ec-4d13ba5d1147") ,
+                    FirstName="Dima",
+                    LastName="Mytsko",
+                    Email="wehipaunnugra-4633@yopmail.com",
+                    RoleName = "Admin" //passsword dimavhatyt@2"dS
+                },
             });
 
             int ticketId = 1;
-            for (int sessionId = 1; sessionId <= 20; sessionId++)
+            for (int sessionId = 1; sessionId <= 64; sessionId++)
             {
                 for (int i = 1; i <= 6; i++)
                 {
@@ -1150,7 +1166,7 @@ namespace SoftServeCinema.Infrastructure.Data
                             SessionId = sessionId,
                             RowNumber = i,
                             SeatNumber = j,
-                            Status = "Available",
+                            Status = "Available"
                         });
                     }
                 }
